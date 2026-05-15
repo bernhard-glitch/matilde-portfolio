@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Matilde Cánepa González</title>
+    <meta name="description" content="Contact Matilde Cánepa González – Interdisciplinary artist based in Berlin.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+        header { padding: 40px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
+        .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 20px; text-decoration: none; color: #18181b; display: block; }
+        nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
+        nav a:hover { color: #a1a1aa; }
+        nav a.active { color: #a1a1aa; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        .contact-section { max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-section h1 { font-size: 42px; font-style: italic; font-weight: 400; margin-bottom: 10px; }
+        .contact-section p.subtitle { color: #a1a1aa; text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; margin-bottom: 50px; }
+
+        .contact-form { text-align: left; }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; color: #71717a; }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid #e4e4e7;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            background: transparent;
+            outline: none;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus { border-bottom-color: #18181b; }
+
+        .submit-btn {
+            background: #18181b;
+            color: #ffffff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn:hover { background: #3f3f46; }
+
+        .form-note { font-size: 10px; color: #a1a1aa; margin-top: 10px; }
+
+        /* Success / Error messages */
+        .form-message {
+            display: none;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+        }
+        .form-message.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+        .form-message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+        .email-link { margin-top: 50px; font-size: 12px; letter-spacing: 0.1em; }
+        .email-link a { color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 2px; }
+        .email-link a:hover { border-bottom-color: #18181b; }
+
+        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; margin: 4px 0; }
+        footer a { color: #a1a1aa; text-decoration: none; margin: 0 5px; }
+        footer a:hover { color: #18181b; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">Matilde Cánepa González</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pictures.html">Pictures</a>
+        <a href="sculptures.html">Sculptures</a>
+        <a href="cyanotype.html">Cyanotype</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="contact-section">
+        <p class="subtitle">Get in touch</p>
+        <h1>Contact</h1>
+
+        <!--
+        ============================================================
+        FORMSPREE ANLEITUNG:
+        1. Geh auf https://formspree.io und registriere dich (kostenlos)
+        2. Erstelle ein neues Formular mit deiner E-Mail-Adresse
+        3. Kopiere deine persönliche Form-ID (sieht so aus: xyzabcde)
+        4. Ersetze im action-Attribut unten "DEINE_FORMSPREE_ID"
+           mit deiner echten ID, z.B.:
+           action="https://formspree.io/f/xyzabcde"
+        ============================================================
+        -->
+        <div class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                </div>
+
+                <p class="form-note">* Name, email and message are required.</p>
+                <button type="submit" class="submit-btn">Send Message</button>
+
+                <div id="form-success" class="form-message success">
+                    Thank you for your message. I will get back to you soon.
+                </div>
+                <div id="form-error" class="form-message error">
+                    Something went wrong. Please try again or send an email directly.
+                </div>
+
+            </form>
+        </div>
+
+        <div class="email-link">
+            <a href="mailto:art@matildecanepagonzalez.com">art@matildecanepagonzalez.com</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; <span id="year"></span> Matilde Cánepa González. All rights reserved.</p>
+    <p>
+        <a href="contact.html">Contact</a> |
+        <a href="impressum.html">Impressum</a> |
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Formspree AJAX submission – zeigt Erfolgs- oder Fehlermeldung ohne Seitenwechsel
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.reset();
+                document.getElementById('form-success').style.display = 'block';
+                document.getElementById('form-error').style.display = 'none';
+            } else {
+                document.getElementById('form-error').style.display = 'block';
+                document.getElementById('form-success').style.display = 'none';
+            }
+        } catch (error) {
+            document.getElementById('form-error').style.display = 'block';
+            document.getElementById('form-success').style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
