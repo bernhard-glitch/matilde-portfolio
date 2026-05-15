@@ -102,19 +102,8 @@
         <p class="subtitle">Get in touch</p>
         <h1>Contact</h1>
 
-        <!--
-        ============================================================
-        FORMSPREE ANLEITUNG:
-        1. Geh auf https://formspree.io und registriere dich (kostenlos)
-        2. Erstelle ein neues Formular mit deiner E-Mail-Adresse
-        3. Kopiere deine persönliche Form-ID (sieht so aus: xyzabcde)
-        4. Ersetze im action-Attribut unten "DEINE_FORMSPREE_ID"
-           mit deiner echten ID, z.B.:
-           action="https://formspree.io/f/xyzabcde"
-        ============================================================
-        -->
         <div class="contact-form">
-            <form id="contact-form" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xbdwngae" method="POST">
 
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -150,7 +139,7 @@
         </div>
 
         <div class="email-link">
-            <a href="mailto:art@matildecanepagonzalez.com">art@matildecanepagonzalez.com</a>
+            <a href="mailto:matildecanepagonzalez@gmail.com">matildecanepagonzalez@gmail.com</a>
         </div>
     </section>
 </div>
@@ -167,7 +156,6 @@
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Formspree AJAX submission – zeigt Erfolgs- oder Fehlermeldung ohne Seitenwechsel
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
