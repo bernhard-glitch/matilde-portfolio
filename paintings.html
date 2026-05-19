@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore contemporary abstract paintings in Matilde Art Studio, featuring rich textures, expressive compositions, and distinctive color palettes.">
+    <title>Contemporary Abstract Art Gallery | Paintings by Matilde Canepa
+      Gonzalez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+
+      rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        header { padding: 40px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
+        .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 20px; text-decoration: none; color: #18181b; display: block; }
+        nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        
+        /* Überschriften- und Textblock-Styling (exakt wie in sculptures.html) */
+        .page-title { text-align: center; margin-bottom: 60px; }
+        .page-title h1 { font-size: 38px; font-style: italic; font-weight: 400; margin-bottom: 20px; }
+        .page-subtitle { font-size: 14px; color: #71717a; max-width: 820px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
+        
+        /* Gallery Layout Styles */
+        .gallery-row { display: grid; gap: 20px; margin-bottom: 40px; align-items: start; }
+        .row-2 { grid-template-columns: repeat(2, 1fr); }
+        .row-3 { grid-template-columns: repeat(3, 1fr); }
+        .row-1 { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .grid-item { margin-bottom: 20px; }
+        .image-wrapper { overflow: hidden; background: #f4f4f5; }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            cursor: pointer;
+            filter: grayscale(100%); /* Standardmäßig Schwarz/Weiß */
+        }
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%); /* Farbe bei Mouseover */
+        }
+
+        .image-info { font-size: 12px; margin-top: 10px; color: #71717a; text-align: left; }
+        
+        @media (max-width: 768px) {
+            .gallery-row { grid-template-columns: 1fr !important; }
+        }
+
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.98); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; margin-top: 5vh; }
+        .close { position: absolute; top: 20px; right: 35px; color: #18181b; font-size: 40px; font-weight: 300; cursor: pointer; }
+
+        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; margin: 4px 0; }
+        footer a { color: #a1a1aa; text-decoration: none; margin: 0 5px; }
+    </style>
+    <meta name="author" content="Matilde Canepa Gonzalez">
+    <meta name="keywords" content="contemporary abstract paintings, Latin Amercan artist,">
+  </head>
+  <body>
+    <header> <a href="index.html" class="logo">Matilde Cánepa
+        González</a>
+      <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html"
+
+          style="color: #a1a1aa;">Paintings</a> <a href="sculptures.html">Sculptures</a>
+        <a href="cyanotype.html">Cyanotype</a> <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="page-title">
+        <h1>Paintings</h1>
+        <p class="page-subtitle">Explore my original contemporary abstract
+          paintings featuring layered textures, expressive compositions, and
+          refined color harmonies. Each artwork creates depth, atmosphere, and a
+          distinctive contemporary presence within modern interiors.</p>
+      </div>
+      <div class="gallery-rows">
+        <div class="gallery-row row-2">
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-blue-serie1-abstract-painting-mixed-media-on-paper.jpg"
+
+                alt="Contemporary abstract mixed-media painting from the Blue Series on paper with blue background and expressive black brushstrokes."
+
+                title="Blue Series Part 1"> </div>
+            <div class="image-info"><strong>Blue Series 1<br>
+                Abstract painting on paper<br>
+                mixed techniques <br>
+                Size: 50 × 35 cm (19.68 × 13.78 inch) <br>
+                Year: 2012</strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-blue-serie3-abstract-painting-mixed-media-on-paper.jpg"
+
+                alt="Abstract mixed-media painting on paper from the Blue Series with blue and yellow horizontal bands, a vertical white line, and black calligraphic brushstrokes."
+
+                title="Blue Series Part 3"> </div>
+            <div class="image-info"><strong>Blue Serie 3 <br>
+                Abstract painting on paper<br>
+                mixed techniques<br>
+                Size: 50 × 35 cm (19.68 × 13.78 inch)<br>
+                Year: 2012 </strong></div>
+          </div>
+        </div>
+        <div class="gallery-row row-3">
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-transparency-1-abstract-painting-mixed-media-on-paper.jpg"
+
+                alt="Abstract mixed-media painting on paper by Matilde Canepa Gonzalez from the Transparency series, featuring a blue-green background, a gestural cross motif, and black calligraphic brushstrokes"
+
+                title="Transparency Series 1"> </div>
+            <div class="image-info"><strong>Transparency Series 1<br>
+                Abstract painting on Paper<br>
+                Mixed techniques<br>
+                Size: 50 x 35 cm (19,68 x 13,78 inches) </strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-transparency-2-abstract-painting-mixed-media-on-paper.jpg"
+
+                alt="Abstract mixed-media painting on paper by Matilde Canepa Gonzalez from the Transparency series Part 2, featuring a blue-green background, a gestural cross motif, and black calligraphic brushstrokes"
+
+                title="Transparency Series Part 2 "> </div>
+            <div class="image-info"><strong>Transparency Series 2 <br>
+                Abstract painting on Paper <br>
+                Mixed techniques <br>
+                Size: 50 x 35 cm (19,68 x 13,78 inches) </strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-transparency-3-abstract-painting-mixed-media-on-paper.jpg"
+
+                alt="Abstract mixed-media painting on paper part 3 by Matilde Canepa Gonzalez from the Transparency series, featuring a blue-green background, a gestural cross motif, and black calligraphic brushstrokes"
+
+                title="Transparency Series Part 3"> </div>
+            <div class="image-info"><strong>Transparency Series 3 <br>
+                Abstract painting on Paper<br>
+                Mixed techniques<br>
+                Size: 50 x 35 cm (19,68 x 13,78 inches) </strong></div>
+          </div>
+        </div>
+        <div class="gallery-row row-3">
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part1-abstract-painting-mixed%20media%20on%20paper.jpg"
+
+                alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 1"
+
+                title="Elements in Transition I"> </div>
+            <div class="image-info"><strong><strong>'Elements in Transition' </strong>Triptych
+                Part 1<br>
+              </strong><strong><strong>Abstract painting on Paper</strong>,<br>
+                Mixed techniques<br>
+                Size: 18,11 x 12,7 inch&nbsp; (46 x 32,5 cm)<br>
+              </strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed%20media%20on%20paper.jpg"
+
+                alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 2"
+
+                title="Elements in Transition II"> </div>
+            <div class="image-info"><strong>&nbsp;'Elements in Transition'
+                Triptych Part 2</strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part3-abstract-painting-mixed%20media%20on%20paper.jpg"
+
+                alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 3"
+
+                title="Elements in Transition III"> </div>
+            <div class="image-info"><strong>'Elements in Transition' Triptych
+                Part 3</strong></div>
+          </div>
+        </div>
+        <div class="gallery-row row-1">
+          <div class="grid-item">
+            <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-trazo-galactico-abstract-painting-on-canvas.jpg"
+
+                alt="Trazo Galáctico Abstract mixed media painting on canvas by Matilde Canepa Gonzalez, featuring a purple form in a window-like frame against warm red, orange, and gold tones."
+
+                title="Trazo Galáctico"> </div>
+            <div class="image-info"><strong>Trazo Galáctico - Galactic stroke<br>
+                Abstract painting on canva<br>
+                Mixed techniques<br>
+              </strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal" onclick="closeModal()"> <span class="close">×</span>
+      <img class="modal-content" id="imgFull"> </div>
+    <footer>
+      <p>© <span id="year"></span> Matilde Cánepa González. All rights
+        reserved.</p>
+      <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Legal
+          Notice</a> | <a href="impressum.html">Privacy Policy</a> </p>
+    </footer>
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function openModal(el) {
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("imgFull");
+        modal.style.display = "block";
+        modalImg.src = el.querySelector('img').src;
+    }
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+  </body>
+</html>
