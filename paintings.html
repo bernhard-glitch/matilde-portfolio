@@ -15,7 +15,7 @@
         header { padding: 40px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
         .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 20px; text-decoration: none; color: #18181b; display: block; }
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px 30px; }
         
         /* Überschriften- und Textblock-Styling (exakt wie in sculptures.html) */
         .page-title { text-align: center; margin-bottom: 60px; }
@@ -45,6 +45,22 @@
         }
 
         .image-info { font-size: 12px; margin-top: 10px; color: #71717a; text-align: left; }
+
+        /* Placeholder Styles */
+        .placeholder-wrapper {
+            overflow: hidden;
+            background: #f4f4f5;
+            aspect-ratio: 35 / 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .placeholder-wrapper span {
+            font-size: 11px;
+            color: #a1a1aa;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
         
         @media (max-width: 768px) {
             .gallery-row { grid-template-columns: 1fr !important; }
@@ -68,7 +84,7 @@
       <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html"
 
           style="color: #a1a1aa;">Paintings</a> <a href="sculptures.html">Sculptures</a>
-        <a href="cyanotype.html">Cyanotype</a> <a href="contact.html">Contact</a>
+        <a href="cyanotype.html">Cyanotype</a> <a href="new-updates.html">News &amp; Updates</a> <a href="contact.html">Contact</a>
       </nav>
     </header>
     <div class="container">
@@ -174,6 +190,33 @@
                 Part 3</strong></div>
           </div>
         </div>
+        <!-- Row 4: Three placeholders for future photos -->
+        <div class="gallery-row row-3">
+          <div class="grid-item">
+            <div class="placeholder-wrapper"> <span>Foto folgt</span> </div>
+            <div class="image-info"><strong>Title<br>
+                Abstract painting on Paper<br>
+                Mixed techniques<br>
+                Size: <br>
+                Year: </strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="placeholder-wrapper"> <span>Foto folgt</span> </div>
+            <div class="image-info"><strong>Title<br>
+                Abstract painting on Paper<br>
+                Mixed techniques<br>
+                Size: <br>
+                Year: </strong></div>
+          </div>
+          <div class="grid-item">
+            <div class="placeholder-wrapper"> <span>Foto folgt</span> </div>
+            <div class="image-info"><strong>Title<br>
+                Abstract painting on Paper<br>
+                Mixed techniques<br>
+                Size: <br>
+                Year: </strong></div>
+          </div>
+        </div>
         <div class="gallery-row row-1">
           <div class="grid-item">
             <div class="image-wrapper" onclick="openModal(this)"> <img src="images/paintings/matilde-canepa-gonzalez-trazo-galactico-abstract-painting-on-canvas.jpg"
@@ -194,8 +237,8 @@
     <footer>
       <p>© <span id="year"></span> Matilde Cánepa González. All rights
         reserved.</p>
-      <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Legal
-          Notice</a> | <a href="impressum.html">Privacy Policy</a> </p>
+      <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Impressum</a>
+        | <a href="impressum.html">Privacy Policy</a> </p>
     </footer>
     <script>
     document.getElementById('year').textContent = new Date().getFullYear();
