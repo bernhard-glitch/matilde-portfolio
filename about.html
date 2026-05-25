@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover the artistic journey of Matilde Canepa Gonzalez, the creative mind behind Matilde Art Studio, and explore the inspirations behind her abstract artworks.">
     <title>Meet the Artist | The Story Behind Matilde Canepa Gonzalez</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
-
       rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
@@ -17,7 +17,7 @@
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
         .about-grid { 
             display: grid; 
@@ -26,7 +26,6 @@
             align-items: center; 
         }
 
-        /* Optimierte Foto-Größe */
         .about-image {
             width: 100%;
             display: flex;
@@ -35,7 +34,7 @@
 
         .about-image img { 
             width: 100%; 
-            max-width: 350px; /* Begrenzt die maximale Breite für eine elegante Optik */
+            max-width: 350px;
             height: auto; 
             display: block;
             border-radius: 2px;
@@ -46,20 +45,34 @@
         .about-text h1 { font-size: 42px; margin: 10px 0 30px 0; font-weight: 400; }
         .subtitle { text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; color: #a1a1aa; font-weight: 600; }
 
-        /* Styling für die 4 neuen externen Bild-Links */
+        /* Gleichmäßiges Grid für externe Links */
         .external-links-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 150px);
+            justify-content: center;
+            gap: 40px;
             margin-top: 60px;
-            justify-items: center;
+            align-items: center;
         }
         .external-links-grid a {
             display: block;
-            width: 100%;
-            max-width: 200px;
-            height: 150px;
+            width: 150px;
+            height: 113px;
             text-decoration: none;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .external-links-grid a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .external-links-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* BBK membership block */
@@ -85,18 +98,6 @@
         @media (max-width: 480px) {
             .bbk-block { gap: 16px; }
             .bbk-block img { height: 40px; }
-        }
-        .external-links-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .external-links-grid img:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 40px 20px; margin-top: 60px; }
@@ -127,9 +128,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image"> <img src="images/matilde-canepa-gonzalez.jpg"
-
             alt="Matilde Cánepa González, multidisciplinary visual artist , Latin American "
-
             title="Matilde Cánepa González"> </div>
         <div class="about-text"> <span class="subtitle">The Artist</span>
           <h1>About me</h1>
@@ -167,31 +166,20 @@
       <!-- Optische Trennlinie -->
       <hr style="border: 0; border-top: 1px solid #f4f4f5; margin-top: 40px; margin-bottom: 0;">
       <!-- Bereich für die 4 anklickbaren externen Bilder -->
-      <div class="external-links-grid"> <a href="https://www.artmajeur.com/matilde-canepa-gonzalez"
-
-          target="_blank" rel="noopener"> <img src="images/externe/artmajeur.jpg"
-
-            alt="Artmajeur - Matilde Canepa Gonzalez" style="width: 160px; height: 120px;"
-
-            title="Click here to visit  Artmajeur"> </a> <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa"
-
-          target="_blank" rel="noopener"> <img src="images/externe/saatchiart.jpg"
-
-            alt="Saatchi Art - Matilde Canepa" style="width: 167px; height: 125px;"
-
-            title="Click here to visit Saatchi Art"> </a> <a href="https://www.facebook.com/matilde.canepa.10?ref=br_rs"
-
-          target="_blank" rel="noopener"> <img src="images/externe/facebook.jpg"
-
-            alt="Facebook - Matilde Canepa" style="width: 131px; height: 98px;"
-
-            title="Click here to my facebook"> </a> <a href="https://www.instagram.com/artyenkanin/"
-
-          target="_blank" rel="noopener"> <img src="images/externe/instagram.jpg"
-
-            alt="Instagram - @artyenkanin" style="width: 144px; height: 107px;"
-
-            title="Click here to my Intagram"> </a> </div>
+      <div class="external-links-grid">
+        <a href="https://www.artmajeur.com/matilde-canepa-gonzalez" target="_blank" rel="noopener">
+          <img src="images/externe/artmajeur.jpg" alt="Artmajeur - Matilde Canepa Gonzalez" title="Click here to visit Artmajeur">
+        </a>
+        <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa" target="_blank" rel="noopener">
+          <img src="images/externe/saatchiart.jpg" alt="Saatchi Art - Matilde Canepa" title="Click here to visit Saatchi Art">
+        </a>
+        <a href="https://www.facebook.com/matilde.canepa.10?ref=br_rs" target="_blank" rel="noopener">
+          <img src="images/externe/facebook.jpg" alt="Facebook - Matilde Canepa" title="Click here to my facebook">
+        </a>
+        <a href="https://www.instagram.com/artyenkanin/" target="_blank" rel="noopener">
+          <img src="images/externe/instagram.jpg" alt="Instagram - @artyenkanin" title="Click here to my Intagram">
+        </a>
+      </div>
     </div>
     <footer>
       <p>© <span id="year"></span> Matilde Cánepa González. All rights
