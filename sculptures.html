@@ -130,6 +130,39 @@
         .cta-block p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 14px 0; }
         .cta-block a { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 3px; transition: border-color 0.3s; }
         .cta-block a:hover { border-bottom-color: #18181b; }
+        .cta-sell-links {
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+            justify-content: center;
+            gap: 40px;
+            margin-top: 32px;
+        }
+        .cta-sell-links a {
+            display: block;
+            width: 150px;
+            height: 113px;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-sell-links a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .cta-sell-links img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .cta-sell-divider {
+            border: 0;
+            border-top: 1px solid #f4f4f5;
+            margin: 32px auto 0;
+            width: 60px;
+        }
 
         /* Modal CTA */
         .modal-cta { display: block; text-align: center; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #71717a; text-decoration: none; font-family: 'Inter', sans-serif; }
@@ -414,7 +447,17 @@
 
     <!-- CTA Block -->
     <div class="cta-block">
-      <p>Interested in a work?</p>
+      <p>Available to purchase</p>
+      <div class="cta-sell-links">
+        <a href="https://www.artmajeur.com/matilde-canepa-gonzalez" target="_blank" rel="noopener">
+          <img src="images/externe/artmajeur.jpg" alt="Artmajeur – Matilde Canepa Gonzalez" title="View on Artmajeur">
+        </a>
+        <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa" target="_blank" rel="noopener">
+          <img src="images/externe/saatchiart.jpg" alt="Saatchi Art – Matilde Canepa" title="View on Saatchi Art">
+        </a>
+      </div>
+      <hr class="cta-sell-divider">
+      <p style="margin-top: 28px;">Prefer a personal conversation?</p>
       <a href="contact.html">Inquire about this artwork</a>
     </div>
 

@@ -4,6 +4,7 @@
     <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://matilde-art-studio.com/">
     <meta name="description" content="Discover unique abstract paintings and sculptures by Matilde Canepa Gonzalez. Modern, expressive art pieces designed to bring character and atmosphere to your home.">
     <title>Matilde Canepa Gonzalez – Art Studio | Original Abstract Art &amp;
       Modern Paintings &amp; Sculptures</title>
@@ -32,12 +33,70 @@
         .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-weight: 400; }
         .subtitle { text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; color: #a1a1aa; font-weight: 600; }
 
-        .hero-image img { 
-            width: 100%; 
-            height: auto; 
-            display: block;
+        /* ── Slideshow ── */
+        .slideshow-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
             border-radius: 2px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            background: #f4f4f5;
+        }
+        .slideshow-wrapper .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        .slideshow-wrapper .slide.active { opacity: 1; }
+        .slideshow-wrapper .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 18px 16px;
+            background: linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0) 100%);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #71717a;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .slide-dots {
+            position: absolute;
+            bottom: 14px;
+            right: 16px;
+            display: flex;
+            gap: 6px;
+        }
+        .slide-dots span {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #d4d4d8;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .slide-dots span.active { background: #18181b; }
+
+        /* Externe Links Header */
+        .external-links-header {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 28px;
+        }
+        .external-links-header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 17px;
+            color: #a1a1aa;
+            letter-spacing: 0.05em;
+            margin: 0;
         }
 
         /* Gleichmäßiges Grid für externe Links */
@@ -106,14 +165,60 @@
             me; it is the thread that runs through my entire artistic practice.
           </p>
         </div>
-        <div class="hero-image"> <img src="images/Agenda%20Artistica%20Lunar.jpg"
-            alt=""The Red Circle" mixed materials with cement and stoneware " title=""The Red Circle"">
+        <div class="hero-image">
+          <div class="slideshow-wrapper">
+            <div class="slide active">
+              <img src="images/paintings/matilde-canepa-gonzalez-transparency-1-abstract-painting-mixed-media-on-paper.jpg" alt="Transparency Series 1 – Abstract painting on paper">
+              <div class="slide-caption">Paintings</div>
+            </div>
+            <div class="slide">
+              <img src="images/paintings/matilde-canepa-gonzalez-trazo-galactico-abstract-painting-on-canvas.jpg" alt="Trazo Galáctico – Abstract painting on canvas">
+              <div class="slide-caption">Paintings</div>
+            </div>
+            <div class="slide">
+              <img src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed%20media%20on%20paper.jpg" alt="Elements in Transition – Triptych Part 2">
+              <div class="slide-caption">Paintings</div>
+            </div>
+            <div class="slide">
+              <img src="images/Agenda%20Artistica%20Lunar.jpg" alt="Agenda Artística Lunar – mixed media">
+              <div class="slide-caption">Sculptures</div>
+            </div>
+            <div class="slide">
+              <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-two-sides-mixed-media-wood-stoneware-gold%20leaf-26x17,5x6_1.png" alt="Totem Sculpture – mixed media wood stoneware gold leaf">
+              <div class="slide-caption">Sculptures</div>
+            </div>
+            <div class="slide">
+              <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-%20line-mixed%20technique-on-wood.png" alt="Totem Blue Line – mixed technique on wood">
+              <div class="slide-caption">Sculptures</div>
+            </div>
+            <div class="slide">
+              <img src="images/sculptures/matilde-canepa-gonzalez-pendulum.png" alt="Pendulum – sculpture of wood stoneware gold leaf">
+              <div class="slide-caption">Sculptures</div>
+            </div>
+            <div class="slide">
+              <img src="images/cyanotype/Cyanotopy_05.jpg" alt="Cyanotype 05">
+              <div class="slide-caption">Cyanotype</div>
+            </div>
+            <div class="slide">
+              <img src="images/cyanotype/Cyanotopy_07.jpg" alt="Cyanotype 07">
+              <div class="slide-caption">Cyanotype</div>
+            </div>
+            <div class="slide">
+              <img src="images/cyanotype/Cyanotopy_06.jpg" alt="Cyanotype 06">
+              <div class="slide-caption">Cyanotype</div>
+            </div>
+            <div class="slide-dots" id="slideDots"></div>
+          </div>
         </div>
       </section>
       <!-- Optische Trennlinie -->
       <hr style="border: 0; border-top: 1px solid #f4f4f5; margin-top: 60px; margin-bottom: 0;">
+      <!-- Externe Links Header -->
+      <div class="external-links-header">
+        <p>Also find my work here</p>
+      </div>
       <!-- Bereich für die 4 anklickbaren externen Bilder -->
-      <div class="external-links-grid">
+      <div class="external-links-grid" style="margin-top: 0;">
         <a href="https://www.artmajeur.com/matilde-canepa-gonzalez" target="_blank" rel="noopener">
           <img src="images/externe/artmajeur.jpg" alt="Artmajeur - Matilde Canepa Gonzalez" title="Click here to visit Artmajeur">
         </a>
@@ -129,12 +234,49 @@
       </div>
     </div>
     <footer>
-      <p>© <span id="year"></span> Matilde Cánepa González. All rights
+      <p>© <span id="year">2025</span> Matilde Cánepa González. All rights
         reserved.</p>
       <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Impressum</a>
         | <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
     <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Slideshow ──
+    (function() {
+        const slides = document.querySelectorAll('.slide:not(.slide-dots)');
+        const dotsContainer = document.getElementById('slideDots');
+        let current = 0;
+        let timer;
+
+        // Build dots
+        slides.forEach(function(_, i) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                goTo(i);
+                resetTimer();
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        function goTo(n) {
+            slides[current].classList.remove('active');
+            dotsContainer.children[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dotsContainer.children[current].classList.add('active');
+        }
+
+        function next() { goTo(current + 1); }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(next, 4500);
+        }
+
+        resetTimer();
+    })();
 </script> </body>
 </html>
