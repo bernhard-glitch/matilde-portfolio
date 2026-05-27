@@ -12,129 +12,21 @@
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; line-height: 1.6; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; font-style: italic; }
-        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
+        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 2px solid #ebebe8; }
         .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 8px; text-decoration: none; color: #18181b; display: block; }
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
-
-        /* ── Hamburger Button Styling ── */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 110;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .hamburger .bar {
-            display: block;
-            width: 20px;
-            height: 1.5px;
-            margin: 4px 0;
-            background-color: #18181b;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-        }
-
         .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .content-text h2 { margin-top: 40px; font-size: 22px; border-bottom: 1px solid #f4f4f5; padding-bottom: 10px; }
+        .content-text h2 { margin-top: 40px; font-size: 22px; border-bottom: 2px solid #ebebe8; padding-bottom: 10px; }
         .placeholder { color: #ef4444; font-weight: bold; }
-        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        footer { border-top: 2px solid #ebebe8; text-align: center; padding: 30px 20px; margin-top: 60px; }
         footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; }
         footer a { color: #a1a1aa; text-decoration: none; margin: 0 5px; }
-
-        @media (max-width: 768px) {
-            header {
-                position: sticky;
-                top: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 14px 20px;
-            }
-            
-            .logo {
-                font-size: 15px;
-                letter-spacing: 0.2em;
-                margin-bottom: 0 !important;
-                padding-right: 40px;
-                padding-left: 40px;
-                text-align: center;
-                white-space: nowrap;
-            }
-
-            .hamburger {
-                display: block;
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-
-            /* Hamburger morph to 'X' */
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(5.5px) rotate(45deg);
-            }
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-5.5px) rotate(-45deg);
-            }
-
-            /* Mobile Navigation Dropdown */
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid #f4f4f5;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 24px 0;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s ease;
-                z-index: 99;
-            }
-
-            nav.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            nav a {
-                margin: 8px 0;
-                padding: 10px 20px;
-                font-size: 11px;
-                letter-spacing: 0.18em;
-                width: 100%;
-                text-align: center;
-                box-sizing: border-box;
-                display: block;
-            }
-
-            .container { padding: 40px 20px; }
-            .content-text h1 { font-size: 28px; }
-        }
     </style>
     <meta name="description" content="Learn how we protect your personal data. Our Privacy Policy explains data processing, your rights, and cookie usage in compliance with GDPR.">
   </head>
   <body>
     <header> <a href="index.html" class="logo">Matilde Cánepa González</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
       <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
         <a href="sculptures.html">Sculptures</a> <a href="cyanotype.html">Cyanotype</a>
         <a href="new-updates.html">News &amp; Updates</a>
@@ -271,13 +163,5 @@
       <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Impressum</a>
         | <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
-    <script>
-    function toggleMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.querySelector('header nav');
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    }
-    </script>
   </body>
 </html>

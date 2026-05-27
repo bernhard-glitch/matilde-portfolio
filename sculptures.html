@@ -7,13 +7,14 @@
     <link rel="canonical" href="https://matilde-art-studio.com/sculptures.html">
     <title>Contemporary Abstract Sculptures | Matilde Cánepa González</title>
     <meta name="description" content="Discover unique abstract sculptures in Matilde Art Studio, crafted from rustic wood, stoneware, and gold leaf in textured organic forms.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+
       rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
 
-        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
+        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 2px solid #ebebe8; }
         .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 8px; text-decoration: none; color: #18181b; display: block; }
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
@@ -75,11 +76,11 @@
             max-width: 100%;
             object-fit: contain;
             display: block;
-            filter: grayscale(100%);
+            
             transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .first-row-container .image-wrapper:hover img { filter: grayscale(0%); }
+        .first-row-container .image-wrapper:hover img {  }
         .first-row-container .image-info { width: 100%; }
         .first-row-container img.img-expand { width: 100%; max-height: none; height: auto; }
 
@@ -109,11 +110,11 @@
             max-width: 92%;
             max-height: 92%;
             object-fit: contain;
-            filter: grayscale(100%);
+            
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .image-wrapper:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .image-wrapper:hover img {  transform: scale(1.03); }
 
         .image-info {
             margin-top: 15px;
@@ -121,7 +122,7 @@
             line-height: 1.7;
             color: #71717a;
             font-weight: 300;
-            border-top: 1px solid #f4f4f5;
+            border-top: 2px solid #ebebe8;
             padding-top: 12px;
             width: 100%;
         }
@@ -129,68 +130,83 @@
         .image-info strong { color: #3f3f46; font-weight: 600; display: block; margin-bottom: 0px; }
 
         /* Modal */
-        .modal {
+        /* ── Lightbox ── */
+        .lb-overlay {
             display: none;
             position: fixed;
-            z-index: 2000;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(255,255,255,0.98);
-            cursor: zoom-out;
-            flex-direction: column;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.96);
             align-items: center;
             justify-content: center;
-            gap: 24px;
         }
-        .modal.is-open { display: flex; }
-        .modal-content { display: block; max-width: 92%; max-height: 75vh; object-fit: contain; }
-        .close { position: absolute; top: 30px; right: 40px; font-size: 30px; color: #000; cursor: pointer; font-weight: 300; line-height: 1; }
-        .close:hover { color: #a1a1aa; }
+        .lb-overlay.is-open { display: flex; }
 
-        /* CTA Block */
-        .cta-block { text-align: center; padding: 50px 20px; border-top: 1px solid #f4f4f5; margin-top: 20px; }
-        .cta-block p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 14px 0; }
-        .cta-block a { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 3px; transition: border-color 0.3s; }
-        .cta-block a:hover { border-bottom-color: #18181b; }
-        .cta-sell-links {
-            display: grid;
-            grid-template-columns: repeat(2, 150px);
-            justify-content: center;
-            gap: 40px;
-            margin-top: 32px;
-        }
-        .cta-sell-links a {
+        .lb-img {
+            max-width: 90vw;
+            max-height: 88vh;
+            object-fit: contain;
             display: block;
-            width: 150px;
-            height: 113px;
-            text-decoration: none;
-            overflow: hidden;
-            border-radius: 2px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1px;
+            box-shadow: 0 0 80px rgba(0,0,0,0.8);
+            transition: opacity 0.25s ease;
         }
-        .cta-sell-links a:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        .lb-img.fade { opacity: 0; }
+
+        /* Schliessen-Button */
+        .lb-close {
+            position: fixed;
+            top: 20px;
+            right: 28px;
+            color: rgba(255,255,255,0.6);
+            font-size: 32px;
+            font-weight: 200;
+            cursor: pointer;
+            line-height: 1;
+            background: none;
+            border: none;
+            padding: 8px;
+            transition: color 0.2s;
+            z-index: 1010;
         }
-        .cta-sell-links img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .lb-close:hover { color: #ffffff; }
+
+        /* Navigationspfeile */
+        .lb-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 36px;
+            font-weight: 200;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            transition: color 0.2s;
+            z-index: 1010;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
-        .cta-sell-divider {
-            border: 0;
-            border-top: 1px solid #f4f4f5;
-            margin: 32px auto 0;
-            width: 60px;
+        .lb-arrow:hover { color: #ffffff; }
+        .lb-prev { left: 8px; }
+        .lb-next { right: 8px; }
+
+        /* Bildzähler */
+        .lb-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.35);
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
-        /* Modal CTA */
-        .modal-cta { display: block; text-align: center; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #71717a; text-decoration: none; font-family: 'Inter', sans-serif; }
-        .modal-cta:hover { color: #18181b; }
 
-        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 40px 20px; margin-top: 0; }
+        footer { border-top: 2px solid #ebebe8; text-align: center; padding: 40px 20px; margin-top: 0; }
         footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; margin: 4px 0; }
         footer a { color: #a1a1aa; text-decoration: none; margin: 0 5px; }
         footer a:hover { color: #18181b; }
@@ -250,7 +266,7 @@
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid #f4f4f5;
+                border-bottom: 2px solid #ebebe8;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -284,6 +300,58 @@
             .grid { grid-template-columns: 1fr; }
             .first-row-container .image-wrapper, .image-wrapper { height: 300px; }
         }
+
+        .cta-block { text-align: center; padding: 50px 20px; border-top: 2px solid #ebebe8; margin-top: 20px; }
+        .cta-block p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 14px 0; }
+        .cta-block a { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 3px; transition: border-color 0.3s; }
+        .cta-block a:hover { border-bottom-color: #18181b; }
+        .cta-sell-links {
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+            justify-content: center;
+            gap: 40px;
+            margin-top: 32px;
+        }
+        .cta-sell-links a {
+            display: block;
+            width: 150px;
+            height: 113px;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-sell-links a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .cta-sell-links img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .cta-sell-divider {
+            border: 0;
+            border-top: 2px solid #ebebe8;
+            margin: 32px auto 0;
+            width: 60px;
+        }
+
+        .lb-cta {
+            position: fixed;
+            bottom: 28px;
+            right: 36px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .lb-cta:hover { color: rgba(255,255,255,0.9); }
     </style>
     <script type="application/ld+json">
   {
@@ -400,7 +468,8 @@
   </script>
   </head>
   <body>
-    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
+
         class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
@@ -420,7 +489,8 @@
       </div>
       <div class="first-row-container">
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-%20line-mixed%20technique-on-wood.png"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-%20line-mixed%20technique-on-wood.png"
+
               alt="Sculpture from the Totem Series Mixed technique on wood" title="Totem 'Blue Line'">
           </div>
           <div class="image-info"> <strong>Totem 'Blue Line'</strong> Sculpture
@@ -429,8 +499,10 @@
             Size: 33 × 19 × 4 cm </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-series-II-wood-gold-leaf-acrylic.png"
-              alt="Totem Series II Sculpture Mixed technique on wood, with gold leaf"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-series-II-wood-gold-leaf-acrylic.png"
+
+              alt="Totem Series II Sculpture Mixed technique on wood, with gold leaf"
+
               title="Totem Series II"> </div>
           <div class="image-info"> <strong>Totem Series II</strong> Sculpture
             from the Totem Series<br>
@@ -438,8 +510,10 @@
             Size: 19.5 × 32.5 × 4.5 cm (7.7 × 12.8 × 1.8 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture_gazeta-lunar-wood-gold-leaf-acrylic.png"
-              alt="Gazeta Lunar – Lunar Gazette Sculpture, double-sided Mixed technique on wood, with gold leaf on metal base"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture_gazeta-lunar-wood-gold-leaf-acrylic.png"
+
+              alt="Gazeta Lunar – Lunar Gazette Sculpture, double-sided Mixed technique on wood, with gold leaf on metal base"
+
               title="Gazeta Lunar – Lunar Gazette" class="img-expand"> </div>
           <div class="image-info"> <strong>Gazeta Lunar – Lunar Gazette</strong>
             Sculpture, double-sided<br>
@@ -449,7 +523,8 @@
       </div>
       <div class="grid">
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/Silencios%20que%20sobreviven%20I%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/Silencios%20que%20sobreviven%20I%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+
               alt="Round wall sculpture Mixed media: wood, stoneware, copper" title="Round wall sculpture">
           </div>
           <div class="image-info"> <strong>Silencios que sobreviven I –
@@ -458,8 +533,10 @@
             Diameter: 51 × 2 cm (approx. 20 × 0.79 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-pendulum-sculpture-of-wood-stoneware-gold-leaf.png"
-              alt="Pendulum - Sculpture on metal base Material: wood, stoneware, and gold leaf"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-pendulum-sculpture-of-wood-stoneware-gold-leaf.png"
+
+              alt="Pendulum - Sculpture on metal base Material: wood, stoneware, and gold leaf"
+
               title="Pendulum Sculpture"> </div>
           <div class="image-info"> <strong>Pendulum</strong> Sculpture on metal
             base<br>
@@ -467,7 +544,8 @@
             Size: 60 × 17 × 5 cm (23.6 × 7.0 × 2.0 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/Silencios%20que%20sobreviven%20II%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/Silencios%20que%20sobreviven%20II%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+
               alt="Round wall sculpture Mixed media: wood, stoneware," title="Round wall sculpture">
           </div>
           <div class="image-info"> <strong>Silencios que sobreviven II –
@@ -476,8 +554,10 @@
             Diameter: 51 × 2 cm (approx. 20 × 0.79 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-cirucunvolcion-II-two-sided-sculpture-on-wood-mixed-media-with-gold%20leaf-2.png"
-              alt="Freestanding sculpture double-sided Mixed media: wood with gold leaf"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-cirucunvolcion-II-two-sided-sculpture-on-wood-mixed-media-with-gold%20leaf-2.png"
+
+              alt="Freestanding sculpture double-sided Mixed media: wood with gold leaf"
+
               title="Circunvolción II"> </div>
           <div class="image-info"> <strong>Circunvolción II – Convolution</strong>
             Freestanding Sculpture, double-sided<br>
@@ -487,8 +567,10 @@
             Year: 2006 </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-two-sides-mixed-media-wood-stoneware-gold%20leaf-26x17,5x6_1.png"
-              alt="Totem Sculpture Double-sided Mixed media: wood, stoneware, gold leaf"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-two-sides-mixed-media-wood-stoneware-gold%20leaf-26x17,5x6_1.png"
+
+              alt="Totem Sculpture Double-sided Mixed media: wood, stoneware, gold leaf"
+
               title="Totem Sculpture"> </div>
           <div class="image-info"> <strong>Totem Sculpture</strong>
             Double-sided<br>
@@ -497,7 +579,8 @@
             Year: 2007 </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-barajas-sculpture-painting-on-wood-1.png"
+          <div class="image-wrapper" data-lb> <img src="images/sculptures/matilde-canepa-gonzalez-barajas-sculpture-painting-on-wood-1.png"
+
               alt="Barajas Painting on wood, mixed media" title="Barajas – Decks of Cards">
           </div>
           <div class="image-info"> <strong>Barajas – Decks of Cards</strong>
@@ -508,18 +591,26 @@
       </div>
     </div>
     <!-- Modal -->
-    <div id="myModal" class="modal" onclick="closeModal()"> <span class="close">×</span>
-      <img class="modal-content" id="imgFull" alt="Sculpture detail"> <a href="contact.html"
-        class="modal-cta" onclick="event.stopPropagation()">Interested in this
-        work? Get in touch.</a> </div>
+        <div class="lb-overlay" id="lbOverlay" onclick="lbClose(event)">
+      <button class="lb-close" onclick="lbCloseNow()" aria-label="Close">&#x2715;</button>
+      <button class="lb-arrow lb-prev" onclick="lbNav(-1, event)" aria-label="Previous">&#x2039;</button>
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <button class="lb-arrow lb-next" onclick="lbNav(1, event)" aria-label="Next">&#x203A;</button>
+      <span class="lb-counter" id="lbCounter"></span>
+      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in this work? Get in touch.</a>
+    </div>
     <!-- CTA Block -->
     <div class="cta-block">
       <p>Available to purchase</p>
-      <div class="cta-sell-links"> <a href="https://www.artmajeur.com/matilde-canepa-gonzalez"
-          target="_blank" rel="noopener"> <img src="images/externe/artmajeur.jpg"
+      <div class="cta-sell-links"> <a href="https://www.artmajeur.com/matilde-canepa-gonzalez"
+
+          target="_blank" rel="noopener"> <img src="images/externe/artmajeur.jpg"
+
             alt="Artmajeur – Matilde Canepa Gonzalez" title="View on Artmajeur">
-        </a> <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa"
-          target="_blank" rel="noopener"> <img src="images/externe/saatchiart.jpg"
+        </a> <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa"
+
+          target="_blank" rel="noopener"> <img src="images/externe/saatchiart.jpg"
+
             alt="Saatchi Art – Matilde Canepa" title="View on Saatchi Art"> </a>
       </div>
       <hr class="cta-sell-divider">
@@ -541,23 +632,68 @@
           nav.classList.toggle('active');
       }
 
-      function openModal(el) {
-          const modal = document.getElementById('myModal');
-          const modalImg = document.getElementById('imgFull');
-          modal.classList.add('is-open');
-          modalImg.src = el.querySelector('img').src;
-          modalImg.alt = el.querySelector('img').alt;
-          document.body.style.overflow = 'hidden';
-      }
+          // ── Lightbox ──
+    (function () {
+        const overlay  = document.getElementById('lbOverlay');
+        const img      = document.getElementById('lbImg');
+        const counter  = document.getElementById('lbCounter');
+        const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
+        let   current  = 0;
 
-      function closeModal() {
-          document.getElementById('myModal').classList.remove('is-open');
-          document.body.style.overflow = 'auto';
-      }
+        // Bilder registrieren
+        wrappers.forEach(function (el, i) {
+            el.addEventListener('click', function () { lbOpen(i); });
+        });
 
-      document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape') closeModal();
-      });
+        window.lbOpen = function (i) {
+            current = i;
+            lbShow();
+            overlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.lbCloseNow = function () {
+            overlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        };
+
+        window.lbClose = function (e) {
+            if (e.target === overlay) lbCloseNow();
+        };
+
+        window.lbNav = function (dir, e) {
+            e.stopPropagation();
+            current = (current + dir + wrappers.length) % wrappers.length;
+            img.classList.add('fade');
+            setTimeout(function () {
+                lbShow();
+                img.classList.remove('fade');
+            }, 220);
+        };
+
+        function lbShow() {
+            const el    = wrappers[current];
+            const image = el.querySelector('img');
+            img.src     = image.src;
+            img.alt     = image.alt;
+            counter.textContent = (current + 1) + ' / ' + wrappers.length;
+            // Bildtitel als URL-Parameter an contact.html übergeben
+            const title = image.getAttribute('title') || '';
+            const cta   = document.getElementById('lbCta');
+            if (cta && title) {
+                cta.href = 'contact.html?artwork=' + encodeURIComponent(title.trim());
+            }
+        }
+
+        // Tastatur-Navigation
+        document.addEventListener('keydown', function (e) {
+            if (!overlay.classList.contains('is-open')) return;
+            if (e.key === 'ArrowRight') lbNav(1,  { stopPropagation: function(){} });
+            if (e.key === 'ArrowLeft')  lbNav(-1, { stopPropagation: function(){} });
+            if (e.key === 'Escape')     lbCloseNow();
+        });
+    })();
+
     </script>
   </body>
 </html>

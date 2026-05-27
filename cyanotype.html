@@ -13,8 +13,8 @@
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
         
-        header { padding: 40px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
-        .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 20px; text-decoration: none; color: #18181b; display: block; }
+        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 2px solid #ebebe8; }
+        .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 8px; text-decoration: none; color: #18181b; display: block; }
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
 
@@ -53,7 +53,7 @@
          }
         
         .grid-item { margin-bottom: 20px; }
-        .image-wrapper { overflow: hidden; background: #f4f4f5; position: relative; }
+        .image-wrapper { overflow: hidden; background: #f7f7f5; position: relative; }
         
         /* Beibehaltung des Grayscale-Hover-Effekts analog zu den anderen Galerieseiten */
         .image-wrapper img {
@@ -62,11 +62,11 @@
             display: block;
             transition: transform 0.5s ease, filter 0.5s ease;
             cursor: pointer;
-            filter: grayscale(100%);
+            
         }
         .image-wrapper:hover img {
             transform: scale(1.05);
-            filter: grayscale(0%);
+            
         }
 
         .image-info { font-size: 12px; margin-top: 12px; color: #71717a; line-height: 1.6; }
@@ -124,7 +124,7 @@
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid #f4f4f5;
+                border-bottom: 2px solid #ebebe8;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -156,14 +156,83 @@
         @media (max-width: 600px) {
             .gallery-grid { grid-template-columns: 1fr; }
         }
+        /* ── Lightbox ── */
+        .lb-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.96);
+            align-items: center;
+            justify-content: center;
+        }
+        .lb-overlay.is-open { display: flex; }
 
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.98); }
-        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; margin-top: 5vh; }
-        .close { position: absolute; top: 20px; right: 35px; color: #18181b; font-size: 40px; font-weight: 300; cursor: pointer; }
-        .modal-cta { display: block; text-align: center; margin-top: 16px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #71717a; text-decoration: none; font-family: 'Inter', sans-serif; }
-        .modal-cta:hover { color: #18181b; }
+        .lb-img {
+            max-width: 90vw;
+            max-height: 88vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 1px;
+            box-shadow: 0 0 80px rgba(0,0,0,0.8);
+            transition: opacity 0.25s ease;
+        }
+        .lb-img.fade { opacity: 0; }
 
-        .cta-block { text-align: center; padding: 50px 20px; border-top: 1px solid #f4f4f5; margin-top: 20px; }
+        /* Schliessen-Button */
+        .lb-close {
+            position: fixed;
+            top: 20px;
+            right: 28px;
+            color: rgba(255,255,255,0.6);
+            font-size: 32px;
+            font-weight: 200;
+            cursor: pointer;
+            line-height: 1;
+            background: none;
+            border: none;
+            padding: 8px;
+            transition: color 0.2s;
+            z-index: 1010;
+        }
+        .lb-close:hover { color: #ffffff; }
+
+        /* Navigationspfeile */
+        .lb-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 36px;
+            font-weight: 200;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            transition: color 0.2s;
+            z-index: 1010;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .lb-arrow:hover { color: #ffffff; }
+        .lb-prev { left: 8px; }
+        .lb-next { right: 8px; }
+
+        /* Bildzähler */
+        .lb-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.35);
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+
+        .cta-block { text-align: center; padding: 50px 20px; border-top: 2px solid #ebebe8; margin-top: 20px; }
         .cta-block p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 14px 0; }
         .cta-block a { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 3px; transition: border-color 0.3s; }
         .cta-block a:hover { border-bottom-color: #18181b; }
@@ -196,13 +265,27 @@
         }
         .cta-sell-divider {
             border: 0;
-            border-top: 1px solid #f4f4f5;
+            border-top: 2px solid #ebebe8;
             margin: 32px auto 0;
             width: 60px;
         }
-        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 40px 20px; margin-top: 0; }
+        footer { border-top: 2px solid #ebebe8; text-align: center; padding: 40px 20px; margin-top: 0; }
         footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; }
         footer a { color: #18181b; text-decoration: none; margin: 0 5px; }
+
+        .lb-cta {
+            position: fixed;
+            bottom: 28px;
+            right: 36px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .lb-cta:hover { color: rgba(255,255,255,0.9); }
     </style>
     <meta name="description" content="Discover unique cyanotype prints at Matilde Art Studio, created with experimental techniques and organic plant materials in deep botanical blue tones.">
   
@@ -346,7 +429,7 @@
       </div>
       <div class="gallery-grid">
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_01.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_01.jpg"
 
               alt="Cyanotype with yellow brushstrokes" title="Cyanotype art"> </div>
           <div class="image-info"> Title: Cyano blue with yellow and red
@@ -356,7 +439,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_02.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_02.jpg"
 
               alt="Cyanotype plants and turmeric effect" title="Cyanotype art">
           </div>
@@ -366,7 +449,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_03.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_03.jpg"
 
               alt="Cyanotype in deep organic blue tones" title="Cyanotype art">
           </div>
@@ -377,7 +460,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_04.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_04.jpg"
 
               alt="Organic cyanotype in deep blue with splashes of yellow" title="Cyanotype art">
           </div>
@@ -388,7 +471,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_05.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_05.jpg"
 
               alt="Organic cyanotype in deep blue with yellow sunspots" title="Cyanotype art">
           </div>
@@ -398,7 +481,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_06.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_06.jpg"
 
               alt="Deep blue cyanotype featuring ears of corn and a butterfly" title="Cyanotype art">
           </div>
@@ -408,7 +491,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_07.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_07.jpg"
 
               alt="Cyanotype on a deep blue background with birds in flight " title="Cyanotype art">
           </div>
@@ -418,7 +501,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_08.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_08.jpg"
 
               alt="A cyanotype of me painting in my studio" title="Cyanotype me in my studio">
           </div>
@@ -428,7 +511,7 @@
             Year: 2021</div>
         </div>
         <div class="grid-item tall">
-          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/cyanotype/Cyanotopy_09.jpg"
+          <div class="image-wrapper" data-lb> <img src="images/cyanotype/Cyanotopy_09.jpg"
 
               alt="Cyanotype in the search for the deep blue cat " title="Cyanotype art">
           </div>
@@ -439,8 +522,14 @@
         </div>
       </div>
     </div>
-    <div id="myModal" class="modal" onclick="closeModal()"> <span class="close">×</span>
-      <img class="modal-content" id="imgFull"> <a href="contact.html" class="modal-cta" onclick="event.stopPropagation()">Interested in this work? Get in touch.</a> </div>
+        <div class="lb-overlay" id="lbOverlay" onclick="lbClose(event)">
+      <button class="lb-close" onclick="lbCloseNow()" aria-label="Close">&#x2715;</button>
+      <button class="lb-arrow lb-prev" onclick="lbNav(-1, event)" aria-label="Previous">&#x2039;</button>
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <button class="lb-arrow lb-next" onclick="lbNav(1, event)" aria-label="Next">&#x203A;</button>
+      <span class="lb-counter" id="lbCounter"></span>
+      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in this work? Get in touch.</a>
+    </div>
     <div class="cta-block">
       <p>Available to purchase</p>
       <div class="cta-sell-links">
@@ -470,16 +559,67 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     }
-    function openModal(el) {
-        const modal = document.getElementById("myModal");
-        const modalImg = document.getElementById("imgFull");
-        modal.style.display = "block";
-        modalImg.src = el.getElementsByTagName('img')[0].src;
-        document.body.style.overflow = "hidden";
-    }
-    function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }</script>
+        // ── Lightbox ──
+    (function () {
+        const overlay  = document.getElementById('lbOverlay');
+        const img      = document.getElementById('lbImg');
+        const counter  = document.getElementById('lbCounter');
+        const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
+        let   current  = 0;
+
+        // Bilder registrieren
+        wrappers.forEach(function (el, i) {
+            el.addEventListener('click', function () { lbOpen(i); });
+        });
+
+        window.lbOpen = function (i) {
+            current = i;
+            lbShow();
+            overlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.lbCloseNow = function () {
+            overlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        };
+
+        window.lbClose = function (e) {
+            if (e.target === overlay) lbCloseNow();
+        };
+
+        window.lbNav = function (dir, e) {
+            e.stopPropagation();
+            current = (current + dir + wrappers.length) % wrappers.length;
+            img.classList.add('fade');
+            setTimeout(function () {
+                lbShow();
+                img.classList.remove('fade');
+            }, 220);
+        };
+
+        function lbShow() {
+            const el    = wrappers[current];
+            const image = el.querySelector('img');
+            img.src     = image.src;
+            img.alt     = image.alt;
+            counter.textContent = (current + 1) + ' / ' + wrappers.length;
+            // Bildtitel als URL-Parameter an contact.html übergeben
+            const title = image.getAttribute('title') || '';
+            const cta   = document.getElementById('lbCta');
+            if (cta && title) {
+                cta.href = 'contact.html?artwork=' + encodeURIComponent(title.trim());
+            }
+        }
+
+        // Tastatur-Navigation
+        document.addEventListener('keydown', function (e) {
+            if (!overlay.classList.contains('is-open')) return;
+            if (e.key === 'ArrowRight') lbNav(1,  { stopPropagation: function(){} });
+            if (e.key === 'ArrowLeft')  lbNav(-1, { stopPropagation: function(){} });
+            if (e.key === 'Escape')     lbCloseNow();
+        });
+    })();
+</script>
   </body>
 </html>

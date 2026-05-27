@@ -16,7 +16,7 @@
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         
-        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f4f4f5; }
+        header { padding: 16px 20px; text-align: center; position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 2px solid #ebebe8; }
         .logo { font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; margin-bottom: 8px; text-decoration: none; color: #18181b; display: block; }
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
@@ -62,7 +62,7 @@
             overflow: hidden;
             border-radius: 2px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-            background: #f4f4f5;
+            background: #f7f7f5;
         }
         .slideshow-wrapper .slide {
             position: absolute;
@@ -77,11 +77,14 @@
             object-fit: cover;
             display: block;
         }
-        .slide-caption {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 20px 18px 16px;
-            background: linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0) 100%);
+        .slide-caption { display: none; } /* Caption wird per JS in slideshow-footer gespiegelt */
+        .slideshow-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 4px 0;
+        }
+        .slideshow-caption-label {
             font-size: 10px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -90,20 +93,23 @@
             font-weight: 600;
         }
         .slide-dots {
-            position: absolute;
-            bottom: 14px;
-            right: 16px;
             display: flex;
             gap: 6px;
+            align-items: center;
         }
+        /* WCAG: min. 24px Touch-Target via padding; der sichtbare Punkt bleibt 5px */
         .slide-dots span {
             width: 5px; height: 5px;
             border-radius: 50%;
             background: #d4d4d8;
             cursor: pointer;
             transition: background 0.3s;
+            padding: 9px;
+            background-clip: content-box;
+            box-sizing: content-box;
+            margin: -9px;
         }
-        .slide-dots span.active { background: #18181b; }
+        .slide-dots span.active { background: #18181b; background-clip: content-box; }
 
         /* Externe Links Header */
         .external-links-header {
@@ -150,7 +156,7 @@
             display: block;
         }
 
-        footer { border-top: 1px solid #f4f4f5; text-align: center; padding: 40px 20px; margin-top: 60px; }
+        footer { border-top: 2px solid #ebebe8; text-align: center; padding: 40px 20px; margin-top: 60px; }
         footer p { font-size: 11px; color: #a1a1aa; letter-spacing: 0.1em; }
         footer a { color: #18181b; text-decoration: none; margin: 0 5px; }
 
@@ -203,7 +209,7 @@
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid #f4f4f5;
+                border-bottom: 2px solid #ebebe8;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -342,12 +348,18 @@
             <div class="slide"> <img src="images/cyanotype/Cyanotopy_06.jpg" alt="Cyanotype 06">
               <div class="slide-caption">Cyanotype</div>
             </div>
+          </div>
+          <div class="slideshow-footer">
+            <span class="slideshow-caption-label" id="slideCaptionLabel"></span>
+          </div>
+          <div class="slideshow-footer">
+            <span class="slideshow-caption-label" id="slideCaptionLabel"></span>
             <div class="slide-dots" id="slideDots"></div>
           </div>
         </div>
       </section>
       <!-- Optische Trennlinie -->
-      <hr style="border: 0; border-top: 1px solid #f4f4f5; margin-top: 60px; margin-bottom: 0;">
+      <hr style="border: 0; border-top: 2px solid #ebebe8; margin-top: 60px; margin-bottom: 0;">
       <!-- Externe Links Header -->
       <div class="external-links-header">
         <p>Also find my work here</p>
@@ -392,10 +404,16 @@
 
     // ── Slideshow ──
     (function() {
-        const slides = document.querySelectorAll('.slide:not(.slide-dots)');
+        const slides = document.querySelectorAll('.slide');
         const dotsContainer = document.getElementById('slideDots');
+        const captionLabel = document.getElementById('slideCaptionLabel');
         let current = 0;
         let timer;
+
+        function getCaption(index) {
+            const el = slides[index].querySelector('.slide-caption');
+            return el ? el.textContent : '';
+        }
 
         // Build dots
         slides.forEach(function(_, i) {
@@ -409,12 +427,16 @@
             dotsContainer.appendChild(dot);
         });
 
+        // Set initial caption
+        if (captionLabel) captionLabel.textContent = getCaption(0);
+
         function goTo(n) {
             slides[current].classList.remove('active');
             dotsContainer.children[current].classList.remove('active');
             current = (n + slides.length) % slides.length;
             slides[current].classList.add('active');
             dotsContainer.children[current].classList.add('active');
+            if (captionLabel) captionLabel.textContent = getCaption(current);
         }
 
         function next() { goTo(current + 1); }
