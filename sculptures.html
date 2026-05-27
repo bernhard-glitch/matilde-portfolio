@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://matilde-art-studio.com/sculptures.html">
     <title>Contemporary Abstract Sculptures | Matilde Cánepa González</title>
     <meta name="description" content="Discover unique abstract sculptures in Matilde Art Studio, crafted from rustic wood, stoneware, and gold leaf in textured organic forms.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+      rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #18181b; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
@@ -17,6 +18,26 @@
         nav a { text-decoration: none; margin: 0 10px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: bold; color: #18181b; padding: 10px; }
         nav a:hover { color: #a1a1aa; }
         nav a.active { color: #a1a1aa; }
+
+        /* ── Hamburger Button Styling ── */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 110;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hamburger .bar {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            margin: 4px 0;
+            background-color: #18181b;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px 30px; }
 
@@ -180,13 +201,91 @@
             .grid { grid-template-columns: repeat(2, 1fr); }
         }
 
+        @media (max-width: 768px) {
+            header {
+                position: sticky;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 20px;
+            }
+            
+            .logo {
+                font-size: 15px;
+                letter-spacing: 0.2em;
+                margin-bottom: 0 !important;
+                padding-right: 40px;
+                padding-left: 40px;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            /* Hamburger morph to 'X' */
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(5.5px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-5.5px) rotate(-45deg);
+            }
+
+            /* Mobile Navigation Dropdown */
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border-bottom: 1px solid #f4f4f5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 24px 0;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s ease;
+                z-index: 99;
+            }
+
+            nav.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            nav a {
+                margin: 8px 0;
+                padding: 10px 20px;
+                font-size: 11px;
+                letter-spacing: 0.18em;
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+                display: block;
+            }
+        }
+
         @media (max-width: 600px) {
             .grid { grid-template-columns: 1fr; }
             .first-row-container .image-wrapper, .image-wrapper { height: 300px; }
         }
     </style>
-  
-  <script type="application/ld+json">
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -299,180 +398,148 @@
     ]
   }
   </script>
-</head>
+  </head>
   <body>
-    <header>
-      <a href="index.html" class="logo">Matilde Cánepa González</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="sculptures.html" class="active">Sculptures</a>
-        <a href="cyanotype.html">Cyanotype</a>
-        <a href="new-updates.html">News &amp; Updates</a>
-        <a href="contact.html">Contact</a>
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
+        class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </button>
+      <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
+        <a href="sculptures.html" class="active">Sculptures</a> <a href="cyanotype.html">Cyanotype</a>
+        <a href="new-updates.html">News &amp; Updates</a> <a href="contact.html">Contact</a>
       </nav>
     </header>
-
     <div class="container">
       <div class="page-title">
         <h1>Sculptures</h1>
-        <p class="page-subtitle">Discover my original contemporary sculptures crafted from wood, ceramic, gold leaf, and mixed materials. Each artwork combines organic elements with refined mixed-media techniques to create sculptural forms rich in texture, balance, and contemporary artistic expression.</p>
+        <p class="page-subtitle">Discover my original contemporary sculptures
+          crafted from wood, ceramic, gold leaf, and mixed materials. Each
+          artwork combines organic elements with refined mixed-media techniques
+          to create sculptural forms rich in texture, balance, and contemporary
+          artistic expression.</p>
       </div>
-
       <div class="first-row-container">
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-%20line-mixed%20technique-on-wood.png"
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-%20line-mixed%20technique-on-wood.png"
               alt="Sculpture from the Totem Series Mixed technique on wood" title="Totem 'Blue Line'">
           </div>
-          <div class="image-info">
-            <strong>Totem 'Blue Line'</strong>
-            Sculpture from the Totem Series<br>
-            Mixed technique on wood<br>
-            Size: 33 × 19 × 4 cm
-          </div>
+          <div class="image-info"> <strong>Totem 'Blue Line'</strong> Sculpture
+            from the Totem Series<br>
+            Mixed media on wood<br>
+            Size: 33 × 19 × 4 cm </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-series-II-wood-gold-leaf-acrylic.png"
-              alt="Totem Series II Sculpture Mixed technique on wood, with gold leaf" title="Totem Series II">
-          </div>
-          <div class="image-info">
-            <strong>Totem Series II</strong>
-            Sculpture from the Totem Series<br>
-            Mixed technique on wood, with gold leaf<br>
-            Size: 19.5 × 32.5 × 4.5 cm (7.7 × 12.8 × 1.8 in)
-          </div>
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-series-II-wood-gold-leaf-acrylic.png"
+              alt="Totem Series II Sculpture Mixed technique on wood, with gold leaf"
+              title="Totem Series II"> </div>
+          <div class="image-info"> <strong>Totem Series II</strong> Sculpture
+            from the Totem Series<br>
+            Mixed media on wood, with gold leaf<br>
+            Size: 19.5 × 32.5 × 4.5 cm (7.7 × 12.8 × 1.8 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-sculpture_gazeta-lunar-wood-gold-leaf-acrylic.png"
-              alt="Gazeta Lunar – Lunar Gazette Sculpture, double-sided Mixed technique on wood, with gold leaf on metal base"
-              title="Gazeta Lunar – Lunar Gazette" class="img-expand">
-          </div>
-          <div class="image-info">
-            <strong>Gazeta Lunar – Lunar Gazette</strong>
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture_gazeta-lunar-wood-gold-leaf-acrylic.png"
+              alt="Gazeta Lunar – Lunar Gazette Sculpture, double-sided Mixed technique on wood, with gold leaf on metal base"
+              title="Gazeta Lunar – Lunar Gazette" class="img-expand"> </div>
+          <div class="image-info"> <strong>Gazeta Lunar – Lunar Gazette</strong>
             Sculpture, double-sided<br>
-            Mixed technique on wood, with gold leaf on metal base<br>
-            Size: 13 × 14 cm with metal base (approx. 5.12 × 1.57 in)
-          </div>
+            Mixed media on wood, with gold leaf on metal base<br>
+            Size: 13 × 14 cm with metal base (approx. 5.12 × 1.57 in) </div>
         </div>
       </div>
-
       <div class="grid">
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/Silencios%20que%20sobreviven%20I%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/Silencios%20que%20sobreviven%20I%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
               alt="Round wall sculpture Mixed media: wood, stoneware, copper" title="Round wall sculpture">
           </div>
-          <div class="image-info">
-            <strong>Silencios que sobreviven I – Silences That Endure</strong>
-            Wall Sculpture<br>
+          <div class="image-info"> <strong>Silencios que sobreviven I –
+              Silences That Endure</strong> Wall Sculpture<br>
             Mixed media: wood, stoneware, copper<br>
-            Diameter: 51 × 2 cm (approx. 20 × 0.79 in)
-          </div>
+            Diameter: 51 × 2 cm (approx. 20 × 0.79 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-pendulum-sculpture-of-wood-stoneware-gold-leaf.png"
-              alt="Pendulum - Sculpture on metal base Material: wood, stoneware, and gold leaf" title="Pendulum Sculpture">
-          </div>
-          <div class="image-info">
-            <strong>Pendulum</strong>
-            Sculpture on metal base<br>
-            Material: wood, stoneware, and gold leaf<br>
-            Size: 60 × 17 × 5 cm (23.6 × 7.0 × 2.0 in)
-          </div>
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-pendulum-sculpture-of-wood-stoneware-gold-leaf.png"
+              alt="Pendulum - Sculpture on metal base Material: wood, stoneware, and gold leaf"
+              title="Pendulum Sculpture"> </div>
+          <div class="image-info"> <strong>Pendulum</strong> Sculpture on metal
+            base<br>
+            Mixed media, stoneware, and gold leaf<br>
+            Size: 60 × 17 × 5 cm (23.6 × 7.0 × 2.0 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/Silencios%20que%20sobreviven%20II%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/Silencios%20que%20sobreviven%20II%20-%20Wall%20Sculpture%20-%20Mixed%20media,%20wood,%20stoneware.png"
               alt="Round wall sculpture Mixed media: wood, stoneware," title="Round wall sculpture">
           </div>
-          <div class="image-info">
-            <strong>Silencios que sobreviven II – Silences That Endure</strong>
-            Wall Sculpture<br>
+          <div class="image-info"> <strong>Silencios que sobreviven II –
+              Silences That Endure</strong> Wall Sculpture<br>
             Mixed media: wood, stoneware<br>
-            Diameter: 51 × 2 cm (approx. 20 × 0.79 in)
-          </div>
+            Diameter: 51 × 2 cm (approx. 20 × 0.79 in) </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-cirucunvolcion-II-two-sided-sculpture-on-wood-mixed-media-with-gold%20leaf-2.png"
-              alt="Freestanding sculpture double-sided Mixed media: wood with gold leaf" title="Circunvolción II">
-          </div>
-          <div class="image-info">
-            <strong>Circunvolción II – Convolution</strong>
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-cirucunvolcion-II-two-sided-sculpture-on-wood-mixed-media-with-gold%20leaf-2.png"
+              alt="Freestanding sculpture double-sided Mixed media: wood with gold leaf"
+              title="Circunvolción II"> </div>
+          <div class="image-info"> <strong>Circunvolción II – Convolution</strong>
             Freestanding Sculpture, double-sided<br>
             Mixed media: wood with gold leaf<br>
             Size: 55 × 46 × 2.5 cm (21.65 × 18.11 × 0.98 in)<br>
             Height with metal base: 60 cm · Weight: approx. 5 kg<br>
-            Year: 2006
-          </div>
+            Year: 2006 </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-two-sides-mixed-media-wood-stoneware-gold%20leaf-26x17,5x6_1.png"
-              alt="Totem Sculpture Double-sided Mixed media: wood, stoneware, gold leaf" title="Totem Sculpture">
-          </div>
-          <div class="image-info">
-            <strong>Totem Sculpture</strong>
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-sculpture-totem-two-sides-mixed-media-wood-stoneware-gold%20leaf-26x17,5x6_1.png"
+              alt="Totem Sculpture Double-sided Mixed media: wood, stoneware, gold leaf"
+              title="Totem Sculpture"> </div>
+          <div class="image-info"> <strong>Totem Sculpture</strong>
             Double-sided<br>
             Mixed media: wood, stoneware, gold leaf<br>
             Size: 25.5 × 17.2 × 6.5 cm (10.03 × 6.77 × 2.55 in)<br>
-            Year: 2007
-          </div>
+            Year: 2007 </div>
         </div>
         <div class="grid-item">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="images/sculptures/matilde-canepa-gonzalez-barajas-sculpture-painting-on-wood-1.png"
+          <div class="image-wrapper" onclick="openModal(this)"> <img src="images/sculptures/matilde-canepa-gonzalez-barajas-sculpture-painting-on-wood-1.png"
               alt="Barajas Painting on wood, mixed media" title="Barajas – Decks of Cards">
           </div>
-          <div class="image-info">
-            <strong>Barajas – Decks of Cards</strong>
+          <div class="image-info"> <strong>Barajas – Decks of Cards</strong>
             Painting on wood, mixed media<br>
             Painting: 21 × 15 cm (8.26 × 6 in)<br>
-            With wooden frame: 36.5 × 31 cm (14.37 × 12.2 in)
-          </div>
+            With wooden frame: 36.5 × 31 cm (14.37 × 12.2 in) </div>
         </div>
       </div>
     </div>
-
     <!-- Modal -->
-    <div id="myModal" class="modal" onclick="closeModal()">
-      <span class="close">×</span>
-      <img class="modal-content" id="imgFull" alt="Sculpture detail">
-      <a href="contact.html" class="modal-cta" onclick="event.stopPropagation()">Interested in this work? Get in touch.</a>
-    </div>
-
+    <div id="myModal" class="modal" onclick="closeModal()"> <span class="close">×</span>
+      <img class="modal-content" id="imgFull" alt="Sculpture detail"> <a href="contact.html"
+        class="modal-cta" onclick="event.stopPropagation()">Interested in this
+        work? Get in touch.</a> </div>
     <!-- CTA Block -->
     <div class="cta-block">
       <p>Available to purchase</p>
-      <div class="cta-sell-links">
-        <a href="https://www.artmajeur.com/matilde-canepa-gonzalez" target="_blank" rel="noopener">
-          <img src="images/externe/artmajeur.jpg" alt="Artmajeur – Matilde Canepa Gonzalez" title="View on Artmajeur">
-        </a>
-        <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa" target="_blank" rel="noopener">
-          <img src="images/externe/saatchiart.jpg" alt="Saatchi Art – Matilde Canepa" title="View on Saatchi Art">
-        </a>
+      <div class="cta-sell-links"> <a href="https://www.artmajeur.com/matilde-canepa-gonzalez"
+          target="_blank" rel="noopener"> <img src="images/externe/artmajeur.jpg"
+            alt="Artmajeur – Matilde Canepa Gonzalez" title="View on Artmajeur">
+        </a> <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa"
+          target="_blank" rel="noopener"> <img src="images/externe/saatchiart.jpg"
+            alt="Saatchi Art – Matilde Canepa" title="View on Saatchi Art"> </a>
       </div>
       <hr class="cta-sell-divider">
       <p style="margin-top: 28px;">Prefer a personal conversation?</p>
-      <a href="contact.html">Inquire about this artwork</a>
-    </div>
-
+      <a href="contact.html">Inquire about this artwork</a> </div>
     <footer>
-      <p>© <span id="year"></span> Matilde Cánepa González. All rights reserved.</p>
-      <p>
-        <a href="contact.html">Contact</a> |
-        <a href="impressum.html">Impressum</a> |
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </p>
+      <p>© <span id="year"></span> Matilde Cánepa González. All rights
+        reserved.</p>
+      <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Impressum</a>
+        | <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
-
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      function toggleMenu() {
+          const hamburger = document.getElementById('hamburger');
+          const nav = document.querySelector('header nav');
+          hamburger.classList.toggle('active');
+          nav.classList.toggle('active');
+      }
 
       function openModal(el) {
           const modal = document.getElementById('myModal');
