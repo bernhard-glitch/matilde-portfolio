@@ -304,7 +304,7 @@
         .lb-cta:hover { color: rgba(255,255,255,0.9); }
     </style>
     <meta name="author" content="Matilde Canepa Gonzalez">
-    <meta name="keywords" content="contemporary abstract paintings, Latin American artist,">
+    <meta name="keywords" content="contemporary abstract paintings, Latin American artist">
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -709,7 +709,7 @@
             const title = image.getAttribute('title') || '';
             const cta   = document.getElementById('lbCta');
             if (cta && title) {
-                cta.href = 'contact.html?artwork=' + encodeURIComponent(title.trim());
+                cta.href = 'contact.html?artwork=' + encodeURIComponent('Painting - ' + title.trim());
             }
         }
 
