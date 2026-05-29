@@ -247,7 +247,7 @@
         </div>
       </div>
     </div>
-    <div class="lb-overlay" id="lbOverlay" onclick="lbClose(event)"> <button class="lb-close"
+    <div class="lb-overlay" id="lbOverlay"> <button class="lb-close"
         onclick="lbCloseNow()" aria-label="Close">✕</button> <button class="lb-arrow lb-prev"
         onclick="lbNav(-1, event)" aria-label="Previous">‹</button> <img class="lb-img"
         id="lbImg" src="" alt=""> <button class="lb-arrow lb-next" onclick="lbNav(1, event)"
@@ -305,9 +305,19 @@
             document.body.style.overflow = '';
         };
 
-        window.lbClose = function (e) {
-            if (e.target === overlay) lbCloseNow();
-        };
+        function lbClose(e) {
+            if (e.target.closest('.lb-close, .lb-arrow, .lb-cta')) return;
+            if (e.target === overlay || e.target === img) {
+                lbCloseNow();
+                return;
+            }
+            const r = img.getBoundingClientRect();
+            if (e.clientX >= r.left && e.clientX <= r.right &&
+                e.clientY >= r.top && e.clientY <= r.bottom) {
+                lbCloseNow();
+            }
+        }
+        overlay.addEventListener('click', lbClose, true);
 
         window.lbNav = function (dir, e) {
             e.stopPropagation();
