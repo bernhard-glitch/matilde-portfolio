@@ -73,6 +73,25 @@ footer a {
   margin: 0 5px;
 }
 
+/* ===== Global: .page-intro ===== */
+.page-intro {
+  max-width: 980px;
+  margin: 0 auto 48px auto;
+  text-align: center;
+  font-size: 15px;
+  color: #3f3f46;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.page-intro p {
+  margin: 0 0 18px 0;
+}
+
+.page-intro p:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== 404.html (page-404) ===== */
 
 /* ── Main ── */
@@ -325,7 +344,7 @@ body.page-cyanotype .image-wrapper:hover img {
 
 }
 body.page-cyanotype .image-info { font-size: 12px; margin-top: 12px; color: #71717a; line-height: 1.6; }
-@media (max-width: 900px) {
+@media (max-width: 980px) {
 body.page-cyanotype .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
 
