@@ -30,6 +30,9 @@
   <body class="page-about">
     <header> <a href="index.html" class="logo">Matilde Cánepa
         González</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </button>
       <nav> <a href="index.html">Home</a> <a href="about.html" class="active">About</a>
         <a href="paintings.html">Paintings</a> <a href="sculptures.html">Sculptures</a>
         <a href="cyanotype.html">Cyanotype</a> <a href="new-updates.html">News &amp; Updates</a> <a href="contact.html">Contact</a>
@@ -68,27 +71,16 @@
         </div>
       </div>
       <!-- BBK Mitgliedschaft -->
-      <hr style="border: 0; border-top: 2px solid #ebebe8; margin-top: 60px; margin-bottom: 0;">
       <div class="bbk-block">
-        <img src="images/externe/bbk_symbol.png" alt="bbk – Berufsverband Bildender Künstler Berlins" title="bbk Berlin">
+        <a href="https://www.bbk-berlin.de/" target="_blank" rel="noopener">
+          <img src="images/externe/bbk_symbol.png" alt="bbk – Berufsverband Bildender Künstler Berlins" title="bbk Berlin">
+        </a>
         <p>I have been a member of the bbk – Berlin Association of Visual Artists – since 2025.</p>
       </div>
-      <!-- Optische Trennlinie -->
-      <hr style="border: 0; border-top: 2px solid #ebebe8; margin-top: 40px; margin-bottom: 0;">
-      <!-- Bereich für die 4 anklickbaren externen Bilder -->
-      <div class="external-links-grid">
-        <a href="https://www.artmajeur.com/matilde-canepa-gonzalez" target="_blank" rel="noopener">
-          <img src="images/externe/artmajeur.jpg" alt="Artmajeur - Matilde Canepa Gonzalez" title="Click here to visit Artmajeur">
-        </a>
-        <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa" target="_blank" rel="noopener">
-          <img src="images/externe/saatchiart.jpg" alt="Saatchi Art - Matilde Canepa" title="Click here to visit Saatchi Art">
-        </a>
-        <a href="https://www.facebook.com/matilde.canepa.10?ref=br_rs" target="_blank" rel="noopener">
-          <img src="images/externe/facebook.jpg" alt="Facebook - Matilde Canepa" title="Click here to my facebook">
-        </a>
-        <a href="https://www.instagram.com/artyenkanin/" target="_blank" rel="noopener">
-          <img src="images/externe/instagram.jpg" alt="Instagram - @artyenkanin" title="Click here to my Intagram">
-        </a>
+      <!-- CTA -->
+      <div class="cta-block" style="border-top: 0;">
+        <p>Would you like to get in touch?</p>
+        <a href="contact.html" class="cta-inquire-btn">Get in touch with me</a>
       </div>
     </div>
     <footer>
@@ -99,6 +91,13 @@
     </footer>
     <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    }
 </script>
   </body>
 </html>

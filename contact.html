@@ -28,6 +28,9 @@
   </head>
   <body class="page-contact">
     <header> <a href="index.html" class="logo">Matilde Cánepa González</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </button>
       <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
         <a href="sculptures.html">Sculptures</a> <a href="cyanotype.html">Cyanotype</a>
         <a href="new-updates.html">News &amp; Updates</a>
@@ -73,6 +76,13 @@ id="message" name="message" rows="5" placeholder="Your message" required=""></te
     </footer>
     <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    }
 
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', async function(e) {

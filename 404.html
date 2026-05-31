@@ -29,6 +29,9 @@
     <!-- ══ HEADER ══ -->
     <header>
       <a href="index.html" class="logo">Matilde Cánepa González</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </button>
       <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -82,6 +85,13 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      function toggleMenu() {
+          const hamburger = document.getElementById('hamburger');
+          const nav = document.querySelector('header nav');
+          hamburger.classList.toggle('active');
+          nav.classList.toggle('active');
+      }
     </script>
 
   </body>
