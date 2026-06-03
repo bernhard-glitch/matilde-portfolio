@@ -33,6 +33,9 @@ header {
   backdrop-filter: blur(10px);
   z-index: 100;
   border-bottom: 2px solid #ebebe8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -63,41 +66,23 @@ nav a.active {
 }
 
 /* =============================================================================
-   3. HAMBURGER
-   Scoped to the five pages that use it: index, paintings, sculptures,
-   cyanotype, new-updates.
+   3. HAMBURGER (global – present on all pages)
    ============================================================================= */
 
-body.page-index .hamburger,
-body.page-paintings .hamburger,
-body.page-sculptures .hamburger,
-body.page-cyanotype .hamburger,
-body.page-new-updates .hamburger,
-body.page-about .hamburger,
-body.page-contact .hamburger,
-body.page-impressum .hamburger,
-body.page-privacy-policy .hamburger,
-body.page-404 .hamburger {
+.hamburger {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   z-index: 110;
-  outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-body.page-index .hamburger .bar,
-body.page-paintings .hamburger .bar,
-body.page-sculptures .hamburger .bar,
-body.page-cyanotype .hamburger .bar,
-body.page-new-updates .hamburger .bar,
-body.page-about .hamburger .bar,
-body.page-contact .hamburger .bar,
-body.page-impressum .hamburger .bar,
-body.page-privacy-policy .hamburger .bar,
-body.page-404 .hamburger .bar {
+.hamburger:focus { outline: none; }
+.hamburger:focus-visible { outline: 2px solid #18181b; outline-offset: 2px; }
+
+.hamburger .bar {
   display: block;
   width: 20px;
   height: 1.5px;
@@ -106,55 +91,16 @@ body.page-404 .hamburger .bar {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
-body.page-index .hamburger.active .bar:nth-child(1),
-body.page-paintings .hamburger.active .bar:nth-child(1),
-body.page-sculptures .hamburger.active .bar:nth-child(1),
-body.page-cyanotype .hamburger.active .bar:nth-child(1),
-body.page-new-updates .hamburger.active .bar:nth-child(1),
-body.page-about .hamburger.active .bar:nth-child(1),
-body.page-contact .hamburger.active .bar:nth-child(1),
-body.page-impressum .hamburger.active .bar:nth-child(1),
-body.page-privacy-policy .hamburger.active .bar:nth-child(1),
-body.page-404 .hamburger.active .bar:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
-
-body.page-index .hamburger.active .bar:nth-child(2),
-body.page-paintings .hamburger.active .bar:nth-child(2),
-body.page-sculptures .hamburger.active .bar:nth-child(2),
-body.page-cyanotype .hamburger.active .bar:nth-child(2),
-body.page-new-updates .hamburger.active .bar:nth-child(2),
-body.page-about .hamburger.active .bar:nth-child(2),
-body.page-contact .hamburger.active .bar:nth-child(2),
-body.page-impressum .hamburger.active .bar:nth-child(2),
-body.page-privacy-policy .hamburger.active .bar:nth-child(2),
-body.page-404 .hamburger.active .bar:nth-child(2) { opacity: 0; }
-
-body.page-index .hamburger.active .bar:nth-child(3),
-body.page-paintings .hamburger.active .bar:nth-child(3),
-body.page-sculptures .hamburger.active .bar:nth-child(3),
-body.page-cyanotype .hamburger.active .bar:nth-child(3),
-body.page-new-updates .hamburger.active .bar:nth-child(3),
-body.page-about .hamburger.active .bar:nth-child(3),
-body.page-contact .hamburger.active .bar:nth-child(3),
-body.page-impressum .hamburger.active .bar:nth-child(3),
-body.page-privacy-policy .hamburger.active .bar:nth-child(3),
-body.page-404 .hamburger.active .bar:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+.hamburger.active .bar:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
 /* =============================================================================
-   4. MOBILE NAV
-   Scoped to the same five pages.
+   4. MOBILE NAV (global – present on all pages)
    ============================================================================= */
 
 @media (max-width: 768px) {
-  body.page-index .hamburger,
-  body.page-paintings .hamburger,
-  body.page-sculptures .hamburger,
-  body.page-cyanotype .hamburger,
-  body.page-new-updates .hamburger,
-  body.page-about .hamburger,
-  body.page-contact .hamburger,
-  body.page-impressum .hamburger,
-  body.page-privacy-policy .hamburger,
-  body.page-404 .hamburger {
+  .hamburger {
     display: block;
     position: absolute;
     right: 16px;
@@ -162,16 +108,7 @@ body.page-404 .hamburger.active .bar:nth-child(3) { transform: translateY(-5.5px
     transform: translateY(-50%);
   }
 
-  body.page-index nav,
-  body.page-paintings nav,
-  body.page-sculptures nav,
-  body.page-cyanotype nav,
-  body.page-new-updates nav,
-  body.page-about nav,
-  body.page-contact nav,
-  body.page-impressum nav,
-  body.page-privacy-policy nav,
-  body.page-404 nav {
+  header nav {
     position: absolute;
     top: 100%;
     left: 0;
@@ -193,16 +130,7 @@ body.page-404 .hamburger.active .bar:nth-child(3) { transform: translateY(-5.5px
     z-index: 99;
   }
 
-  body.page-index nav.active,
-  body.page-paintings nav.active,
-  body.page-sculptures nav.active,
-  body.page-cyanotype nav.active,
-  body.page-new-updates nav.active,
-  body.page-about nav.active,
-  body.page-contact nav.active,
-  body.page-impressum nav.active,
-  body.page-privacy-policy nav.active,
-  body.page-404 nav.active {
+  header nav.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -317,18 +245,28 @@ footer a:hover { color: #a1a1aa; }
 
 .lb-cta {
   position: fixed;
-  bottom: 28px;
-  right: 36px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
-.lb-cta:hover { color: rgba(255, 255, 255, 0.9); }
+.lb-cta:hover {
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+}
 
 /* =============================================================================
    7. SHARED COMPONENTS
@@ -674,7 +612,7 @@ footer a:hover { color: #a1a1aa; }
 .first-row-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 60px 40px;
+  gap: 60px 40px;
   align-items: start;
   margin-bottom: 80px;
 }
@@ -682,7 +620,7 @@ footer a:hover { color: #a1a1aa; }
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 60px 40px;
+  gap: 60px 40px;
   align-items: start;
 }
 
@@ -782,11 +720,6 @@ body.page-index footer { margin-top: 4px; }
   body.page-about .about-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
   body.page-about .about-image img { max-width: 280px; }
   body.page-about .container { padding: 40px 20px; }
-  body.page-about .external-links-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 40px; }
-}
-
-@media (max-width: 480px) {
-  body.page-about .external-links-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Contact ── */
@@ -841,6 +774,8 @@ body.page-contact .submit-btn {
 }
 
 body.page-contact .submit-btn:hover { background: #3f3f46; }
+body.page-contact .submit-btn:focus { outline: none; }
+body.page-contact .submit-btn:focus-visible { outline: 2px solid #18181b; outline-offset: 3px; }
 body.page-contact .form-note { font-size: 10px; color: #a1a1aa; margin-top: 10px; }
 body.page-contact .form-message.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 body.page-contact .form-message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
@@ -859,7 +794,8 @@ body.page-privacy-policy h1,
 body.page-privacy-policy h2,
 body.page-privacy-policy .serif { font-style: italic; }
 
-body.page-impressum .content-text h1 { font-size: 38px; font-weight: 400; margin-bottom: 10px; }
+body.page-impressum .content-text h1,
+body.page-privacy-policy .content-text h1 { font-size: 38px; font-weight: 400; margin-bottom: 10px; }
 
 body.page-impressum .content-text h2,
 body.page-privacy-policy .content-text h2 {
@@ -915,7 +851,7 @@ body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-wei
 /* ── News & Updates ── */
 body.page-new-updates .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
 body.page-new-updates .news-text { line-height: 1.8; font-size: 15px; color: #3f3f46; }
-body.page-new-updates .page-title { font-size: 48px; margin: 10px 0 60px 0; font-weight: 400; text-align: center; }
+body.page-new-updates .page-title h1 { font-size: 48px; margin-top: 10px; font-weight: 400; }
 body.page-new-updates .news-text h2 { font-size: 28px; margin: 10px 0 20px 0; font-weight: 400; }
 body.page-new-updates .news-image img {
   width: 100%;
@@ -927,7 +863,7 @@ body.page-new-updates .news-image img {
 }
 
 @media (max-width: 768px) {
-  body.page-new-updates .page-title { font-size: 36px; margin-bottom: 40px; }
+  body.page-new-updates .page-title h1 { font-size: 36px; }
   body.page-new-updates .container { padding: 40px 20px; }
 }
 
@@ -1006,7 +942,8 @@ body.page-sculptures .grid img {
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-body.page-sculptures .image-wrapper:hover img { transform: scale(1.03); }
+body.page-sculptures .image-wrapper:hover img,
+body.page-sculptures .first-row-container .image-wrapper:hover img { transform: scale(1.03); }
 
 @media (max-width: 1000px) {
   body.page-sculptures .first-row-container .image-wrapper { height: 350px; }
