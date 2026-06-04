@@ -16,30 +16,41 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Matilde Cánepa González",
-      "url": "https://matilde-art-studio.com/",
-      "image": "https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg",
-      "sameAs": [
-        "https://www.instagram.com/artyenkanin/",
-        "https://www.saatchiart.com/en-de/all?query=Matilde+Canepa",
-        "https://www.artmajeur.com/matilde-canepa-gonzalez",
-        "https://www.facebook.com/matilde.canepa.10?ref=br_rs"
-      ],
-      "jobTitle": "Multidisciplinary Visual Artist",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Matilde Art Studio"
-      },
-      "description": "Multidisciplinary visual artist based in Berlin, exploring abstract painting, sculpture, and cyanotype prints.",
-      "homeLocation": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Berlin",
-          "addressCountry": "DE"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Matilde Cánepa González – Art Studio",
+          "url": "https://matilde-art-studio.com/",
+          "description": "Portfolio website of Berlin-based multidisciplinary visual artist Matilde Cánepa González.",
+          "author": {
+            "@type": "Person",
+            "name": "Matilde Cánepa González",
+            "url": "https://matilde-art-studio.com/about.html"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Matilde Cánepa González",
+          "url": "https://matilde-art-studio.com/about.html",
+          "image": "https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg",
+          "jobTitle": "Multidisciplinary Visual Artist",
+          "description": "Multidisciplinary visual artist based in Berlin, exploring abstract painting, sculpture, and cyanotype prints.",
+          "workLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Berlin",
+              "addressCountry": "DE"
+            }
+          },
+          "sameAs": [
+            "https://www.instagram.com/artyenkanin/",
+            "https://www.saatchiart.com/en-de/all?query=Matilde+Canepa",
+            "https://www.artmajeur.com/matilde-canepa-gonzalez",
+            "https://www.facebook.com/matilde.canepa.10?ref=br_rs"
+          ]
         }
-      }
+      ]
     }
     </script>
     <meta property="og:type" content="website">
@@ -64,8 +75,7 @@
       </button>
       <nav> <a href="index.html" class="active">Home</a> <a href="about.html">About</a>
         <a href="paintings.html">Paintings</a> <a href="sculptures.html">Sculptures</a>
-        <a href="cyanotype.html">Cyanotype</a> <a href="new-updates.html">News
-          &amp; Updates</a> <a href="contact.html">Contact</a> </nav>
+        <a href="cyanotype.html">Cyanotype</a> <a href="new-updates.html">Studio Journal</a> <a href="contact.html">Contact</a> </nav>
     </header>
     <div class="container">
       <section class="hero">
