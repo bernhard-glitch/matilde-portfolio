@@ -245,28 +245,18 @@ footer a:hover { color: #a1a1aa; }
 
 .lb-cta {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: block;
-  text-align: center;
-  padding: 14px 20px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  bottom: 28px;
+  right: 36px;
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: color 0.2s;
 }
 
-.lb-cta:hover {
-  background: rgba(0, 0, 0, 0.75);
-  color: #ffffff;
-}
+.lb-cta:hover { color: rgba(255, 255, 255, 0.9); }
 
 /* =============================================================================
    7. SHARED COMPONENTS
@@ -503,6 +493,13 @@ footer a:hover { color: #a1a1aa; }
   text-align: center;
   font-size: 13px;
   letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-message.is-visible {
+  display: block;
+  opacity: 1;
 }
 
 /* --- Slideshow (index) --- */
@@ -534,6 +531,56 @@ footer a:hover { color: #a1a1aa; }
 
 .slide-caption { display: none; }
 
+/* ── Hover overlay ── */
+.slideshow-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.45s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.slideshow-hover-overlay span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0);
+  transition: color 0.45s ease, transform 0.45s ease;
+  transform: translateY(6px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slideshow-hover-overlay span::after {
+  content: '→';
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0;
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
+.slideshow-wrapper:hover .slideshow-hover-overlay {
+  background: rgba(0, 0, 0, 0.30);
+}
+
+.slideshow-wrapper:hover .slideshow-hover-overlay span {
+  color: rgba(255, 255, 255, 0.93);
+  transform: translateY(0);
+}
+
+.slideshow-wrapper:hover .slideshow-hover-overlay span::after {
+  transform: translateX(5px);
+}
+
+/* ── Footer ── */
 .slideshow-footer {
   display: flex;
   align-items: center;
@@ -545,9 +592,18 @@ footer a:hover { color: #a1a1aa; }
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #71717a;
+  color: #18181b;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
+  border-bottom: 1px solid #18181b;
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.slideshow-caption-label:hover {
+  color: #a1a1aa;
+  border-color: #a1a1aa;
 }
 
 .slide-dots {
@@ -689,6 +745,14 @@ body.page-404 .btn-secondary:hover { background: #18181b; color: #ffffff; }
   body.page-404 .btn-group { justify-content: center; }
 }
 
+/* ── Image download protection (index, about, new-updates) ── */
+body.page-index .slideshow-wrapper img,
+body.page-about .about-image img,
+body.page-new-updates .news-image img {
+  pointer-events: none;
+  user-select: none;
+}
+
 /* ── About ── */
 body.page-about .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
@@ -823,6 +887,39 @@ body.page-index .hero {
 
 body.page-index .hero-text { line-height: 1.8; font-size: 15px; color: #3f3f46; }
 body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-weight: 400; }
+
+body.page-index .hero-cta { margin-top: 36px; }
+
+body.page-index .hero-cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+body.page-index .hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  color: #18181b;
+  border: 1px solid #18181b;
+  transition: background 0.2s, color 0.2s;
+}
+
+body.page-index .hero-btn:hover {
+  background: #18181b;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  body.page-index .hero-cta-buttons { justify-content: center; }
+}
 
 .external-links-header {
   text-align: center;

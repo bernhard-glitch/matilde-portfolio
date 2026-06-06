@@ -4,6 +4,7 @@
     <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://matilde-art-studio.com/impressum.html">
     <title>Impressum | Matilde Cánepa González</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
@@ -13,10 +14,10 @@
     <meta name="description" content="Legal Notice - Impressum - Information according to § 5 TMG">
       <link rel="icon" type="image/png" href="favicon.png">
     <meta property="og:type"        content="website">
-    <meta property="og:url"         content="https://www.matilde-art-studio.com/impressum.html">
+    <meta property="og:url"         content="https://matilde-art-studio.com/impressum.html">
     <meta property="og:title"       content="Impressum | Matilde Cánepa González">
     <meta property="og:description" content="Legal notice – Impressum – Matilde Cánepa González Art Studio Berlin.">
-    <meta property="og:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta property="og:image"       content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale"      content="en_US">
@@ -24,7 +25,7 @@
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="Impressum | Matilde Cánepa González">
     <meta name="twitter:description" content="Legal notice – Impressum – Matilde Cánepa González Art Studio Berlin.">
-    <meta name="twitter:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta name="twitter:image"       content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
   </head>
   <body class="page-impressum">
     <header> <a href="index.html" class="logo">Matilde Cánepa González</a>
@@ -57,7 +58,7 @@
         <p> The European Commission provides a platform for online dispute
           resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank"
 
-            rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br>
+            rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br>
           I am not required nor willing to participate in dispute resolution
           proceedings before a consumer arbitration board. </p>
         <h2>Liability for Content</h2>
@@ -93,5 +94,16 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     }
+
+    document.addEventListener('click', function(e) {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        if (nav.classList.contains('active') &&
+            !hamburger.contains(e.target) &&
+            !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
 </script> </body>
 </html>

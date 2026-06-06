@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://matilde-art-studio.com/contact.html">
     <title>Contact | Original Abstract Art by Matilde Canepa Gonzalez</title>
     <meta name="description" content="Interested in an original artwork? Contact Matilde Canepa Gonzalez directly about abstract paintings, sculptures, and cyanotype prints with insured worldwide shipping.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
-
       rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-      <link rel="icon" type="image/png" href="favicon.png">
-    <meta property="og:type"        content="website">
-    <meta property="og:url"         content="https://www.matilde-art-studio.com/contact.html">
-    <meta property="og:title"       content="Contact | Original Abstract Art by Matilde Cánepa González">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matilde-art-studio.com/contact.html">
+    <meta property="og:title" content="Contact | Original Abstract Art by Matilde Cánepa González">
     <meta property="og:description" content="Get in touch with Matilde Cánepa González about original artworks, exhibitions, and worldwide shipping.">
-    <meta property="og:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
-    <meta property="og:image:width"  content="1200">
+    <meta property="og:image" content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale"      content="en_US">
-    <meta property="og:site_name"   content="Matilde Cánepa González – Art Studio">
-    <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Contact | Original Abstract Art by Matilde Cánepa González">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Matilde Cánepa González – Art Studio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | Original Abstract Art by Matilde Cánepa González">
     <meta name="twitter:description" content="Get in touch with Matilde Cánepa González about original artworks, exhibitions, and worldwide shipping.">
-    <meta name="twitter:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta name="twitter:image" content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
   </head>
   <body class="page-contact">
-    <header> <a href="index.html" class="logo">Matilde Cánepa González</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
+        class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
       <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
         <a href="sculptures.html">Sculptures</a> <a href="cyanotype.html">Cyanotype</a>
-        <a href="new-updates.html">News &amp; Updates</a>
-        <a href="contact.html" class="active">Contact</a> </nav>
+        <a href="new-updates.html">Studio Journal</a> <a href="contact.html" class="active">Contact</a>
+      </nav>
     </header>
     <div class="container">
       <section class="contact-section">
@@ -43,18 +43,15 @@
         <div class="contact-form">
           <form id="contact-form" action="https://formspree.io/f/xbdwngae" method="POST">
             <div class="form-group"> <label for="name">Name</label> <input id="name"
-
-                name="name" placeholder="Your name" required="" type="text"> </div>
+                name="name" placeholder="Your name" required="" type="text" autocomplete="name"> </div>
             <div class="form-group"> <label for="email">Email</label> <input id="email"
-
-                name="email" placeholder="Your email address" required="" type="email">
+                name="email" placeholder="Your email address" required="" type="email" autocomplete="email">
             </div>
-            <div class="form-group"> <label for="subject">Subject</label> <input
-
-                id="subject" name="subject" placeholder="Subject" type="text"> </div>
+            <div class="form-group"> <label for="subject">How can I help you?</label>
+              <input id="subject" name="subject" placeholder="Subject" type="text" autocomplete="off">
+            </div>
             <div class="form-group"> <label for="message">Message</label> <textarea
-
-id="message" name="message" rows="5" placeholder="Your message" required=""></textarea>
+id="message" name="message" rows="5" placeholder="Your message" required="" autocomplete="off"></textarea>
             </div>
             <p class="form-note">* Name, email and message are required.</p>
             <button type="submit" class="submit-btn">Send Message</button>
@@ -84,9 +81,36 @@ id="message" name="message" rows="5" placeholder="Your message" required=""></te
         nav.classList.toggle('active');
     }
 
+    document.addEventListener('click', function(e) {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        if (nav.classList.contains('active') &&
+            !hamburger.contains(e.target) &&
+            !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+
     const form = document.getElementById('contact-form');
+    const msgSuccess = document.getElementById('form-success');
+    const msgError   = document.getElementById('form-error');
+
+    function showMsg(el, hideAfterMs = 5000) {
+        el.classList.add('is-visible');
+        setTimeout(function () {
+            el.classList.remove('is-visible');
+        }, hideAfterMs);
+    }
+
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
+
+        const btn = form.querySelector('.submit-btn');
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
         const data = new FormData(form);
         try {
             const response = await fetch(form.action, {
@@ -96,15 +120,18 @@ id="message" name="message" rows="5" placeholder="Your message" required=""></te
             });
             if (response.ok) {
                 form.reset();
-                document.getElementById('form-success').style.display = 'block';
-                document.getElementById('form-error').style.display = 'none';
+                msgError.classList.remove('is-visible');
+                showMsg(msgSuccess);
             } else {
-                document.getElementById('form-error').style.display = 'block';
-                document.getElementById('form-success').style.display = 'none';
+                msgSuccess.classList.remove('is-visible');
+                showMsg(msgError);
             }
         } catch (error) {
-            document.getElementById('form-error').style.display = 'block';
-            document.getElementById('form-success').style.display = 'none';
+            msgSuccess.classList.remove('is-visible');
+            showMsg(msgError);
+        } finally {
+            btn.disabled = false;
+            btn.textContent = originalText;
         }
     });
 
@@ -117,6 +144,5 @@ id="message" name="message" rows="5" placeholder="Your message" required=""></te
             if (subject) subject.value = 'Inquiry: ' + artwork;
         }
     })();
-</script>
-  </body>
+</script> </body>
 </html>

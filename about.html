@@ -4,6 +4,7 @@
     <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://matilde-art-studio.com/about.html">
     <meta name="description" content="Discover the artistic journey of Matilde Canepa Gonzalez, the creative mind behind Matilde Art Studio, and explore the inspirations behind her abstract artworks.">
     <title>Meet the Artist | The Story Behind Matilde Canepa Gonzalez</title>
@@ -14,10 +15,10 @@
     <meta name="keywords" content="abstract art, abstract painting, abstract sculptures">
       <link rel="icon" type="image/png" href="favicon.png">
     <meta property="og:type"        content="profile">
-    <meta property="og:url"         content="https://www.matilde-art-studio.com/about.html">
+    <meta property="og:url"         content="https://matilde-art-studio.com/about.html">
     <meta property="og:title"       content="Meet the Artist | Matilde Cánepa González">
     <meta property="og:description" content="Discover the artistic journey of Matilde Cánepa González – multidisciplinary visual artist born in Caracas, now based in Berlin, working in painting, sculpture, and cyanotype.">
-    <meta property="og:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta property="og:image"       content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale"      content="en_US">
@@ -25,11 +26,10 @@
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="Meet the Artist | Matilde Cánepa González">
     <meta name="twitter:description" content="Discover the artistic journey of Matilde Cánepa González – multidisciplinary visual artist born in Caracas, now based in Berlin, working in painting, sculpture, and cyanotype.">
-    <meta name="twitter:image"       content="https://www.matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta name="twitter:image"       content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
   </head>
   <body class="page-about">
-    <header> <a href="index.html" class="logo">Matilde Cánepa
-        González</a>
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
@@ -41,30 +41,30 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image"> <img src="images/matilde-canepa-gonzalez.jpg"
-            alt="Matilde Cánepa González, multidisciplinary visual artist , Latin American "
+            alt="Matilde Cánepa González, multidisciplinary visual artist, Latin American Artist"
             title="Matilde Cánepa González"> </div>
         <div class="about-text"> <span class="subtitle">The Artist</span>
           <h1>About me</h1>
-          <p data-start="0" data-end="208">I am a multidisciplinary visual
-            artist based in Berlin.<br data-start="55" data-end="58">
+          <p>I am a multidisciplinary visual
+            artist based in Berlin.<br>
             My work moves between sculpture, painting, installation, and poetic
             visual language — a quiet dialogue between material, memory, and
             inner landscapes.</p>
-          <p data-start="210" data-end="483">Born in Caracas, Venezuela, I
+          <p>Born in Caracas, Venezuela, I
             studied at the Cristóbal Rojas School of Fine Arts before continuing
             my artistic formation in Brazil and Argentina. For more than twenty
             years, I have developed a personal visual language shaped by
             reliefs, textures, signs, and symbolic forms.</p>
-          <p data-start="485" data-end="763">Through my work, I explore the
+          <p>Through my work, I explore the
             connection between nature, human consciousness, and archetypal
             imagery. Organic structures emerge through layers and materials,
             like fragments of an inner writing. A personal calligraphy runs
             through my sculptures and paintings as a poetic thread.</p>
-          <p data-start="765" data-end="970">I work with wood, ceramic,
+          <p>I work with wood, ceramic,
             pigments, gold leaf, ink, and assemblage techniques. I am drawn to
             the moment when material begins to speak — when surface, space, and
             form unfold into their own quiet narrative.</p>
-          <p data-start="972" data-end="1165" data-is-last-node="" data-is-only-node="">My
+          <p>My
             works have been exhibited across Europe, Latin America, and the
             United States, and are now created in my Berlin studio through an
             ongoing process of silence, observation, and transformation.</p>
@@ -72,7 +72,7 @@
       </div>
       <!-- BBK Mitgliedschaft -->
       <div class="bbk-block">
-        <a href="https://www.bbk-berlin.de/" target="_blank" rel="noopener">
+        <a href="https://www.bbk-berlin.de/" target="_blank" rel="noopener noreferrer">
           <img src="images/externe/bbk_symbol.png" alt="bbk – Berufsverband Bildender Künstler Berlins" title="bbk Berlin">
         </a>
         <p>I have been a member of the bbk – Berlin Association of Visual Artists – since 2025.</p>
@@ -98,6 +98,17 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     }
+
+    document.addEventListener('click', function(e) {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        if (nav.classList.contains('active') &&
+            !hamburger.contains(e.target) &&
+            !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
 </script>
   </body>
 </html>

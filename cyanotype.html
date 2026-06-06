@@ -4,6 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="google-site-verification" content="gV2_3hoXdBfQOgzoz6vobne_WMXd8y_ANbTb5TXee80">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://matilde-art-studio.com/cyanotype.html">
     <title>Experimental Cyanotype Art &amp; Prints | Matilde Cánepa González</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
@@ -128,10 +129,10 @@
   </script>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.matilde-art-studio.com/cyanotype.html">
+    <meta property="og:url" content="https://matilde-art-studio.com/cyanotype.html">
     <meta property="og:title" content="Experimental Cyanotype Art &amp; Prints | Matilde Cánepa González">
     <meta property="og:description" content="Original cyanotype artworks created with experimental techniques and organic plant materials in deep botanical blue tones by Matilde Cánepa González.">
-    <meta property="og:image" content="https://www.matilde-art-studio.com/images/cyanotype/Cyanotopy_01.jpg">
+    <meta property="og:image" content="https://matilde-art-studio.com/images/cyanotype/Cyanotopy_01.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -139,7 +140,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Experimental Cyanotype Art &amp; Prints | Matilde Cánepa González">
     <meta name="twitter:description" content="Original cyanotype artworks created with experimental techniques and organic plant materials in deep botanical blue tones by Matilde Cánepa González.">
-    <meta name="twitter:image" content="https://www.matilde-art-studio.com/images/cyanotype/Cyanotopy_01.jpg">
+    <meta name="twitter:image" content="https://matilde-art-studio.com/images/cyanotype/Cyanotopy_01.jpg">
   </head>
   <body class="page-cyanotype">
     <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
@@ -280,12 +281,12 @@
       <p>Available to purchase</p>
       <div class="cta-sell-links"> <a href="https://www.artmajeur.com/matilde-canepa-gonzalez"
 
-          target="_blank" rel="noopener"> <img src="images/externe/artmajeur.jpg"
+          target="_blank" rel="noopener noreferrer"> <img src="images/externe/artmajeur.jpg"
 
             alt="Artmajeur – Matilde Canepa Gonzalez" title="View on Artmajeur">
         </a> <a href="https://www.saatchiart.com/en-de/all?query=Matilde+Canepa"
 
-          target="_blank" rel="noopener"> <img src="images/externe/saatchiart.jpg"
+          target="_blank" rel="noopener noreferrer"> <img src="images/externe/saatchiart.jpg"
 
             alt="Saatchi Art – Matilde Canepa" title="View on Saatchi Art"> </a>
       </div>
@@ -308,6 +309,17 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     }
+
+    document.addEventListener('click', function(e) {
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('header nav');
+        if (nav.classList.contains('active') &&
+            !hamburger.contains(e.target) &&
+            !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
         // ── Lightbox ──
     (function () {
         const overlay  = document.getElementById('lbOverlay');
@@ -363,6 +375,14 @@
             img.src     = image.src;
             img.alt     = image.alt;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
+            // Dynamische aria-labels für Screenreader
+            const prevIdx   = (current - 1 + wrappers.length) % wrappers.length;
+            const nextIdx   = (current + 1) % wrappers.length;
+            const prevTitle = wrappers[prevIdx].querySelector('img').getAttribute('title') || 'Previous';
+            const nextTitle = wrappers[nextIdx].querySelector('img').getAttribute('title') || 'Next';
+            overlay.querySelector('.lb-prev').setAttribute('aria-label', 'Previous: ' + prevTitle.trim());
+            overlay.querySelector('.lb-next').setAttribute('aria-label', 'Next: ' + nextTitle.trim());
+
             // Bildtitel als URL-Parameter an contact.html übergeben
             const title = image.getAttribute('title') || '';
             const cta   = document.getElementById('lbCta');
@@ -370,6 +390,23 @@
                 cta.href = 'contact.html?artwork=' + encodeURIComponent('Cyanotype - ' + title.trim());
             }
         }
+
+        // Touch-Swipe
+        (function() {
+            var startX = 0;
+            var startY = 0;
+            overlay.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+            overlay.addEventListener('touchend', function(e) {
+                var dx = e.changedTouches[0].clientX - startX;
+                var dy = e.changedTouches[0].clientY - startY;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+                    lbNav(dx < 0 ? 1 : -1, { stopPropagation: function(){} });
+                }
+            }, { passive: true });
+        })();
 
         // Tastatur-Navigation
         document.addEventListener('keydown', function (e) {
