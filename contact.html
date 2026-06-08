@@ -60,9 +60,18 @@
       </nav>
     </header>
     <div class="container">
-      <section class="contact-section">
-        <p class="subtitle">Get in touch</p>
-        <h1>Contact</h1>
+      <div class="contact-grid">
+        <!-- Foto links -->
+        <div class="contact-photo">
+          <img loading="lazy" src="images/matilde-canepa-gonzalez.jpg"
+            alt="Matilde Cánepa González, multidisciplinary visual artist, Berlin"
+            title="Matilde Cánepa González">
+          <p class="contact-photo-caption">All questions are welcome.</p>
+        </div>
+        <!-- Formular rechts -->
+        <section class="contact-section">
+          <p class="subtitle">Get in touch</p>
+          <h1>Contact</h1>
         <div class="contact-form">
           <form id="contact-form" action="https://formspree.io/f/xbdwngae" method="POST">
             <div class="form-group"> <label for="name">Name</label> <input id="name"
@@ -87,7 +96,8 @@ id="message" name="message" rows="5" placeholder="Your message" required="" auto
         </div>
         <div class="email-link"> <a href="mailto:matildecanepagonzalez@gmail.com">matildecanepagonzalez@gmail.com</a>
         </div>
-      </section>
+        </section>
+      </div><!-- /.contact-grid -->
     </div>
     <footer>
       <p>© <span id="year"></span> Matilde Cánepa González. All rights

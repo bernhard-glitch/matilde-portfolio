@@ -809,6 +809,52 @@ body.page-contact .email-link { margin-top: 50px; font-size: 12px; letter-spacin
 body.page-contact .email-link a { color: #18181b; text-decoration: none; border-bottom: 1px solid #e4e4e7; padding-bottom: 2px; }
 body.page-contact .email-link a:hover { border-bottom-color: #18181b; }
 
+body.page-contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+body.page-contact .contact-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 110px;
+}
+
+body.page-contact .contact-photo img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.page-contact .contact-photo-caption {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #a1a1aa;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  body.page-contact .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  body.page-contact .contact-photo {
+    padding-top: 0;
+  }
+  body.page-contact .contact-photo img {
+    max-width: 180px;
+  }
+}
+
 /* ── Impressum & Privacy Policy ── */
 body.page-impressum .container,
 body.page-privacy-policy .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
