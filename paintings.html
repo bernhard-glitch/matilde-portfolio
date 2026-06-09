@@ -85,7 +85,7 @@
         "artworkSurface": "Paper",
         "width":  { "@type": "QuantitativeValue", "value": 32.5, "unitCode": "CMT" },
         "height": { "@type": "QuantitativeValue", "value": 46,   "unitCode": "CMT" },
-        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part1-abstract-painting-mixed%20media%20on%20paper.jpg",
+        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part1-abstract-painting-mixed-media-on-paper.jpg",
         "url": "https://matilde-art-studio.com/paintings.html"
       },
       {
@@ -96,7 +96,7 @@
         "artworkSurface": "Paper",
         "width":  { "@type": "QuantitativeValue", "value": 32.5, "unitCode": "CMT" },
         "height": { "@type": "QuantitativeValue", "value": 46,   "unitCode": "CMT" },
-        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed%20media%20on%20paper.jpg",
+        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed-media-on-paper.jpg",
         "url": "https://matilde-art-studio.com/paintings.html"
       },
       {
@@ -107,7 +107,7 @@
         "artworkSurface": "Paper",
         "width":  { "@type": "QuantitativeValue", "value": 32.5, "unitCode": "CMT" },
         "height": { "@type": "QuantitativeValue", "value": 46,   "unitCode": "CMT" },
-        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part3-abstract-painting-mixed%20media%20on%20paper.jpg",
+        "image": "https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-triptych-blue-part3-abstract-painting-mixed-media-on-paper.jpg",
         "url": "https://matilde-art-studio.com/paintings.html"
       },
       {
@@ -184,7 +184,7 @@
     </header>
     <div class="container">
       <div class="page-title">
-        <h1>Paintings</h1>
+        <h1>Paintings – Colour as a Living Force</h1>
         <div class="page-intro">
           <p>My paintings grow from layered textures and organic structures — acrylic, ink, and watercolor applied until something unexpected appears. Each work balances expressive gesture with quiet intention — atmosphere and depth finding their own way to the surface. Rooted in contemporary abstract art, these textured artworks bring a distinctive presence to modern interiors while inviting a closer encounter with color, form, and process.</p>
         </div>
@@ -256,7 +256,7 @@
         </div>
         <div class="gallery-row row-3">
           <div class="grid-item">
-            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part1-abstract-painting-mixed%20media%20on%20paper.jpg"
+            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part1-abstract-painting-mixed-media-on-paper.jpg"
 
                 alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 1"
 
@@ -267,7 +267,7 @@
               Size: 18,11 x 12,7 inch&nbsp;(46 x 32,5 cm)</div>
           </div>
           <div class="grid-item">
-            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed%20media%20on%20paper.jpg"
+            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part2-abstract-painting-mixed-media-on-paper.jpg"
 
                 alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 2"
 
@@ -278,7 +278,7 @@
               Size: 18,11 x 12,7 inch&nbsp;(46 x 32,5 cm)</div>
           </div>
           <div class="grid-item">
-            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part3-abstract-painting-mixed%20media%20on%20paper.jpg"
+            <div class="image-wrapper" data-lb> <img loading="lazy" src="images/paintings/matilde-canepa-gonzalez-triptych-blue-part3-abstract-painting-mixed-media-on-paper.jpg"
 
                 alt="Contemporary abstract triptych in blue and green tones featuring layered textures, circular forms, ink splatters, architectural sketches, and a central orange-yellow horizon. Part 3"
 
@@ -348,7 +348,8 @@
       <img class="lb-img" id="lbImg" src="" alt="Painting by Matilde Cánepa González – Abstract Art, Berlin">
       <button class="lb-arrow lb-next" onclick="lbNav(1, event)" aria-label="Next">&#x203A;</button>
       <span class="lb-counter" id="lbCounter"></span>
-      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in my work? Get in touch.</a>
+      <div class="lb-info" id="lbInfo"></div>
+      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in my work?<br>Get in touch with me.</a>
     </div>
     <div class="cta-block">
       <p>Any questions? · Simply get in touch</p>
@@ -424,6 +425,18 @@
             img.src     = image.src;
             img.alt     = image.alt;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
+
+            // Werk-Info links unten befüllen
+            const infoEl  = document.getElementById('lbInfo');
+            const infoSrc = el.nextElementSibling && el.nextElementSibling.classList.contains('image-info')
+                            ? el.nextElementSibling
+                            : el.closest('.grid-item') && el.closest('.grid-item').querySelector('.image-info');
+            if (infoEl && infoSrc) {
+                infoEl.innerHTML = infoSrc.innerHTML;
+            } else if (infoEl) {
+                infoEl.innerHTML = '';
+            }
+
             // Dynamische aria-labels für Screenreader
             const prevIdx   = (current - 1 + wrappers.length) % wrappers.length;
             const nextIdx   = (current + 1) % wrappers.length;

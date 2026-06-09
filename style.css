@@ -250,6 +250,27 @@ footer a:hover { color: #a1a1aa; }
   text-transform: uppercase;
 }
 
+.lb-info {
+  position: fixed;
+  bottom: 28px;
+  left: 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.9;
+  text-align: left;
+  pointer-events: none;
+  max-width: 40vw;
+}
+
+.lb-info strong {
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
 .lb-cta {
   position: fixed;
   bottom: 28px;
@@ -261,9 +282,15 @@ footer a:hover { color: #a1a1aa; }
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   transition: color 0.2s;
+  text-align: right;
+  line-height: 1.9;
 }
 
 .lb-cta:hover { color: rgba(255, 255, 255, 0.9); }
+
+@media (max-width: 600px) {
+  .lb-info { display: none; }
+}
 
 /* =============================================================================
    7. SHARED COMPONENTS
@@ -748,7 +775,7 @@ body.page-index footer { margin-top: 4px; }
 }
 
 /* ── Contact ── */
-body.page-contact .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+body.page-contact .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
 body.page-contact .contact-section { max-width: 600px; margin: 0 auto; text-align: center; }
 body.page-contact .contact-section h1 { font-size: 42px; font-style: italic; font-weight: 400; margin-bottom: 10px; }
 body.page-contact .contact-section p.subtitle { color: #a1a1aa; text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; margin-bottom: 50px; }
@@ -820,7 +847,7 @@ body.page-contact .contact-photo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 110px;
+  padding-top: 80px;
 }
 
 body.page-contact .contact-photo img {
@@ -901,9 +928,10 @@ body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-wei
 
 .hero-btns {
   display: flex;
-  gap: 12px;
+  gap: 32px;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin: 32px auto 0;
+  width: fit-content;
 }
 
 .hero-btn {
