@@ -1049,6 +1049,7 @@ body.page-paintings .grid-item { margin-bottom: 20px; }
 
 @media (max-width: 768px) {
   body.page-paintings .gallery-row { grid-template-columns: 1fr !important; }
+  body.page-paintings .image-wrapper { min-height: 250px; }
 }
 
 /* ── Cyanotype ── */
