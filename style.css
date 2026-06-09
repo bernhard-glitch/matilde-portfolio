@@ -142,6 +142,12 @@ nav a.active {
     visibility: visible;
     transform: translateY(0);
   }
+
+  header nav a {
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* =============================================================================
@@ -211,6 +217,11 @@ footer a:hover { color: #a1a1aa; }
   background: none;
   border: none;
   padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color 0.2s;
   z-index: 1010;
 }
