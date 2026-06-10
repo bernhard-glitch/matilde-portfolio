@@ -103,8 +103,8 @@ nav a.active {
   header { padding: 12px 20px; }
 
   .logo {
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 16px;
+    letter-spacing: 0.15em;
   }
 
   .hamburger {
@@ -1051,6 +1051,7 @@ body.page-paintings .grid-item { margin-bottom: 20px; }
   body.page-paintings .gallery-row { grid-template-columns: 1fr !important; }
   body.page-paintings .image-wrapper { min-height: 250px; }
   body.page-paintings .image-wrapper img { height: 100%; object-fit: contain; }
+  body.page-paintings .page-title h1 { font-size: 22px; }
 }
 
 /* ── Cyanotype ── */
@@ -1069,6 +1070,10 @@ body.page-cyanotype .gallery-grid .grid-item:nth-child(8) .image-wrapper img,
 body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper img {
   height: 100%;
   object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  body.page-cyanotype .page-title h1 { font-size: 22px; }
 }
 
 /* ── Sculptures ── */
@@ -1136,4 +1141,5 @@ body.page-sculptures .first-row-container .image-wrapper:hover img { transform: 
 @media (max-width: 600px) {
   body.page-sculptures .first-row-container .image-wrapper,
   body.page-sculptures .image-wrapper { height: 300px; }
+  body.page-sculptures .page-title h1 { font-size: 22px; }
 }
