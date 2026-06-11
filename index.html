@@ -10,6 +10,7 @@
     <meta name="author" content="Matilde Cánepa González">
     <title>Matilde Cánepa González – Abstract Art Berlin</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
@@ -248,6 +249,19 @@
         // Pause on touch (Mobile)
         wrapper.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
         wrapper.addEventListener('touchend', resetTimer, { passive: true });
+
+        // Swipe gesture (Mobile)
+        let touchStartX = 0;
+        wrapper.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        wrapper.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 40) {
+                diff > 0 ? goTo(current + 1) : goTo(current - 1);
+                resetTimer();
+            }
+        }, { passive: true });
 
         // Click on slideshow → navigate to gallery
         wrapper.style.cursor = 'pointer';

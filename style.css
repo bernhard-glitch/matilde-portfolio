@@ -103,8 +103,8 @@ nav a.active {
   header { padding: 12px 20px; }
 
   .logo {
-    font-size: 16px;
-    letter-spacing: 0.15em;
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
 
   .hamburger {
@@ -163,7 +163,7 @@ footer {
 
 footer p {
   font-size: 11px;
-  color: #a1a1aa;
+  color: #52525b;
   letter-spacing: 0.1em;
 }
 
@@ -284,7 +284,7 @@ footer a:hover { color: #a1a1aa; }
 
 .lb-cta {
   position: fixed;
-  bottom: 28px;
+  bottom: 58px;
   right: 36px;
   font-family: 'Inter', sans-serif;
   font-size: 10px;
@@ -332,7 +332,7 @@ footer a:hover { color: #a1a1aa; }
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #a1a1aa;
+  color: #52525b;
   font-weight: 600;
 }
 
@@ -426,7 +426,7 @@ footer a:hover { color: #a1a1aa; }
 
 .cta-block p {
   font-size: 13px;
-  color: #a1a1aa;
+  color: #52525b;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 14px 0;
@@ -587,17 +587,17 @@ footer a:hover { color: #a1a1aa; }
 }
 
 .slideshow-caption-label {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #71717a;
+  color: #18181b;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-decoration: none;
 }
 
 .slideshow-caption-label:hover {
-  color: #3f3f46;
+  color: #71717a;
 }
 
 .slide-dots {
@@ -789,7 +789,7 @@ body.page-index footer { margin-top: 4px; }
 body.page-contact .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
 body.page-contact .contact-section { max-width: 600px; margin: 0 auto; text-align: center; }
 body.page-contact .contact-section h1 { font-size: 42px; font-style: italic; font-weight: 400; margin-bottom: 10px; }
-body.page-contact .contact-section p.subtitle { color: #a1a1aa; text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; margin-bottom: 50px; }
+body.page-contact .contact-section p.subtitle { color: #52525b; text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; margin-bottom: 50px; }
 body.page-contact .contact-form { text-align: left; }
 body.page-contact .form-group { margin-bottom: 25px; }
 
@@ -840,7 +840,7 @@ body.page-contact .submit-btn:hover { background: #3f3f46; }
 body.page-contact .submit-btn:focus { outline: none; }
 body.page-contact .submit-btn:focus-visible { outline: 2px solid #18181b; outline-offset: 3px; }
 body.page-contact .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-body.page-contact .form-note { font-size: 10px; color: #a1a1aa; margin-top: 10px; }
+body.page-contact .form-note { font-size: 10px; color: #52525b; margin-top: 10px; }
 body.page-contact .form-message.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 body.page-contact .form-message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 body.page-contact .email-link { margin-top: 50px; font-size: 12px; letter-spacing: 0.1em; }
@@ -874,7 +874,7 @@ body.page-contact .contact-photo img {
 body.page-contact .contact-photo-caption {
   margin-top: 16px;
   font-size: 13px;
-  color: #a1a1aa;
+  color: #52525b;
   text-align: center;
   font-style: italic;
   line-height: 1.5;
@@ -975,7 +975,7 @@ body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-wei
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 17px;
-  color: #a1a1aa;
+  color: #52525b;
   letter-spacing: 0.05em;
   margin: 0;
 }
@@ -983,6 +983,9 @@ body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-wei
 @media (max-width: 768px) {
   body.page-index .hero { grid-template-columns: 1fr; text-align: center; gap: 40px; }
   body.page-index .container { padding: 40px 20px; }
+  body.page-index .hero-text h1 { font-size: 32px; }
+  .hero-btns { gap: 8px; }
+  .hero-btn { font-size: 10px; padding: 8px 10px; letter-spacing: 0.05em; }
 }
 
 @media (max-width: 480px) {
@@ -1029,6 +1032,8 @@ body.page-new-updates .news-image img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   max-width: 364px;
 }
+
+body.page-new-updates .news-image-narrow img { max-width: 308px; }
 
 @media (max-width: 768px) {
   body.page-new-updates .page-title h1 { font-size: 36px; }

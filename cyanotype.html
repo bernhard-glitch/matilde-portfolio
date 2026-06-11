@@ -130,6 +130,7 @@
   }
   </script>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matilde-art-studio.com/cyanotype.html">
     <meta property="og:title" content="Cyanotype Art – Matilde Cánepa González">
@@ -268,10 +269,9 @@
         aria-label="Previous">‹</button> <img class="lb-img" id="lbImg" src=""
 
         alt="Cyanotype print by Matilde Cánepa González – Berlin"> <button class="lb-arrow lb-next" onclick="lbNav(1, event)" aria-label="Next">›</button>
-      <span class="lb-counter" id="lbCounter"></span> <a class="lb-cta" id="lbCta"
-
-        href="contact.html" onclick="event.stopPropagation()">Interested in my
-        work? Get in touch.</a> </div>
+      <span class="lb-counter" id="lbCounter"></span>
+      <div class="lb-info" id="lbInfo"></div>
+      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in my work?<br>Get in touch with me.</a> </div>
     <div class="cta-block">
       <p>Any questions? · Simply get in touch</p>
       <a class="cta-inquire-btn" href="contact.html">Inquire about my artwork</a>
@@ -346,6 +346,18 @@
             img.src     = image.src;
             img.alt     = image.alt;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
+
+            // Werk-Info links unten befüllen
+            const infoEl  = document.getElementById('lbInfo');
+            const infoSrc = el.nextElementSibling && el.nextElementSibling.classList.contains('image-info')
+                            ? el.nextElementSibling
+                            : el.closest('.grid-item') && el.closest('.grid-item').querySelector('.image-info');
+            if (infoEl && infoSrc) {
+                infoEl.innerHTML = infoSrc.innerHTML;
+            } else if (infoEl) {
+                infoEl.innerHTML = '';
+            }
+
             // Dynamische aria-labels für Screenreader
             const prevIdx   = (current - 1 + wrappers.length) % wrappers.length;
             const nextIdx   = (current + 1) % wrappers.length;
