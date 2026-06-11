@@ -33,6 +33,7 @@ header {
   backdrop-filter: blur(10px);
   z-index: 100;
   border-bottom: 2px solid #ebebe8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,7 +267,7 @@ footer a:hover { color: #a1a1aa; }
   bottom: 28px;
   left: 36px;
   font-family: 'Inter', sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
@@ -326,6 +327,9 @@ footer a:hover { color: #a1a1aa; }
   text-align: center;
   margin-bottom: 60px;
 }
+
+/* Forced two-line break in gallery titles — mobile only */
+.title-break { display: none; }
 
 /* --- Subtitle label --- */
 .subtitle {
@@ -840,7 +844,7 @@ body.page-contact .submit-btn:hover { background: #3f3f46; }
 body.page-contact .submit-btn:focus { outline: none; }
 body.page-contact .submit-btn:focus-visible { outline: 2px solid #18181b; outline-offset: 3px; }
 body.page-contact .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-body.page-contact .form-note { font-size: 10px; color: #52525b; margin-top: 10px; }
+body.page-contact .form-note { font-size: 11px; color: #52525b; margin-top: 10px; }
 body.page-contact .form-message.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 body.page-contact .form-message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 body.page-contact .email-link { margin-top: 50px; font-size: 12px; letter-spacing: 0.1em; }
@@ -951,7 +955,7 @@ body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-wei
   border: 1px solid #18181b;
   background: transparent;
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1057,6 +1061,7 @@ body.page-paintings .grid-item { margin-bottom: 20px; }
   body.page-paintings .image-wrapper { min-height: 250px; }
   body.page-paintings .image-wrapper img { height: 100%; object-fit: contain; }
   body.page-paintings .page-title h1 { font-size: 22px; }
+  body.page-paintings .title-break { display: block; }
 }
 
 /* ── Cyanotype ── */
@@ -1079,6 +1084,7 @@ body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper img {
 
 @media (max-width: 768px) {
   body.page-cyanotype .page-title h1 { font-size: 22px; }
+  body.page-cyanotype .title-break { display: block; }
 }
 
 /* ── Sculptures ── */
@@ -1147,4 +1153,5 @@ body.page-sculptures .first-row-container .image-wrapper:hover img { transform: 
   body.page-sculptures .first-row-container .image-wrapper,
   body.page-sculptures .image-wrapper { height: 300px; }
   body.page-sculptures .page-title h1 { font-size: 22px; }
+  body.page-sculptures .title-break { display: block; }
 }
