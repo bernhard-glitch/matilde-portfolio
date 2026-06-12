@@ -316,7 +316,7 @@ footer a:hover { color: #a1a1aa; }
   font-size: 15px;
   color: #3f3f46;
   line-height: 1.85;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .page-intro p { margin: 0 0 18px 0; }
@@ -606,26 +606,43 @@ footer a:hover { color: #a1a1aa; }
 
 .slide-dots {
   display: flex;
-  gap: 6px;
+  gap: 0;
   align-items: center;
 }
 
 .slide-dots span {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #d4d4d8;
   cursor: pointer;
   transition: background 0.3s;
-  padding: 9px;
+  /* Sichtbarer Punkt 8px; Tap-Zone 20×36px – vor allem in der Höhe großzügig.
+     gap:0 + margin:-14px 0 => die Tap-Zonen kacheln lückenlos und ohne
+     Überlappung (jeder Tap trifft genau einen Punkt); die Höhe "blutet" nach
+     oben/unten aus, sodass die Footer-Zeile so kompakt bleibt wie zuvor. */
+  padding: 14px 6px;
+  margin: -14px 0;
   background-clip: content-box;
   box-sizing: content-box;
-  margin: -9px;
 }
 
 .slide-dots span.active {
   background: #18181b;
   background-clip: content-box;
+}
+
+/* Desktop: Punkte + Abstand etwas größer. Mobil (<=768px) bleibt unverändert,
+   da dies nur ab 769px greift. white-space:nowrap (Label) und flex-shrink:0
+   (Punkte) verhindern einen Zeilenumbruch der Footer-Zeile. */
+@media (min-width: 769px) {
+  .slideshow-caption-label { white-space: nowrap; }
+  .slide-dots { flex-shrink: 0; }
+  .slide-dots span {
+    width: 10px;
+    height: 10px;
+    padding: 14px 7px;   /* Tap-Zone 24×38px, Mittenabstand 24px, sichtbare Lücke 14px */
+  }
 }
 
 /* --- News row (new-updates) --- */
