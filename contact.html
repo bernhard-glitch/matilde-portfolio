@@ -20,7 +20,7 @@
     <meta property="og:url" content="https://matilde-art-studio.com/contact.html">
     <meta property="og:title" content="Contact | Original Abstract Art by Matilde Cánepa González">
     <meta property="og:description" content="Get in touch with Matilde Cánepa González about original artworks, exhibitions, and worldwide shipping.">
-    <meta property="og:image" content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta property="og:image" content="https://matilde-art-studio.com/images/diverse/matilde-canepa-gonzalez.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact | Original Abstract Art by Matilde Cánepa González">
     <meta name="twitter:description" content="Get in touch with Matilde Cánepa González about original artworks, exhibitions, and worldwide shipping.">
-    <meta name="twitter:image" content="https://matilde-art-studio.com/images/matilde-canepa-gonzalez.jpg">
+    <meta name="twitter:image" content="https://matilde-art-studio.com/images/diverse/matilde-canepa-gonzalez.jpg">
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +64,7 @@
       <div class="contact-grid">
         <!-- Foto links -->
         <div class="contact-photo">
-          <img loading="lazy" src="images/matilde-canepa-gonzalez.jpg"
+          <img loading="lazy" src="images/diverse/matilde-canepa-gonzalez.jpg"
             alt="Matilde Cánepa González, multidisciplinary visual artist, Berlin"
             title="Matilde Cánepa González">
           <p class="contact-photo-caption">All questions are welcome.</p>
@@ -155,6 +155,9 @@ id="message" name="message" rows="3" placeholder="Your message" required="" auto
             });
             if (response.ok) {
                 form.reset();
+                sessionStorage.removeItem('inquiryArtworks');
+                const msgField = document.getElementById('message');
+                if (msgField) msgField.rows = 3;
                 msgError.classList.remove('is-visible');
                 showMsg(msgSuccess);
             } else {
@@ -170,13 +173,51 @@ id="message" name="message" rows="3" placeholder="Your message" required="" auto
         }
     });
 
-    // Artwork-Parameter aus URL auslesen und Subject-Feld befüllen
+    // Werk-Anfragen sammeln: mehrere Werke möglich, Duplikate werden gefiltert.
+    // Die Auswahl lebt in der sessionStorage, bis sie abgeschickt oder der Tab
+    // geschlossen wird.
     (function () {
+        const STORAGE_KEY = 'inquiryArtworks';
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+
+        // Bisher gemerkte Werke laden
+        let works = [];
+        try {
+            works = JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || [];
+        } catch (e) {
+            works = [];
+        }
+
+        // Neu angeklicktes Werk aus der URL übernehmen (ohne Duplikate)
         const params  = new URLSearchParams(window.location.search);
-        const artwork = params.get('artwork');
-        if (artwork) {
-            const subject = document.getElementById('subject');
-            if (subject) subject.value = 'Inquiry: ' + artwork;
+        const artwork = (params.get('artwork') || '').trim();
+        if (artwork && works.indexOf(artwork) === -1) {
+            works.push(artwork);
+        }
+        try {
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(works));
+        } catch (e) {}
+
+        if (!works.length) return;
+
+        // Ein Werk: persönlicher Betreff wie bisher, Nachricht bleibt frei.
+        if (works.length === 1) {
+            if (subject) subject.value = 'Inquiry: ' + works[0];
+            return;
+        }
+
+        // Mehrere Werke: Betreff knapp halten, Werkliste in die Nachricht.
+        if (subject) subject.value = 'Artwork inquiry';
+
+        // Nur befüllen, wenn das Feld noch leer ist – eigener Text bleibt erhalten.
+        if (message && message.value.trim() === '') {
+            const list = works.map(function (w) { return '– ' + w; }).join('\n');
+            message.value = "I'm interested in the following works:\n" + list + '\n\n';
+
+            // Feldhöhe einmalig an die Liste anpassen (3–12 Zeilen).
+            const lines = message.value.split('\n').length + 1;
+            message.rows = Math.min(Math.max(lines, 3), 12);
         }
     })();
 </script> </body>

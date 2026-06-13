@@ -1172,3 +1172,24 @@ body.page-sculptures .first-row-container .image-wrapper:hover img { transform: 
   body.page-sculptures .page-title h1 { font-size: 22px; }
   body.page-sculptures .title-break { display: block; }
 }
+
+/* ===== Ausgelagerte Inline-Styles (Aufräumung Block C) ===== */
+body.page-404 .artwork-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.page-about .cta-block {
+  border-top: 0;
+}
+
+body.page-index .slideshow-wrapper .slide img.slide-img-top {
+  object-position: top;
+}
+
+body.page-paintings .row-3-asym {
+  grid-template-columns: 0.85fr 1.3fr 0.85fr;
+}
