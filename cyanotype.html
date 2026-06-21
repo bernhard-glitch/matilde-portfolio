@@ -142,12 +142,13 @@
     <meta name="twitter:image" content="https://matilde-art-studio.com/images/cyanotype/Cyanotopy_01.jpg">
   </head>
   <body class="page-cyanotype">
-    <header> <a href="/" class="logo">Matilde Cánepa González</a> <button
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
         class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
-      <nav> <a href="/">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
+      <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
         <a href="sculptures.html">Sculptures</a> <a href="cyanotype.html" class="active">Cyanotype</a>
+        <a href="videos.html">YouTube Videos</a>
         <a href="new-updates.html">Studio Journal</a> <a href="contact.html">Contact</a>
       </nav>
     </header>
@@ -259,6 +260,24 @@
       <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested
         in my work?<br>
         Get in touch with me.</a> </div>
+    <section class="series-note">
+      <h2>Cyanotype — written by the sun</h2>
+      <p>I created these cyanotypes in Tenerife, where the days linger longer
+        and the sun carries a different intensity than in Berlin. Here, the
+        Atlantic light became more than a tool; it became a silent companion in
+        the process.</p>
+      <p>In these pieces, I let the sun write. Leaves, petals and fragments of
+        the island's living landscape rest upon paper and fabric. I welcome
+        experimentation — layering materials, inviting unexpected reactions,
+        allowing chance and chemistry to leave their own traces. Each work
+        becomes a quiet conversation between intention and surrender, between
+        what I place and what the light chooses to reveal.</p>
+      <p>What remains is that deep Prussian blue — a colour that seems to hold
+        both ocean and sky within it.</p>
+      <p>For me, cyanotype is another form of writing: a calligraphy of sun and
+        shadow, a bridge between my inner world and the landscape where I was
+        born.</p>
+    </section>
     <div class="cta-block">
       <p>Any questions? · Simply get in touch</p>
       <a class="cta-inquire-btn" href="contact.html">Inquire about my artwork</a>
@@ -282,6 +301,7 @@
     (function () {
         const overlay  = document.getElementById('lbOverlay');
         const img      = document.getElementById('lbImg');
+        const imgAltFallback = img.alt;
         const counter  = document.getElementById('lbCounter');
         const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
         let   current  = 0;
@@ -331,7 +351,7 @@
             const el    = wrappers[current];
             const image = el.querySelector('img');
             img.src     = image.src;
-            img.alt     = image.alt;
+            img.alt     = image.alt || imgAltFallback;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
 
             // Werk-Info links unten befüllen

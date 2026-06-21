@@ -169,12 +169,12 @@
     <meta name="twitter:image" content="https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-blue-serie1-abstract-painting-mixed-media-on-paper.jpg">
   </head>
   <body class="page-paintings">
-    <header> <a href="/" class="logo">Matilde Cánepa González</a> <button class="hamburger"
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button class="hamburger"
         id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()"> <span class="bar"></span>
         <span class="bar"></span> <span class="bar"></span> </button>
-      <nav> <a href="/">Home</a> <a href="about.html">About</a> <a href="paintings.html"
+      <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html"
           class="active">Paintings</a> <a href="sculptures.html">Sculptures</a>
-        <a href="cyanotype.html">Cyanotype</a> <a href="new-updates.html">Studio
+        <a href="cyanotype.html">Cyanotype</a> <a href="videos.html">YouTube Videos</a> <a href="new-updates.html">Studio
           Journal</a> <a href="contact.html">Contact</a> </nav>
     </header>
     <div class="container">
@@ -330,6 +330,12 @@
       <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested
         in my work?<br>
         Get in touch with me.</a> </div>
+    <section class="series-note">
+      <h2>Paintings — written by water</h2>
+      <p>My paintings are abstract, yet never without memory. Standing before a blank sheet of paper, I am never quite sure whether I am beginning something or returning to something long known — and it is within that uncertainty that the first gesture appears.</p>
+      <p>I have always loved paper. It receives everything: it lets watercolor bloom and wander, carries the density of acrylic, draws ink deep into its fibres, and holds the soft breath of pastel. Each material asks for a different patience, and I follow where it leads.</p>
+      <p>Colour, for me, is not decoration but temperature and direction — yellows that warm, blues that draw inward, reds that refuse silence. I layer them slowly, until what remains is not the image of a place but the trace of an encounter: a meeting of intention and chance, where a hidden poetic geography of the inner world rises quietly to the surface.</p>
+    </section>
     <div class="cta-block">
       <p>Any questions? · Simply get in touch</p>
       <a class="cta-inquire-btn" href="contact.html">Inquire about my artwork</a>
@@ -353,6 +359,7 @@
     (function () {
         const overlay  = document.getElementById('lbOverlay');
         const img      = document.getElementById('lbImg');
+        const imgAltFallback = img.alt;
         const counter  = document.getElementById('lbCounter');
         const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
         let   current  = 0;
@@ -402,7 +409,7 @@
             const el    = wrappers[current];
             const image = el.querySelector('img');
             img.src     = image.src;
-            img.alt     = image.alt;
+            img.alt     = image.alt || imgAltFallback;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
 
             // Werk-Info links unten befüllen

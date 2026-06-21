@@ -140,13 +140,14 @@
     <meta name="twitter:image" content="https://matilde-art-studio.com/images/sculptures/matilde-canepa-gonzalez-sculpture-totem-blue-line-mixed-technique-on-wood.webp">
   </head>
   <body class="page-sculptures">
-    <header> <a href="/" class="logo">Matilde Cánepa González</a> <button
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
 
         class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
-      <nav> <a href="/">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
+      <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
         <a href="sculptures.html" class="active">Sculptures</a> <a href="cyanotype.html">Cyanotype</a>
+        <a href="videos.html">YouTube Videos</a>
         <a href="new-updates.html">Studio Journal</a> <a href="contact.html">Contact</a>
       </nav>
     </header>
@@ -270,6 +271,11 @@
       <div class="lb-info" id="lbInfo"></div>
       <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested in my work?<br>Get in touch with me.</a>
     </div>
+    <section class="series-note">
+      <h2>Sculptures — wood, clay, and gold</h2>
+      <p>My sculptures begin with materials that carry their own memory. Most are rooted in 'Tea' wood — the heartwood of the Canary Island pine — dark, resin-rich, slow-growing, and ancient. Into this wood I bring high-fired ceramic, shaped, pressed, and marked with relief-like symbols that seem to emerge from the clay rather than being placed upon it.</p>
+      <p>Gold leaf catches the light, drawing attention to what feels essential, while fields of color lend warmth, tension, or stillness to each form. Whether a totem, a relief, or a double-sided assemblage, these mixed-media sculptures — created between Tenerife and my Berlin studio — bring together wood, clay, and gold in works that speak quietly of memory, place, and transformation.</p>
+    </section>
     <!-- CTA Block -->
     <div class="cta-block">
       <p>Any questions? · Simply get in touch</p>
@@ -295,6 +301,7 @@
     (function () {
         const overlay  = document.getElementById('lbOverlay');
         const img      = document.getElementById('lbImg');
+        const imgAltFallback = img.alt;
         const counter  = document.getElementById('lbCounter');
         const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
         let   current  = 0;
@@ -344,7 +351,7 @@
             const el    = wrappers[current];
             const image = el.querySelector('img');
             img.src     = image.src;
-            img.alt     = image.alt;
+            img.alt     = image.alt || imgAltFallback;
             counter.textContent = (current + 1) + ' / ' + wrappers.length;
 
             // Werk-Info links unten befüllen

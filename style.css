@@ -213,6 +213,9 @@ footer {
   margin-top: 60px;
 }
 
+/* Halve the gap above the footer line when it follows a CTA block */
+.cta-block + footer { margin-top: 15px; }
+
 footer p {
   font-size: 11px;
   color: #52525b;
@@ -372,6 +375,29 @@ footer a:hover { color: #a1a1aa; }
 
 .page-intro p { margin: 0 0 18px 0; }
 .page-intro p:last-child { margin-bottom: 0; }
+
+/* --- Series note (text block below gallery, above CTA) --- */
+.series-note {
+  max-width: 1075px;
+  margin: 0 auto;
+  padding: 24px 20px 16px;
+  border-top: 2px solid #ebebe8;
+  text-align: center;
+  font-size: 15px;
+  color: #3f3f46;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.series-note h2 {
+  font-size: 26px;
+  font-weight: 400;
+  color: #18181b;
+  margin: 0 0 24px 0;
+}
+
+.series-note p { margin: 0 0 18px 0; }
+.series-note p:last-child { margin-bottom: 0; }
 
 /* --- Page title block --- */
 .page-title {
@@ -1243,4 +1269,53 @@ body.page-index .slideshow-wrapper .slide img.slide-img-top {
 
 body.page-paintings .row-3-asym {
   grid-template-columns: 0.85fr 1.3fr 0.85fr;
+}
+
+/* ============================================================================= */
+/*   VIDEOS PAGE (.video-grid) — aus videos.html hierher verschoben (Live-Gang) */
+/* ============================================================================= */
+body.page-videos .container { max-width: 1200px; margin: 0 auto; padding: 20px 30px; }
+body.page-videos .page-title h1 { font-size: 38px; font-style: italic; font-weight: 400; margin-bottom: 20px; }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 30px;
+}
+.video-card { display: flex; flex-direction: column; }
+.video-thumb {
+  display: block;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+.video-thumb:hover { opacity: 0.9; }
+.video-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.video-card h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.4;
+  margin: 18px 0 10px 0;
+}
+.video-card p {
+  font-size: 13px;
+  color: #3f3f46;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+.video-card p:last-child { margin-bottom: 0; }
+.video-card .text-pending { color: #a1a1aa; font-style: italic; }
+
+@media (max-width: 980px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .video-grid { grid-template-columns: 1fr; }
+  body.page-videos .page-title h1 { font-size: 22px; }
 }
