@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://matilde-art-studio.com/new-updates.html">
     <meta property="og:title" content="Studio Journal – Matilde Cánepa González, Berlin">
     <meta property="og:description" content="New works, exhibitions, and reflections from the studio of Matilde Cánepa González – multidisciplinary artist based in Berlin.">
-    <meta property="og:image" content="https://matilde-art-studio.com/images/news-updates/Ratwaage_A.jpg">
+    <meta property="og:image" content="https://matilde-art-studio.com/images/news-updates/shape_your_life_a_clay_modeling_workshop.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Studio Journal – Matilde Cánepa González, Berlin">
     <meta name="twitter:description" content="New works, exhibitions, and reflections from the studio of Matilde Cánepa González – multidisciplinary artist based in Berlin.">
-    <meta name="twitter:image" content="https://matilde-art-studio.com/images/news-updates/Ratwaage_A.jpg">
+    <meta name="twitter:image" content="https://matilde-art-studio.com/images/news-updates/shape_your_life_a_clay_modeling_workshop.jpg">
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,15 +40,15 @@
     "blogPost": [
       {
         "@type": "BlogPosting",
-        "headline": "Artistic Paths Between Caracas and Berlin",
-        "description": "Exhibition at Ratswaage Lankwitz, Berlin – every Sunday from 23 May to 21 June 2026.",
-        "image": "https://matilde-art-studio.com/images/news-updates/Ratwaage_A.jpg",
+        "headline": "Shape Your Life – A Clay Modeling Workshop",
+        "description": "A creative clay modeling workshop in Lankwitz, Berlin – July 11, 2026. Open to everyone, no previous experience required.",
+        "image": "https://matilde-art-studio.com/images/news-updates/shape_your_life_a_clay_modeling_workshop.webp",
         "url": "https://matilde-art-studio.com/new-updates.html",
         "author": {
           "@type": "Person",
           "name": "Matilde Cánepa González"
         },
-        "datePublished": "2026-05-23"
+        "datePublished": "2026-07-11"
       },
       {
         "@type": "BlogPosting",
@@ -94,27 +94,29 @@
       <div class="page-title">
         <h1>Studio Journal</h1>
       </div>
-      <!-- REIHE 1: Ausstellungen -->
+      <!-- REIHE 1: Workshop -->
       <section class="news-row">
-        <div class="news-image"> <img src="images/news-updates/Ratwaage_A.jpg"
-            alt="Exhibition 'Artistic Paths Between Caracas and Berlin' at Ratswaage Lankwitz, Berlin" title="Exhibition Ratwaage 2026"> </div>
-        <div class="news-text"> <span class="subtitle">Upcoming Exhibition /
+        <div class="news-image"> <img src="images/news-updates/shape_your_life_a_clay_modeling_workshop.webp"
+            alt="Shape Your Life – clay modeling workshop with Matilde Cánepa González, Lankwitz Berlin" title="Clay Modeling Workshop – Lankwitz 2026"> </div>
+        <div class="news-text"> <span class="subtitle">Upcoming News /
             Berlin 2026</span>
-          <h2>Artistic Paths Between Caracas and Berlin</h2>
-          <p>Hello dear neighbors,</p>
-          <p>I warmly invite you to visit my exhibition.</p>
-          <p>My name is Matilde Cánepa González. I am a multidisciplinary artist
-            from Venezuela, currently living in Berlin. For over 30 years, I
-            have combined influences from Latin America and Europe in my
-            work—spanning painting, artist books, and sculpture. This
-            exhibition, titled “Artistic Paths Between Caracas and Berlin:
-            Encounters Between Painting and Book Art,” reflects this ongoing
-            dialogue.</p>
-          <p>I look forward to meeting you, sharing conversations, and enjoying
-            an afternoon of art, colors, and tea or coffee together.</p>
-          <p>Location: Ratswaage Lankwitz, Charlottenstr. 64<br>
-            Every Sunday, 23 May – 21 June 2026<br>
-            from 2.00 pm to 5.00 pm</p>
+          <h2>Shape Your Life – A Clay Modeling Workshop</h2>
+          <p>Dear Neighbors,</p>
+          <p>I am an artist and art teacher and warmly invite you to a creative
+            clay modeling workshop in Lankwitz.</p>
+          <p>As a native Spanish speaker, I speak German, English, and Spanish.
+            In clay modeling, the focus is not on perfection but on the joy of
+            creating with your hands in a relaxed and friendly atmosphere. The
+            workshop is open to everyone who would like to explore their
+            creativity. No previous experience is required.</p>
+          <p>Location: Ratswaage, Lankwitz (corner of Charlottenstraße and
+            Amalienstraße)<br>
+            Date: July 11, 2026, 3:00–5:00 p.m.</p>
+          <p>Places are limited, and registration is binding. Please send me a
+            short message for further details, including participation fees.</p>
+          <p>Please register by email at</p>
+          <div class="email-link"> <a id="reg-mail" href="contact.html">the contact page</a> </div>
+          <p>I look forward to meeting you!</p>
         </div>
       </section>
       <hr class="news-divider">
@@ -201,6 +203,16 @@
             nav.classList.remove('active');
         }
     });
+
+    // E-Mail-Adresse erst zur Laufzeit zusammensetzen - kein Klartext im Quelltext.
+    (function () {
+        var a = document.getElementById('reg-mail');
+        if (!a) return;
+        var addr = 'matildecanepagonzalez' + '@' + 'gmail.com';
+        a.href = 'mailto:' + addr;
+        a.textContent = addr;
+    })();
     </script>
+    <script src="back-to-top.js" defer></script>
   </body>
 </html>

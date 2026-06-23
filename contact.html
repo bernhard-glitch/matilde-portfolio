@@ -36,7 +36,6 @@
         "@type": "Person",
         "name": "Matilde Cánepa González",
         "url": "https://matilde-art-studio.com/about.html",
-        "email": "matildecanepagonzalez@gmail.com",
         "jobTitle": "Multidisciplinary Visual Artist",
         "homeLocation": {
           "@type": "Place",
@@ -99,7 +98,7 @@ id="message" name="message" rows="3" placeholder="Your message" required="" auto
               wrong. Please try again or send an email directly. </div>
           </form>
         </div>
-        <div class="email-link"> <a href="mailto:matildecanepagonzalez@gmail.com">matildecanepagonzalez@gmail.com</a>
+        <div class="email-link"> <a id="email-link" href="#contact-form">Send me an email</a>
         </div>
         </section>
       </div><!-- /.contact-grid -->
@@ -223,6 +222,15 @@ id="message" name="message" rows="3" placeholder="Your message" required="" auto
             const lines = message.value.split('\n').length + 1;
             message.rows = Math.min(Math.max(lines, 3), 12);
         }
+    })();
+
+    // E-Mail-Adresse erst zur Laufzeit zusammensetzen - kein Klartext im Quelltext.
+    (function () {
+        var a = document.getElementById('email-link');
+        if (!a) return;
+        var addr = 'matildecanepagonzalez' + '@' + 'gmail.com';
+        a.href = 'mailto:' + addr;
+        a.textContent = addr;
     })();
 </script> </body>
 </html>
