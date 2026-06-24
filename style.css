@@ -1239,6 +1239,8 @@ body.page-new-updates .news-row { align-items: start; }
 body.page-new-updates .news-text { line-height: 1.8; font-size: 15px; color: #3f3f46; }
 body.page-new-updates .page-title h1 { font-size: 38px; font-style: italic; font-weight: 400; margin-bottom: 20px; }
 body.page-new-updates .news-text h2 { font-size: 28px; margin: 10px 0 20px 0; font-weight: 400; }
+body.page-new-updates .essay-intro  { margin-top: 11px; }
+body.page-new-updates .essay-closing { margin-bottom: 0; }
 body.page-new-updates .news-image img {
   width: 100%;
   height: auto;

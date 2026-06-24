@@ -297,6 +297,17 @@
           nav.classList.toggle('active');
       }
 
+      document.addEventListener('click', function(e) {
+          const hamburger = document.getElementById('hamburger');
+          const nav = document.querySelector('header nav');
+          if (nav.classList.contains('active') &&
+              !hamburger.contains(e.target) &&
+              !nav.contains(e.target)) {
+              hamburger.classList.remove('active');
+              nav.classList.remove('active');
+          }
+      });
+
           // ── Lightbox ──
     (function () {
         const overlay  = document.getElementById('lbOverlay');
