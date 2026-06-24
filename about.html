@@ -83,31 +83,87 @@
             alt="Matilde Cánepa González, multidisciplinary visual artist, Latin American Artist"
             title="Matilde Cánepa González"> </div>
         <div class="about-text"> <span class="subtitle">The Artist</span>
-          <h1>About me</h1>
-          <p>I am a multidisciplinary visual
-            artist based in Berlin.<br>
-            My work moves between sculpture, painting, installation, and poetic
-            visual language — a quiet dialogue between material, memory, and
-            inner landscapes.</p>
-          <p>Born in Caracas, Venezuela, I
-            studied at the Cristóbal Rojas School of Fine Arts before continuing
-            my artistic formation in Brazil and Argentina. For more than twenty
-            years, I have developed a personal visual language shaped by
-            reliefs, textures, signs, and symbolic forms.</p>
-          <p>Through my work, I explore the
-            connection between nature, human consciousness, and archetypal
-            imagery. Organic structures emerge through layers and materials,
-            like fragments of an inner writing. A personal calligraphy runs
-            through my sculptures and paintings as a poetic thread.</p>
-          <p>I work with wood, ceramic,
-            pigments, gold leaf, ink, and assemblage techniques. I am drawn to
-            the moment when material begins to speak — when surface, space, and
-            form unfold into their own quiet narrative.</p>
-          <p>My
-            works have been exhibited across Europe, Latin America, and the
-            United States, and are now created in my Berlin studio through an
-            ongoing process of silence, observation, and transformation.</p>
+          <h1>From Caracas to Berlin</h1>
+          <p>I first came to Berlin in 2001 — not to stay, but to present my
+            work. The piece, <em>Eine Tür unter dem Himmel von Berlin</em>
+            (A Door Beneath the Berlin Sky), was inspired by a film that stayed
+            with me for years, with angels above a divided city and questions
+            of arrival. The exhibition took place at the Brazilian Cultural
+            Institute within a show on religious syncretism from the Caribbean
+            and Brazil. I did not know then the city would become my home.</p>
+          <p>I was born in Caracas and trained at the Cristóbal Rojas School
+            of Fine Arts. From there I moved through Brazil and Argentina,
+            developing techniques, materials, and a visual language shaped by
+            Caribbean, Indigenous, and Latin American influences that I still
+            use today.</p>
+          <p>Before Berlin, there was Tenerife, where I developed
+            <em>Cartografia Orgánica</em>, a travelling exhibition, and where
+            a personal connection began to draw me north. Years later, I chose
+            Berlin — not as a compromise, but as a decision. The move felt less
+            like relocation and more like recognition.</p>
+          <p>Today I work from my Berlin studio across abstract painting,
+            sculpture, and cyanotype — three practices exploring the same
+            questions in different languages. Works from this studio have been
+            shown across Europe, Latin America, and the United States.</p>
+          <p>I live by art. It has always been a bridge between my inner world
+            and the outside world.</p>
         </div>
+      </div>
+      <!-- Syncretism Exhibition Block -->
+      <hr class="section-divider section-divider--spaced">
+      <div class="syncretism-block">
+        <div class="syncretism-grid">
+          <div class="syncretism-text">
+            <span class="subtitle">Exhibition · Berlin 2001</span>
+            <h2>Religious Syncretism in the Caribbean and Brazil</h2>
+            <p>In the summer of 2001, the ICBRA – Instituto Cultural Brasileiro
+              (Brazilian Cultural Institute) in Berlin presented the group
+              exhibition <em>Religious Syncretism in the Caribbean and
+              Brazil</em>. Among the participating artists was Matilde Cánepa
+              González, a Venezuelan-born artist living and working in Berlin,
+              whose work has long engaged with the spiritual and cultural
+              heritage of Latin America.</p>
+            <p>The exhibition traced the historical entanglements between the
+              Caribbean and Brazil — belief systems that emerged from the
+              encounter of African religions, Indigenous traditions, and
+              European Catholicism. These are not museum pieces. They are living
+              traditions that continue to shape how people mark birth, death,
+              and everything in between across much of Latin America.</p>
+          </div>
+          <div class="syncretism-slideshow">
+            <div class="sync-slideshow-wrapper">
+              <div class="sync-slide active">
+                <img loading="lazy"
+                  src="images/diverse/a_door-under-the_sky_of_berlin_1.webp"
+                  alt="Religious Syncretism exhibition Berlin 2001 – work by Matilde Cánepa González, image 1">
+              </div>
+              <div class="sync-slide">
+                <img loading="lazy"
+                  src="images/diverse/a_door-under-the_sky_of_berlin_2.webp"
+                  alt="Religious Syncretism exhibition Berlin 2001 – work by Matilde Cánepa González, image 2">
+              </div>
+              <div class="sync-slide">
+                <img loading="lazy"
+                  src="images/diverse/a_door-under-the_sky_of_berlin_3.webp"
+                  alt="Religious Syncretism exhibition Berlin 2001 – work by Matilde Cánepa González, image 3">
+              </div>
+              <div class="sync-slide">
+                <img loading="lazy"
+                  src="images/diverse/a_door-under-the_sky_of_berlin_4.webp"
+                  alt="Religious Syncretism exhibition Berlin 2001 – work by Matilde Cánepa González, image 4">
+              </div>
+              <button class="sync-arrow sync-arrow-prev" aria-label="Previous image">&#8249;</button>
+              <button class="sync-arrow sync-arrow-next" aria-label="Next image">&#8250;</button>
+            </div>
+            <div class="sync-dots" id="syncDots"></div>
+          </div>
+        </div>
+        <p class="syncretism-full">In Matilde Cánepa González's paintings and
+          sculptures from this period, symbols from Caribbean and Indigenous
+          cosmologies appear alongside Catholic iconography — not as
+          illustration, but as something more personal: a visual vocabulary
+          rooted in her formative years in Venezuela. The work does not explain
+          syncretism. It embodies it.</p>
       </div>
       <!-- BBK Mitgliedschaft -->
       <div class="bbk-block">
@@ -137,6 +193,41 @@
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
     }
+
+    // ── Syncretism Slideshow ──
+    (function() {
+        const slides = document.querySelectorAll('.sync-slide');
+        const dotsContainer = document.getElementById('syncDots');
+        const prevBtn = document.querySelector('.sync-arrow-prev');
+        const nextBtn = document.querySelector('.sync-arrow-next');
+        if (!slides.length || !dotsContainer) return;
+        let current = 0;
+        let timer;
+
+        slides.forEach(function(_, i) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
+        });
+
+        function goTo(n) {
+            slides[current].classList.remove('active');
+            dotsContainer.children[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dotsContainer.children[current].classList.add('active');
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(function() { goTo(current + 1); }, 9000);
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); resetTimer(); });
+        if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); resetTimer(); });
+
+        resetTimer();
+    })();
 
     document.addEventListener('click', function(e) {
         const hamburger = document.getElementById('hamburger');
