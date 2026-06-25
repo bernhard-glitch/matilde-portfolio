@@ -602,6 +602,12 @@ footer a:hover { color: #a1a1aa; }
 
 .syncretism-slideshow { width: 100%; }
 
+.sync-slideshow-outer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .sync-slideshow-wrapper {
   position: relative;
   width: 100%;
@@ -626,35 +632,16 @@ footer a:hover { color: #a1a1aa; }
   display: block;
 }
 
-.sync-dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-}
 
-.sync-dots span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #d4d4d8;
-  cursor: default;
-  transition: background 0.3s;
-}
-
-.sync-dots span.active { background: #18181b; }
 
 .sync-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.06);
   border: none;
   color: #71717a;
   font-size: 22px;
   line-height: 1;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -662,11 +649,10 @@ footer a:hover { color: #a1a1aa; }
   justify-content: center;
   transition: background 0.2s, color 0.2s;
   padding: 0;
+  flex-shrink: 0;
 }
 
-.sync-arrow:hover { background: rgba(255, 255, 255, 0.95); color: #18181b; }
-.sync-arrow-prev { left: 8px; }
-.sync-arrow-next { right: 8px; }
+.sync-arrow:hover { background: rgba(0, 0, 0, 0.12); color: #18181b; }
 
 .syncretism-full {
   font-size: 15px;
@@ -1047,6 +1033,8 @@ body.page-contact .submit-btn:focus { outline: none; }
 body.page-contact .submit-btn:focus-visible { outline: 2px solid #18181b; outline-offset: 3px; }
 body.page-contact .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 body.page-contact .form-note { font-size: 11px; color: #52525b; margin-top: 10px; }
+body.page-contact .form-note--required { font-size: 12px; font-weight: 600; margin-top: 8px; }
+body.page-contact .form-note--privacy { margin-top: 12px; }
 body.page-contact .form-message.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; font-weight: 600; }
 body.page-contact .form-message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; font-weight: 600; }
 body.page-contact .email-link { margin-top: 50px; font-size: 12px; letter-spacing: 0.1em; }
