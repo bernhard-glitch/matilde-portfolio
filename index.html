@@ -118,10 +118,10 @@
                 alt="Pendulum – sculpture of wood stoneware gold leaf">
               <div class="slide-caption">Sculptures</div>
             </div>
-            <div class="slide"> <img loading="lazy" src="images/cyanotype/Cyanotopy_07.webp" alt="Experimental cyanotype with flying birds, delicate grasses and yellow colour accents on a blue ground.">
+            <div class="slide"> <img loading="lazy" src="images/cyanotype/matilde-canepa-gonzalez-cyanotype-birds-flying-botanical-gold.webp" alt="Cyanotype print with birds flying through botanical elements and gold accents by Matilde Cánepa González">
               <div class="slide-caption">Cyanotype</div>
             </div>
-            <div class="slide"> <img loading="lazy" src="images/cyanotype/Cyanotopy_06.webp" alt="Cyanotype print of delicate grasses and the silhouette of a butterfly on a blue background.">
+            <div class="slide"> <img loading="lazy" src="images/cyanotype/matilde-canepa-gonzalez-cyanotype-floral-stems-yellow-circles.webp" alt="Cyanotype print of floral stems and yellow circles by Matilde Cánepa González">
               <div class="slide-caption">Cyanotype</div>
             </div>
             <div class="slide"> <img loading="lazy" src="images/news-updates/matilde-canepa-gonzalez-fragments-of-memory.png"
@@ -129,7 +129,7 @@
                 alt="Fragment of a Memory – fired ceramic sculpture">
               <div class="slide-caption">News</div>
             </div>
-            <div class="slide"> <img loading="lazy" src="images/news-updates/matilde-canepa-gonzalez-Great_Totem.jpg"
+            <div class="slide"> <img loading="lazy" src="images/news-updates/matilde-canepa-gonzalez_great_totem.jpg"
 
                 alt="Large Totem – sculpture in the studio">
               <div class="slide-caption">News</div>
@@ -240,16 +240,27 @@
 
         // Swipe gesture (Mobile)
         let touchStartX = 0;
+        let didSwipe = false;
         wrapper.addEventListener('touchstart', function(e) {
             touchStartX = e.changedTouches[0].screenX;
+            didSwipe = false;
         }, { passive: true });
         wrapper.addEventListener('touchend', function(e) {
             const diff = touchStartX - e.changedTouches[0].screenX;
             if (Math.abs(diff) > 40) {
+                didSwipe = true;
                 diff > 0 ? goTo(current + 1) : goTo(current - 1);
                 resetTimer();
             }
         }, { passive: true });
+
+        // Click on slide → navigate to gallery (desktop + mobile, skip if swipe)
+        wrapper.addEventListener('click', function() {
+            if (!didSwipe && captionLabel.href && captionLabel.href !== '#') {
+                window.location.href = captionLabel.href;
+            }
+            didSwipe = false;
+        });
 
         // Build dots
         slides.forEach(function(_, i) {
