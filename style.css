@@ -1274,13 +1274,19 @@ body.page-cyanotype .grid-item { margin-bottom: 20px; }
 
 body.page-cyanotype .gallery-grid .grid-item:nth-child(7) .image-wrapper,
 body.page-cyanotype .gallery-grid .grid-item:nth-child(8) .image-wrapper,
-body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper {
+body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(10) .image-wrapper,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(11) .image-wrapper,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(12) .image-wrapper {
   height: 420px;
 }
 
 body.page-cyanotype .gallery-grid .grid-item:nth-child(7) .image-wrapper img,
 body.page-cyanotype .gallery-grid .grid-item:nth-child(8) .image-wrapper img,
-body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper img {
+body.page-cyanotype .gallery-grid .grid-item:nth-child(9) .image-wrapper img,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(10) .image-wrapper img,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(11) .image-wrapper img,
+body.page-cyanotype .gallery-grid .grid-item:nth-child(12) .image-wrapper img {
   height: 100%;
   object-fit: contain;
 }
@@ -1345,6 +1351,27 @@ body.page-sculptures .grid img {
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+body.page-sculptures .row-sculptures-2 {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+}
+
+body.page-sculptures .row-sculptures-3 {
+  grid-template-columns: 1fr 1.6fr 1.2fr;
+}
+
+body.page-sculptures .row-sculptures-3 .image-wrapper {
+  height: auto;
+}
+
+body.page-sculptures .row-sculptures-3 img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: unset;
+}
+
 body.page-sculptures .image-wrapper:hover img,
 body.page-sculptures .first-row-container .image-wrapper:hover img { transform: scale(1.03); }
 
@@ -1378,6 +1405,16 @@ body.page-index .slideshow-wrapper .slide img.slide-img-top {
 
 body.page-paintings .row-3-asym {
   grid-template-columns: 0.85fr 1.3fr 0.85fr;
+}
+
+body.page-paintings .row-primavera {
+  grid-template-columns: 1536fr 1091fr 1213fr;
+  align-items: end;
+}
+
+body.page-paintings .row-tres-obras {
+  grid-template-columns: 1414fr 1317fr 1431fr;
+  align-items: end;
 }
 
 /* ============================================================================= */
