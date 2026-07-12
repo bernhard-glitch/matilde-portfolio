@@ -608,6 +608,16 @@ footer a:hover { color: #a1a1aa; }
 
 .sync-arrow:hover { background: rgba(0, 0, 0, 0.12); color: #18181b; }
 
+/* --- artbook.berlin Review slideshow (16:9, uncropped, smaller than index hero) --- */
+.artbook-slideshow-wrapper {
+  aspect-ratio: 16 / 9;
+  max-width: 420px;
+  margin: 0 auto;
+  background: #f7f7f5;
+}
+
+.artbook-slideshow-wrapper .sync-slide img { object-fit: contain; }
+
 .syncretism-full {
   font-size: 15px;
   line-height: 1.8;
