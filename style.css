@@ -354,6 +354,20 @@ footer a:hover { color: #a1a1aa; }
 
 .lb-cta:hover { color: rgba(255, 255, 255, 0.9); }
 
+/* ===================================================================
+   BEGIN Lightbox-Info-Block ausblenden (Titel/Technique/Size/Year)
+   Betrifft: .lb-info in der Großansicht auf paintings.html, sculptures.html,
+   cyanotype.html. Der rechte CTA-Block ".lb-cta" ("Interested in my work?")
+   bleibt unberührt.
+   Zum Rückgängigmachen: diesen Block bis "END" löschen.
+   =================================================================== */
+.lb-info {
+  display: none;
+}
+/* ===================================================================
+   END Lightbox-Info-Block ausblenden
+   =================================================================== */
+
 @media (max-width: 600px) {
   .lb-info { display: none; }
 }
