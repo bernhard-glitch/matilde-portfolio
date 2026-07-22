@@ -200,7 +200,7 @@
   </head>
   <body class="page-cyanotype">
     <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button
-        class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        class="hamburger" id="hamburger" aria-label="Toggle Menu">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
       <nav> <a href="index.html">Home</a> <a href="about.html">About</a> <a href="paintings.html">Paintings</a>
@@ -340,14 +340,14 @@
         </div>
       </div>
     </div>
-    <div class="lb-overlay" id="lbOverlay"> <button class="lb-close" onclick="lbCloseNow()"
-        aria-label="Close">✕</button> <button class="lb-arrow lb-prev" onclick="lbNav(-1, event)"
+    <div class="lb-overlay" id="lbOverlay" data-category="Cyanotype"> <button class="lb-close"
+        aria-label="Close">✕</button> <button class="lb-arrow lb-prev"
         aria-label="Previous">‹</button> <img class="lb-img" id="lbImg" src=""
         alt="Cyanotype print by Matilde Cánepa González – Berlin"> <button class="lb-arrow lb-next"
-        onclick="lbNav(1, event)" aria-label="Next">›</button> <span class="lb-counter"
+        aria-label="Next">›</button> <span class="lb-counter"
         id="lbCounter"></span>
       <div class="lb-info" id="lbInfo"></div>
-      <a class="lb-cta" id="lbCta" href="contact.html" onclick="event.stopPropagation()">Interested
+      <a class="lb-cta" id="lbCta" href="contact.html">Interested
         in my work?<br>
         Get in touch with me.</a> </div>
     <section class="series-note">
@@ -369,7 +369,7 @@
         born.</p>
     </section>
     <div class="cta-block">
-      <p>Any questions? · Simply get in touch</p>
+      <p>Interested in a cyanotype piece ? · Simply get in touch</p>
       <a class="cta-inquire-btn" href="contact.html">Inquire about my artwork</a>
     </div>
     <footer>
@@ -378,124 +378,9 @@
       <p> <a href="contact.html">Contact</a> | <a href="impressum.html">Impressum</a>
         | <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
-    <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function toggleMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.querySelector('header nav');
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    }
-        // ── Lightbox ──
-    (function () {
-        const overlay  = document.getElementById('lbOverlay');
-        const img      = document.getElementById('lbImg');
-        const imgAltFallback = img.alt;
-        const counter  = document.getElementById('lbCounter');
-        const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
-        let   current  = 0;
-
-        // Bilder registrieren
-        wrappers.forEach(function (el, i) {
-            el.addEventListener('click', function () { lbOpen(i); });
-        });
-
-        window.lbOpen = function (i) {
-            current = i;
-            lbShow();
-            overlay.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-        };
-
-        window.lbCloseNow = function () {
-            overlay.classList.remove('is-open');
-            document.body.style.overflow = '';
-        };
-
-        function lbClose(e) {
-            if (e.target.closest('.lb-close, .lb-arrow, .lb-cta')) return;
-            if (e.target === overlay || e.target === img) {
-                lbCloseNow();
-                return;
-            }
-            const r = img.getBoundingClientRect();
-            if (e.clientX >= r.left && e.clientX <= r.right &&
-                e.clientY >= r.top && e.clientY <= r.bottom) {
-                lbCloseNow();
-            }
-        }
-        overlay.addEventListener('click', lbClose, true);
-
-        window.lbNav = function (dir, e) {
-            e.stopPropagation();
-            current = (current + dir + wrappers.length) % wrappers.length;
-            img.classList.add('fade');
-            setTimeout(function () {
-                lbShow();
-                img.classList.remove('fade');
-            }, 220);
-        };
-
-        function lbShow() {
-            const el    = wrappers[current];
-            const image = el.querySelector('img');
-            img.src     = image.src;
-            img.alt     = image.alt || imgAltFallback;
-            counter.textContent = (current + 1) + ' / ' + wrappers.length;
-
-            // Werk-Info links unten befüllen
-            const infoEl  = document.getElementById('lbInfo');
-            const infoSrc = el.nextElementSibling && el.nextElementSibling.classList.contains('image-info')
-                            ? el.nextElementSibling
-                            : el.closest('.grid-item') && el.closest('.grid-item').querySelector('.image-info');
-            if (infoEl && infoSrc) {
-                infoEl.innerHTML = infoSrc.innerHTML;
-            } else if (infoEl) {
-                infoEl.innerHTML = '';
-            }
-
-            // Dynamische aria-labels für Screenreader
-            const prevIdx   = (current - 1 + wrappers.length) % wrappers.length;
-            const nextIdx   = (current + 1) % wrappers.length;
-            const prevTitle = wrappers[prevIdx].querySelector('img').getAttribute('title') || 'Previous';
-            const nextTitle = wrappers[nextIdx].querySelector('img').getAttribute('title') || 'Next';
-            overlay.querySelector('.lb-prev').setAttribute('aria-label', 'Previous: ' + prevTitle.trim());
-            overlay.querySelector('.lb-next').setAttribute('aria-label', 'Next: ' + nextTitle.trim());
-
-            // Bildtitel als URL-Parameter an contact.html übergeben
-            const title = image.getAttribute('title') || '';
-            const cta   = document.getElementById('lbCta');
-            if (cta && title) {
-                cta.href = 'contact.html?artwork=' + encodeURIComponent('Cyanotype - ' + title.trim());
-            }
-        }
-
-        // Touch-Swipe
-        (function() {
-            var startX = 0;
-            var startY = 0;
-            overlay.addEventListener('touchstart', function(e) {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-            }, { passive: true });
-            overlay.addEventListener('touchend', function(e) {
-                var dx = e.changedTouches[0].clientX - startX;
-                var dy = e.changedTouches[0].clientY - startY;
-                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-                    lbNav(dx < 0 ? 1 : -1, { stopPropagation: function(){} });
-                }
-            }, { passive: true });
-        })();
-
-        // Tastatur-Navigation
-        document.addEventListener('keydown', function (e) {
-            if (!overlay.classList.contains('is-open')) return;
-            if (e.key === 'ArrowRight') lbNav(1,  { stopPropagation: function(){} });
-            if (e.key === 'ArrowLeft')  lbNav(-1, { stopPropagation: function(){} });
-            if (e.key === 'Escape')     lbCloseNow();
-        });
-    })();
-</script>
-    <script src="back-to-top.js" defer></script> </body>
+    
+    <script src="back-to-top.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="lightbox.js" defer></script>
+  </body>
 </html>

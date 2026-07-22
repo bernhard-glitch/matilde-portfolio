@@ -69,7 +69,7 @@
     <meta name="twitter:image" content="https://matilde-art-studio.com/images/paintings/matilde-canepa-gonzalez-transparency-1-abstract-painting-mixed-media-on-paper.jpg">
   </head>
   <body class="page-index">
-    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+    <header> <a href="index.html" class="logo">Matilde Cánepa González</a> <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
       <nav> <a href="index.html" class="active">Home</a> <a href="about.html">About</a>
@@ -78,8 +78,10 @@
     </header>
     <div class="container">
       <section class="hero">
-        <div class="hero-text"> <span class="subtitle">Multidisciplinary Artist</span>
-          <h1>Abstract Art in Berlin – <br class="title-break">Where Art Becomes Dialogue</h1>
+        <div class="hero-text"> <span class="subtitle">Matilde Cánepa González — Contemporary Artist in Berlin</span>
+          <h1>Abstract Painting &amp;&nbsp;Sculpture</h1>
+          <p class="hero-intro"> Working across abstract painting and sculpture — with cyanotype as an ongoing exploration. </p>
+          <a href="paintings.html" class="hero-cta-btn">Explore the Collections →</a>
           <p> I am a multidisciplinary artist based in Berlin — working across
             abstract painting, sculpture, and cyanotype. </p>
           <p> For me, art is a bridge between my inner world and the outside
@@ -170,26 +172,6 @@
         | <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
     <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function toggleMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.querySelector('header nav');
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    }
-
-    document.addEventListener('click', function(e) {
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.querySelector('header nav');
-        if (nav.classList.contains('active') &&
-            !hamburger.contains(e.target) &&
-            !nav.contains(e.target)) {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-        }
-    });
-
     // ── Slideshow ──
     (function() {
         const slides = document.querySelectorAll('.slide');
@@ -292,5 +274,7 @@
         resetTimer();
     })();
 </script>
+    <script src="script.js" defer></script>
+    <script src="back-to-top.js" defer></script>
   </body>
 </html>

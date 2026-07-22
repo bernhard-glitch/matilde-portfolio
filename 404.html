@@ -31,7 +31,7 @@
     <!-- ══ HEADER ══ -->
     <header>
       <a href="index.html" class="logo">Matilde Cánepa González</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
         <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </button>
       <nav>
@@ -85,26 +85,7 @@
       </p>
     </footer>
 
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      function toggleMenu() {
-          const hamburger = document.getElementById('hamburger');
-          const nav = document.querySelector('header nav');
-          hamburger.classList.toggle('active');
-          nav.classList.toggle('active');
-      }
-    document.addEventListener('click', function(e) {
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.querySelector('header nav');
-        if (nav.classList.contains('active') &&
-            !hamburger.contains(e.target) &&
-            !nav.contains(e.target)) {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-        }
-    });
-    </script>
-
+        <script src="script.js" defer></script>
+    <script src="back-to-top.js" defer></script>
   </body>
 </html>

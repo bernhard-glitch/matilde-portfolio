@@ -1166,6 +1166,36 @@ body.page-index .hero {
 body.page-index .hero-text { line-height: 1.8; font-size: 15px; color: #3f3f46; }
 body.page-index .hero-text h1 { font-size: 48px; margin: 10px 0 30px 0; font-weight: 400; }
 
+/* --- Hero intro line (short, scannable lead-in before the bio paragraphs) --- */
+.hero-intro {
+  font-size: 16px;
+  font-weight: 500;
+  color: #18181b;
+  margin: 0 0 28px 0;
+}
+
+/* --- Hero CTA button (visual language reused from .cta-inquire-btn) --- */
+.hero-cta-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 0 32px 0;
+  padding: 14px 32px;
+  border: 1px solid #18181b;
+  background: #f8f7f3;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #18181b;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-cta-btn:hover {
+  background: #ece8df;
+}
+
 
 .external-links-header {
   text-align: center;
@@ -1433,16 +1463,16 @@ body.page-videos .page-title h1 { font-size: 38px; font-style: italic; font-weig
 .video-thumb {
   display: block;
   overflow: hidden;
-  transition: opacity 0.2s ease;
 }
-.video-thumb:hover { opacity: 0.9; }
 .video-thumb img {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
 }
+.video-thumb:hover img { transform: scale(1.05); }
 .video-card h2 {
   font-size: 15px;
   font-weight: 700;
