@@ -27,3 +27,16 @@
         }
     });
 })();
+
+// E-Mail-Adresse erst zur Laufzeit zusammensetzen - kein Klartext im Quelltext.
+// Deckt beide auf der Seite vorkommenden IDs ab (contact.html: 'email-link',
+// new-updates.html: 'reg-mail'); Seiten ohne passendes Element werden übersprungen.
+(function () {
+    ['email-link', 'reg-mail'].forEach(function (id) {
+        var a = document.getElementById(id);
+        if (!a) return;
+        var addr = 'matildecanepagonzalez' + '@' + 'gmail.com';
+        a.href = 'mailto:' + addr;
+        a.textContent = addr;
+    });
+})();
