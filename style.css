@@ -498,6 +498,11 @@ footer a:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2p
 
 .image-wrapper:hover img { transform: scale(1.05); }
 
+.image-wrapper:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
 /* --- Image info caption --- */
 .image-info {
   margin-top: 12px;
@@ -689,6 +694,13 @@ footer a:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2p
   max-width: 420px;
   margin: 0 auto;
   background: var(--color-bg-cream);
+}
+
+/* Nur auf Desktop-Breite nach unten rücken, auf Höhe der Überschrift
+   "artbook Berlin 2025". Mobil (gestapeltes Layout) bleibt unverändert,
+   da dort Bild und Text ohnehin direkt aufeinander folgen. */
+@media (min-width: 769px) {
+  .artbook-slideshow-wrapper { margin-top: 63px; }
 }
 
 .artbook-slideshow-wrapper .sync-slide img { object-fit: contain; }

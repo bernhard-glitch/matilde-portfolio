@@ -17,9 +17,15 @@
     const category = overlay.dataset.category || '';
     let current = 0;
 
-    // Bilder registrieren
+    // Bilder registrieren (Maus/Touch per Klick, Tastatur per Enter/Leertaste)
     wrappers.forEach(function (el, i) {
         el.addEventListener('click', function () { lbOpen(i); });
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault(); // verhindert Scrollen der Seite bei Leertaste
+                lbOpen(i);
+            }
+        });
     });
 
     function lbOpen(i) {
