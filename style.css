@@ -701,6 +701,11 @@ footer a:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2p
    da dort Bild und Text ohnehin direkt aufeinander folgen. */
 @media (min-width: 769px) {
   .artbook-slideshow-wrapper { margin-top: 63px; }
+
+  /* "The Magic of Totems" (Reihe 3): Bild-Oberkante auf Höhe der
+     Überschriften-Unterkante, gleiche Rechnung wie beim artbook-Block,
+     da Unterzeile + h2 dieselbe CSS-Struktur haben. Mobil unverändert. */
+  section[aria-labelledby="heading-row3"] .news-image { margin-top: 63px; }
 }
 
 .artbook-slideshow-wrapper .sync-slide img { object-fit: contain; }
