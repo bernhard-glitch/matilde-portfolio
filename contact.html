@@ -17,8 +17,8 @@
     <meta property="og:title" content="Contact | Original Abstract Art by Matilde Cánepa González">
     <meta property="og:description" content="Get in touch with Matilde Cánepa González about original artworks, exhibitions, and worldwide shipping.">
     <meta property="og:image" content="https://matilde-art-studio.com/images/diverse/matilde-canepa-gonzalez.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="675">
+    <meta property="og:image:height" content="1200">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Matilde Cánepa González – Art Studio">
     <meta name="twitter:card" content="summary_large_image">
@@ -89,7 +89,7 @@
         <div class="contact-photo">
           <img loading="lazy" src="images/diverse/matilde-canepa-gonzalez.jpg"
             alt="Matilde Cánepa González, multidisciplinary visual artist, Berlin"
-            title="Matilde Cánepa González">
+            title="Matilde Cánepa González" width="675" height="1200">
           <p class="contact-photo-caption">All questions are welcome.</p>
         </div>
         <!-- Formular rechts -->
@@ -222,14 +222,8 @@ id="message" name="message" rows="3" placeholder="Your message" required="" auto
         }
     })();
 
-    // E-Mail-Adresse erst zur Laufzeit zusammensetzen - kein Klartext im Quelltext.
-    (function () {
-        var a = document.getElementById('email-link');
-        if (!a) return;
-        var addr = 'matildecanepagonzalez' + '@' + 'gmail.com';
-        a.href = 'mailto:' + addr;
-        a.textContent = addr;
-    })();
+    // Hinweis: Die E-Mail-Adresse wird zentral in script.js zur Laufzeit
+    // zusammengesetzt (ID 'email-link') – hier bewusst nicht doppelt.
 </script>
     <script src="script.js" defer></script>
     <script src="back-to-top.js" defer></script>

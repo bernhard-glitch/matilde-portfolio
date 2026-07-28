@@ -11,9 +11,18 @@
 
     if (!hamburger || !nav) return;
 
+    // aria-expanded teilt Screenreadern mit, ob das Menü gerade offen ist.
+    // Bewusst hier gesetzt statt in elf HTML-Dateien einzeln.
+    hamburger.setAttribute('aria-expanded', 'false');
+
+    function setExpanded(isOpen) {
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
     function toggleMenu() {
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
+        setExpanded(nav.classList.contains('active'));
     }
 
     hamburger.addEventListener('click', toggleMenu);
@@ -24,13 +33,14 @@
             !nav.contains(e.target)) {
             hamburger.classList.remove('active');
             nav.classList.remove('active');
+            setExpanded(false);
         }
     });
 })();
 
 // E-Mail-Adresse erst zur Laufzeit zusammensetzen - kein Klartext im Quelltext.
-// Deckt beide auf der Seite vorkommenden IDs ab (contact.html: 'email-link',
-// new-updates.html: 'reg-mail'); Seiten ohne passendes Element werden übersprungen.
+// Deckt beide vorkommenden IDs ab (contact.html: 'email-link',
+// studio-journal.html: 'reg-mail'); Seiten ohne passendes Element werden übersprungen.
 (function () {
     ['email-link', 'reg-mail'].forEach(function (id) {
         var a = document.getElementById(id);
