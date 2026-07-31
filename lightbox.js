@@ -6,6 +6,7 @@
     if (!overlay) return;
 
     const img = document.getElementById('lbImg');
+    if (!img) return;
     const imgAltFallback = img.alt;
     const counter = document.getElementById('lbCounter');
     const infoEl = document.getElementById('lbInfo');

@@ -9,7 +9,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function onScroll() {
-    if (window.pageYOffset > window.innerHeight * 0.8) {
+    if (window.scrollY > window.innerHeight * 0.8) {
       btn.classList.add('is-visible');
     } else {
       btn.classList.remove('is-visible');
