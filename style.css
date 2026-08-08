@@ -800,7 +800,20 @@ footer a:focus-visible { color: var(--color-muted); }
   margin: 16px 0 0;
   padding-top: 12px;
   border-top: 1px solid #f4f4f5;
+  text-align: center;
 }
+.facts-exhibition-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 20px;
+  border: 1px solid var(--color-border-light);
+  font-size: 13px;
+  color: var(--color-gray);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.facts-exhibition-link:hover { border-color: var(--color-ink); color: var(--color-ink); }
 
 @media (max-width: 480px) {
   .facts-block { padding: 20px 24px; }
@@ -1737,6 +1750,81 @@ body.page-privacy-policy .content-text h2 {
 body.page-impressum .content-text p,
 body.page-privacy-policy .content-text p { color: var(--color-ink-soft); font-size: 14px; }
 
+/* Anker-Sprünge: Abstand zum sticky Header */
+[id] { scroll-margin-top: 100px; }
+
+/* =============================================================================
+   page-exhibitions
+   ----------------------------------------------------------------------------- */
+body.page-exhibitions .container { max-width: 1100px; padding: 40px 20px; }
+
+.exhibitions-intro { margin-bottom: 40px; }
+.exhibitions-intro h1 { font-size: 42px; font-weight: 400; margin: 10px 0 16px 0; }
+.exhibitions-intro p { color: var(--color-gray); font-size: 16px; max-width: 680px; }
+
+.exhibitions-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 60px; }
+
+.exhibitions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.exhibitions-table thead th {
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  border-bottom: 2px solid var(--color-bg-warm);
+  white-space: nowrap;
+}
+
+.exhibitions-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.15s;
+}
+
+.exhibitions-table tbody tr:last-child { border-bottom: none; }
+.exhibitions-table tbody tr:hover { background: var(--color-bg-cream); }
+
+.exhibitions-table td {
+  padding: 12px 16px;
+  vertical-align: top;
+  color: var(--color-ink);
+}
+
+.exhibitions-table td:first-child {
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--color-gray);
+  min-width: 72px;
+}
+
+.exhibitions-table td:last-child {
+  white-space: nowrap;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.exhibitions-table a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-muted);
+  text-underline-offset: 3px;
+}
+
+.exhibitions-table a:hover { text-decoration-color: currentColor; }
+
+@media (max-width: 600px) {
+  .exhibitions-table thead th:last-child,
+  .exhibitions-table td:last-child { display: none; }
+  .exhibitions-table td { padding: 10px 10px; font-size: 14px; }
+  .exhibitions-intro h1 { font-size: 32px; }
+}
 
 /* =============================================================================
    9. FOKUS-ZUSTÄNDE (gesammelt)
