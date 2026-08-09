@@ -710,6 +710,16 @@ footer a:focus-visible { color: var(--color-muted); }
   margin: 0 0 14px;
 }
 
+.syncretism-source {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+.syncretism-source a {
+  color: var(--color-muted);
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .syncretism-grid { grid-template-columns: 1fr; gap: 28px; }
   .syncretism-text h2 { font-size: 20px; }
