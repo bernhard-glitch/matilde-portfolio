@@ -1010,10 +1010,11 @@ footer a:focus-visible { color: var(--color-muted); }
 
 /* --- Hero intro line (short, scannable lead-in before the bio paragraphs) --- */
 .hero-intro {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
   color: var(--color-ink);
-  margin: 0 0 28px 0;
+  margin: 0 0 16px 0;
 }
 
 /* --- Hero CTA button (visual language reused from .cta-inquire-btn) --- */
