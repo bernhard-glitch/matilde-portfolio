@@ -553,9 +553,10 @@ footer a:focus-visible { color: var(--color-muted); }
 .cta-inquire-btn {
   display: inline-block;
   margin-top: 10px;
+  margin-bottom: 14px;
   padding: 14px 36px;
   border: 1px solid var(--color-ink);
-  background: transparent;
+  background: #f8f7f3;
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 20px;
@@ -566,9 +567,17 @@ footer a:focus-visible { color: var(--color-muted); }
 
 .cta-inquire-btn:hover,
 .cta-inquire-btn:focus-visible {
-  background: var(--color-ink);
-  color: var(--color-white);
+  background: #ece8df;
+  color: var(--color-ink);
   border-color: var(--color-ink);
+}
+
+.cta-price-note {
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: none;
 }
 
 
