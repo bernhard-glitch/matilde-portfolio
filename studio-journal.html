@@ -40,6 +40,18 @@
     "blogPost": [
       {
         "@type": "BlogPosting",
+        "headline": "Agenda Artística Astrológica 2027",
+        "description": "A bilingual art calendar in Spanish and German, featuring 14 full-color cyanotype reproductions and a lunar calendar. Limited edition, available in DIN A5 and DIN A6. Orders by end of October 2026.",
+        "image": "https://matilde-art-studio.com/images/news-updates/agenda_2027/1-Portada.webp",
+        "url": "https://matilde-art-studio.com/studio-journal.html",
+        "author": {
+          "@type": "Person",
+          "name": "Matilde Cánepa González"
+        },
+        "datePublished": "2026-09-07"
+      },
+      {
+        "@type": "BlogPosting",
         "headline": "Clay Modeling Workshop",
         "description": "A creative clay modeling workshop in Lichterfelde-Ost, Berlin. Open to everyone, no previous experience required; dates scheduled flexibly based on interest.",
         "image": "https://matilde-art-studio.com/images/news-updates/keramik-workshop-matilde-canepa-gonzalez-2026.webp",
@@ -126,6 +138,58 @@
       <div class="page-title">
         <h1>Studio Journal</h1>
       </div>
+      <!-- REIHE 0: Agenda Artística Astrológica 2027 -->
+      <section class="news-row agenda-row" aria-labelledby="heading-row0">
+        <div class="agenda-slideshow">
+          <div class="agenda-slide-wrapper">
+            <div class="agenda-slide active">
+              <img src="images/news-updates/agenda_2027/1-Portada.webp"
+                alt="Agenda Artística Astrológica 2027 – cover, cyanotype art calendar by Matilde Cánepa González"
+                width="500" height="700">
+            </div>
+            <div class="agenda-slide">
+              <img loading="lazy" src="images/news-updates/agenda_2027/2-Enero.webp"
+                alt="Agenda Artística Astrológica 2027 – January page with lunar calendar and cyanotype"
+                width="500" height="700">
+            </div>
+            <div class="agenda-slide">
+              <img loading="lazy" src="images/news-updates/agenda_2027/3-Septiembre.webp"
+                alt="Agenda Artística Astrológica 2027 – September page with lunar calendar and cyanotype"
+                width="500" height="700">
+            </div>
+            <div class="agenda-slide">
+              <img loading="lazy" src="images/news-updates/agenda_2027/4-Name.webp"
+                alt="Agenda Artística Astrológica 2027 – name page"
+                width="500" height="700">
+            </div>
+            <div class="agenda-slide">
+              <img loading="lazy" src="images/news-updates/agenda_2027/5-ContraPortada.webp"
+                alt="Agenda Artística Astrológica 2027 – back cover"
+                width="500" height="700">
+            </div>
+            <div class="agenda-slide">
+              <img loading="lazy" src="images/news-updates/agenda_2027/6-Januar.webp"
+                alt="Agenda Artística Astrológica 2027 – January spread (German)"
+                width="500" height="700">
+            </div>
+            <button class="sync-arrow sync-arrow-prev" aria-label="Previous image">&#8249;</button>
+            <button class="sync-arrow sync-arrow-next" aria-label="Next image">&#8250;</button>
+          </div>
+          <div class="sync-dots" id="agendaDots"></div>
+        </div>
+        <div class="news-text">
+          <span class="subtitle">Upcoming News / Limited edition</span>
+          <h2 id="heading-row0">Agenda Artística Astrológica 2027</h2>
+          <p>Dear friends,</p>
+          <p>My Agenda Artística Astrológica 2027 is now finished — a bilingual art calendar in Spanish and German, created to accompany you throughout the coming year.</p>
+          <p>It features 14 full-color reproductions of cyanotypes I created under the sun of Tenerife. Each month begins with a lunar calendar showing the new and full moons, as well as the Moon's passage through the signs of the zodiac. There is plenty of space throughout the calendar for writing, drawing, or simply doodling. On some pages, you'll also find a selection of texts and thoughts that have accompanied me over the past year.</p>
+          <p>The calendar is available in DIN A5 and DIN A6.</p>
+          <p>Since I will be having the calendars printed in advance and the edition will be limited, I need to receive firm orders by the deadline. Unfortunately, there will be no reprint. If you would like a calendar, please send me your firm order by the end of October 2026, indicating which format you prefer (DIN A5 or DIN A6).</p>
+          <p>I'll be happy to send you the price and further information upon request.</p>
+          <p>I hope you enjoy the agenda and that it will accompany you, even if only for a little while, throughout 2027.</p>
+        </div>
+      </section>
+      <hr class="news-divider">
       <!-- REIHE 1: Workshop -->
       <section class="news-row" aria-labelledby="heading-row1">
         <div class="news-image"> <img src="images/news-updates/keramik-workshop-matilde-canepa-gonzalez-2026.webp"
@@ -269,6 +333,80 @@
         <a href="impressum.html">Impressum</a> |
         <a href="privacy-policy.html">Privacy Policy</a> </p>
     </footer>
+    <script>
+        // ── Agenda 2027 Slideshow (Slide-Übergang, artefaktfrei) ──
+    (function() {
+        var wrapper = document.querySelector('.agenda-slide-wrapper');
+        var slides = document.querySelectorAll('.agenda-slide');
+        var dotsContainer = document.getElementById('agendaDots');
+        var prevBtn = wrapper ? wrapper.querySelector('.sync-arrow-prev') : null;
+        var nextBtn = wrapper ? wrapper.querySelector('.sync-arrow-next') : null;
+        if (!slides.length || !dotsContainer) return;
+        var current = 0;
+        var animating = false;
+        var timer;
+        var DURATION = 480;
+
+        slides.forEach(function(_, i) {
+            var dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
+        });
+
+        function goTo(n, dir) {
+            if (animating) return;
+            var next = (n + slides.length) % slides.length;
+            if (next === current) return;
+            animating = true;
+            var direction = (dir === undefined) ? (next > current ? 1 : -1) : dir;
+            var incoming = slides[next];
+            var outgoing = slides[current];
+
+            // Eingehender Slide startet außerhalb (ohne Transition)
+            incoming.style.transition = 'none';
+            incoming.style.transform = 'translateX(' + (direction * 100) + '%)';
+            incoming.style.opacity = '1';
+            incoming.style.zIndex = '2';
+            outgoing.style.zIndex = '1';
+
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    // Transition wieder einschalten, Slide hereinschieben
+                    incoming.style.transition = 'transform ' + DURATION + 'ms ease';
+                    incoming.style.transform = 'translateX(0)';
+                    // Ausgehender bleibt stehen, wird am Ende ausgeblendet
+                    dotsContainer.children[current].classList.remove('active');
+                    dotsContainer.children[next].classList.add('active');
+                    current = next;
+
+                    setTimeout(function() {
+                        // Aufräumen
+                        outgoing.style.transition = 'none';
+                        outgoing.style.transform = '';
+                        outgoing.style.opacity = '';
+                        outgoing.style.zIndex = '';
+                        incoming.style.zIndex = '';
+                        animating = false;
+                    }, DURATION + 20);
+                });
+            });
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            // Erster Wechsel erst nach 8 Sekunden, danach alle 5 Sekunden
+            timer = setTimeout(function() {
+                goTo(current + 1, 1);
+                timer = setInterval(function() { goTo(current + 1, 1); }, 5000);
+            }, 8000);
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1, -1); resetTimer(); });
+        if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1, 1); resetTimer(); });
+
+        resetTimer();
+    })();
+    </script>
     <script>
         // ── artbook.berlin Slideshow ──
     (function() {

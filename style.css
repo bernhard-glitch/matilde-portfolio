@@ -712,6 +712,45 @@ footer a:focus-visible { color: var(--color-muted); }
 
 .artbook-slideshow-wrapper .sync-slide img { object-fit: contain; }
 
+/* --- Agenda Artística Astrológica 2027 Slideshow (Slide-/Wisch-Übergang) --- */
+.agenda-slideshow { width: 100%; }
+
+.agenda-slide-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-bg-soft);
+}
+
+.agenda-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  /* Transition wird ausschließlich per JS gesteuert,
+     damit kein Durchblitzen beim Wechsel entsteht */
+  pointer-events: none;
+}
+
+.agenda-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.agenda-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  body.page-studio-journal .agenda-row .agenda-slideshow { margin-top: 63px; }
+}
+
 .syncretism-full {
   font-size: 15px;
   line-height: 1.8;
