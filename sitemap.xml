@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://matilde-art-studio.com/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/"/>
   </url>
 
   <url>
     <loc>https://matilde-art-studio.com/about.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/about.html"/>
   </url>
 
   <url>
@@ -45,30 +52,102 @@
 
   <url>
     <loc>https://matilde-art-studio.com/studio-journal.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/studio-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/studio-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/studio-journal.html"/>
   </url>
 
   <url>
     <loc>https://matilde-art-studio.com/contact.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/contact.html"/>
   </url>
 
   <url>
     <loc>https://matilde-art-studio.com/impressum.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/impressum.html"/>
   </url>
 
   <url>
     <loc>https://matilde-art-studio.com/privacy-policy.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/privacy-policy.html"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/about.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/studio-journal.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/studio-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/studio-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/studio-journal.html"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/contact.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/contact.html"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/impressum.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/impressum.html"/>
+  </url>
+
+  <url>
+    <loc>https://matilde-art-studio.com/de/privacy-policy.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matilde-art-studio.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://matilde-art-studio.com/de/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://matilde-art-studio.com/privacy-policy.html"/>
   </url>
 
 </urlset>

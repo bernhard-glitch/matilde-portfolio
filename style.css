@@ -57,21 +57,21 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/inter-v20-latin-300.woff2') format('woff2');
+  src: url('fonts/inter-v20-latin-300.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
+  src: url('fonts/inter-v20-latin-regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/inter-v20-latin-600.woff2') format('woff2');
+  src: url('fonts/inter-v20-latin-600.woff2') format('woff2');
 }
 
 /* Playfair Display */
@@ -80,21 +80,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+  src: url('fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+  src: url('fonts/playfair-display-v40-latin-700.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Playfair Display';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/playfair-display-v40-latin-italic.woff2') format('woff2');
+  src: url('fonts/playfair-display-v40-latin-italic.woff2') format('woff2');
 }
 
 
@@ -161,6 +161,66 @@ nav a.active {
   color: var(--color-muted);
 }
 
+
+/* -----------------------------------------------------------------------------
+   2b. SPRACHUMSCHALTER "DE | EN" (Oktober 2026)
+   Steht im <header> (dort position: sticky, daher Bezugspunkt für absolute).
+   Desktop: oben rechts auf Höhe des Logos. Handy: links, vertikal mittig –
+   gegenüber vom Hamburger. Zum Entfernen: diesen Block und die Zeile
+   <div class="lang-switch"> in den Seiten löschen.
+   ----------------------------------------------------------------------------- */
+.lang-switch {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 111;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.lang-switch a,
+.lang-switch [aria-current="true"] {
+  padding: 6px 3px;
+  text-decoration: none;
+}
+
+.lang-switch a { color: var(--color-muted); }
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible { color: var(--color-ink); }
+
+.lang-switch [aria-current="true"] {
+  color: var(--color-ink);
+  border-bottom: 1.5px solid var(--color-ink);
+  padding-bottom: 3px;
+}
+
+@media (max-width: 768px) {
+  .lang-switch {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
+    right: auto;
+  }
+
+  .lang-switch a,
+  .lang-switch [aria-current="true"] { padding: 12px 3px; }
+  .lang-switch [aria-current="true"] { padding-bottom: 9px; }
+}
+
+/* Sehr schmale Handys: Logo etwas kompakter, damit links und rechts Platz bleibt */
+@media (max-width: 400px) {
+  header .logo { font-size: 12px; letter-spacing: 0.04em; }
+}
+
+@media (max-width: 340px) {
+  header .logo { font-size: 11px; letter-spacing: 0.02em; }
+}
 
 /* =============================================================================
    3. HAMBURGER (global – present on all pages)
@@ -1900,6 +1960,7 @@ body.page-exhibitions .container { max-width: 1100px; padding: 40px 20px; }
 
 /* Dunkler Ring, 2px Abstand – Navigation, Links, Bedienelemente */
 nav a:focus-visible,
+.lang-switch a:focus-visible,
 .hamburger:focus-visible,
 footer a:focus-visible,
 .image-wrapper:focus-visible,
