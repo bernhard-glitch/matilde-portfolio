@@ -16,6 +16,10 @@
     const nextBtn = overlay.querySelector('.lb-arrow.lb-next');
     const wrappers = Array.from(document.querySelectorAll('.image-wrapper[data-lb]'));
     const category = overlay.dataset.category || '';
+    // Sprache der Seite (lang-Attribut am <html>): bestimmt die Screenreader-Texte der Pfeile.
+    const isDe = (document.documentElement.lang || '').toLowerCase().indexOf('de') === 0;
+    const txtPrev = isDe ? 'Zurück' : 'Previous';
+    const txtNext = isDe ? 'Weiter' : 'Next';
     let current = 0;
 
     // Bilder registrieren (Maus/Touch per Klick, Tastatur per Enter/Leertaste)
@@ -85,10 +89,10 @@
         // Dynamische aria-labels für Screenreader
         const prevIdx = (current - 1 + wrappers.length) % wrappers.length;
         const nextIdx = (current + 1) % wrappers.length;
-        const prevTitle = wrappers[prevIdx].querySelector('img').getAttribute('title') || 'Previous';
-        const nextTitle = wrappers[nextIdx].querySelector('img').getAttribute('title') || 'Next';
-        if (prevBtn) prevBtn.setAttribute('aria-label', 'Previous: ' + prevTitle.trim());
-        if (nextBtn) nextBtn.setAttribute('aria-label', 'Next: ' + nextTitle.trim());
+        const prevTitle = wrappers[prevIdx].querySelector('img').getAttribute('title') || txtPrev;
+        const nextTitle = wrappers[nextIdx].querySelector('img').getAttribute('title') || txtNext;
+        if (prevBtn) prevBtn.setAttribute('aria-label', txtPrev + ': ' + prevTitle.trim());
+        if (nextBtn) nextBtn.setAttribute('aria-label', txtNext + ': ' + nextTitle.trim());
 
         // Bildtitel als URL-Parameter an contact.html übergeben
         const title = image.getAttribute('title') || '';
