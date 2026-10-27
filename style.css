@@ -532,22 +532,37 @@ footer a:focus-visible { color: var(--color-muted); }
 .image-wrapper:hover img { transform: scale(1.05); }
 
 
-/* --- Image info caption --- */
+/* --- Image info caption ---
+   Oktober 2026 (Audit D2): Werkangaben vergrößert und besser lesbar.
+   Vorher: 11 px, Schriftstärke 300, Farbe --color-muted (#71717a).
+   Jetzt:  Handy: Angaben 13 px (0,8125 rem), Titel 15 px (0,9375 rem);
+           Desktop: Angaben 12 px, Titel 14 px (siehe unten),
+           normale Schriftstärke, dunkleres Grau --color-gray (#52525b,
+           kein neuer Farbwert). Angabe in rem, damit die Schrift mit der
+           Browser-Einstellung des Besuchers mitwächst. */
 .image-info {
   margin-top: 12px;
-  font-size: 11px;
+  font-size: 0.8125rem;
   line-height: 1.7;
-  color: var(--color-muted);
-  font-weight: 300;
+  color: var(--color-gray);
+  font-weight: 400;
   border-top: 2px solid var(--color-bg-warm);
   padding-top: 12px;
   width: 100%;
 }
 
 .image-info strong {
-  color: var(--color-ink-soft);
+  color: var(--color-ink);
+  font-size: 0.9375rem;
   font-weight: 600;
   display: block;
+}
+
+/* Desktop (ab 769 px, wie im Rest der Datei): etwas kleiner, 14 px / 12 px.
+   Auf dem Handy bleiben 15 px / 13 px, weil der Bildschirm kleiner ist. */
+@media (min-width: 769px) {
+  .image-info { font-size: 0.75rem; }
+  .image-info strong { font-size: 0.875rem; }
 }
 
 /* --- External links grid (index, about) --- */
@@ -1312,7 +1327,10 @@ body.page-index .hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 80px;
-  align-items: center;
+  /* Oktober 2026: start statt center. Bei zentrierter Ausrichtung rutschte die
+     Slideshow in den längeren Sprachfassungen (DE/ES) nach unten, weil die
+     Textspalte dort höher ist. So beginnt sie in allen Sprachen oben bündig. */
+  align-items: start;
 }
 
 body.page-index .hero-text h1 { font-size: 38px; margin: 10px 0 30px 0; font-weight: 400; }
@@ -1355,6 +1373,11 @@ body.page-about .about-grid {
 }
 
 body.page-about .about-image { width: 100%; display: flex; justify-content: center; }
+
+/* Oktober 2026: Das Porträt beginnt immer oben. Vorher wurde es zum Text zentriert
+   und rutschte in den längeren Sprachfassungen (DE/ES) nach unten. Der Text bleibt
+   wie bisher zentriert, wenn er kürzer ist als das Bild (EN). */
+body.page-about .about-image { align-self: start; }
 
 body.page-about .about-image img {
   width: 100%;
