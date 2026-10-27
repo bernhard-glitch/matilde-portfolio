@@ -2,7 +2,10 @@
   var btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'back-to-top';
-  btn.setAttribute('aria-label', document.documentElement.lang === 'de' ? 'Nach oben' : 'Back to top');
+  // Beschriftung für Screenreader je nach Sprache der Seite (de, es, sonst Englisch)
+  var labels = { de: 'Nach oben', es: 'Volver arriba' };
+  var lang = (document.documentElement.lang || '').toLowerCase().slice(0, 2);
+  btn.setAttribute('aria-label', labels[lang] || 'Back to top');
   btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"></polyline></svg>';
   document.body.appendChild(btn);
 
