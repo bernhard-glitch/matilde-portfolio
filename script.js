@@ -45,7 +45,7 @@
     ['email-link', 'reg-mail'].forEach(function (id) {
         var a = document.getElementById(id);
         if (!a) return;
-        var addr = 'matildecanepagonzalez' + '@' + 'gmail.com';
+        var addr = 'matilde.art.studio' + '@' + 'gmail.com';
         a.href = 'mailto:' + addr;
         a.textContent = addr;
     });
