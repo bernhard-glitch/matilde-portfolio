@@ -302,6 +302,10 @@ nav a.active {
   header nav a {
     padding: 14px 20px;
     width: 100%;
+    /* Oktober 2026: border-box, damit der Innenabstand in die 100 % Breite
+       eingerechnet wird. Vorher ragte das (unsichtbare) Menü 20 px über den
+       Bildschirmrand und die Seite ließ sich seitlich verschieben. */
+    box-sizing: border-box;
     text-align: center;
   }
 }
@@ -1891,6 +1895,18 @@ body.page-privacy-policy .content-text h2 {
 
 body.page-impressum .content-text p,
 body.page-privacy-policy .content-text p { color: var(--color-ink-soft); font-size: 14px; }
+
+/* Oktober 2026: Lange Wörter und Internetadressen dürfen umbrechen, damit die
+   Seite auf schmalen Handys nicht seitlich wackelt (z. B. "Datenschutzerklärung"
+   oder die Cloudflare-Adresse). Auf sehr kleinen Handys ist die Überschrift
+   etwas kleiner. Zum Zurücknehmen: diesen Block löschen. */
+body.page-impressum .content-text,
+body.page-privacy-policy .content-text { overflow-wrap: break-word; }
+
+@media (max-width: 480px) {
+  body.page-impressum .content-text h1,
+  body.page-privacy-policy .content-text h1 { font-size: 28px; }
+}
 
 /* Anker-Sprünge: Abstand zum sticky Header */
 [id] { scroll-margin-top: 100px; }
