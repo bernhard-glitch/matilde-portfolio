@@ -1,0 +1,15 @@
+{
+  // Einstellungen für die Veröffentlichung bei Cloudflare (Worker "matilde-art-studio").
+  // 18.11.2026: not_found_handling = "404-page", damit bei unbekannten Adressen
+  // die eigene 404.html erscheint statt einer leeren Fehlerseite.
+  // Rückgängig: diese Datei auf GitHub löschen.
+  "name": "matilde-art-studio",
+  "compatibility_date": "2026-07-27",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}
