@@ -406,6 +406,9 @@
 
         function resetTimer() {
             clearInterval(timer);
+            // Paket 2 (Nov. 2026): Bei der Einstellung "Bewegung reduzieren" kein
+            // automatischer Bildwechsel. Pfeile, Punkte und Wischen funktionieren weiter.
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             // Erster Wechsel erst nach 8 Sekunden, danach alle 5 Sekunden
             timer = setTimeout(function() {
                 goTo(current + 1, 1);
@@ -448,6 +451,9 @@
 
         function resetTimer() {
             clearInterval(timer);
+            // Paket 2 (Nov. 2026): Bei der Einstellung "Bewegung reduzieren" kein
+            // automatischer Bildwechsel. Pfeile, Punkte und Wischen funktionieren weiter.
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             timer = setInterval(function() { goTo(current + 1); }, 5000);
         }
 

@@ -66,9 +66,7 @@
       <section class="hero">
         <div class="hero-text"> <span class="subtitle">Matilde Cánepa González — Contemporary Artist in Berlin</span>
           <h1>Abstract Painting &amp;&nbsp;Sculpture</h1>
-          <p class="hero-intro"> Working across abstract painting and sculpture — with cyanotype as an ongoing exploration. </p>
-          <p> I am a multidisciplinary artist based in Berlin — working across
-            abstract painting, sculpture, and cyanotype. </p>
+          <h2 class="hero-lead">Based in Berlin, I work across abstract painting, sculpture, and cyanotype, exploring the relationship between material, form, and perception.</h2>
           <p> For me, art is a bridge between my inner world and the outside
             world. My work carries a visual language shaped by Caribbean,
             indigenous, and Latin American influences — forms that emerged long
@@ -256,6 +254,9 @@
 
         function resetTimer() {
             clearInterval(timer);
+            // Paket 2 (Nov. 2026): Bei der Einstellung "Bewegung reduzieren" kein
+            // automatischer Bildwechsel. Pfeile, Punkte und Wischen funktionieren weiter.
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             timer = setInterval(next, 4500);
         }
 

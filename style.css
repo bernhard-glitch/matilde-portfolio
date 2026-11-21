@@ -2051,6 +2051,48 @@ body.page-exhibitions .container { max-width: 1100px; padding: 40px 20px; }
 }
 
 /* =============================================================================
+   PAKET 2 – DESIGN-ANALYSE (November 2026)
+   -----------------------------------------------------------------------------
+   Punkte 8 und 11 aus dem Bericht. Zum Zurücknehmen: diesen ganzen Block
+   löschen (und für Punkt 8 die alten Absätze in den drei index.html).
+   ============================================================================= */
+
+/* Punkt 8: Leitsatz der Startseite (ersetzt die frühere kursive Einleitung
+   .hero-intro und den ersten Absatz). Fett, in der Überschriften-Schrift. */
+body.page-index .hero-lead {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-ink);
+  margin: 0 0 22px 0;
+}
+
+@media (max-width: 768px) {
+  body.page-index .hero-lead { font-size: 19px; text-align: left; }
+
+  /* Punkt 8: Auf dem Handy steht die Slideshow über dem Text, damit Besucher
+     sofort ein Kunstwerk sehen. Am Text selbst ändert sich nichts. */
+  body.page-index .hero-image { order: -1; }
+}
+
+/* Punkt 11: Kontaktseite auf großen Bildschirmen ausbalancieren – Foto und
+   Formular beginnen auf gleicher Höhe, Überschrift bündig mit dem Formular,
+   Foto etwas größer. Handy bleibt unverändert. */
+@media (min-width: 769px) {
+  body.page-contact .contact-grid {
+    grid-template-columns: minmax(0, 300px) minmax(0, 540px);
+    justify-content: center;
+    gap: 72px;
+  }
+  body.page-contact .contact-photo { padding-top: 14px; align-items: stretch; }
+  body.page-contact .contact-photo img { max-width: 300px; }
+  body.page-contact .contact-section { margin: 0; text-align: left; }
+  body.page-contact .contact-section h1 { margin-top: 0; }
+  body.page-contact .email-link { text-align: left; }
+}
+
+/* =============================================================================
    9. FOKUS-ZUSTÄNDE (gesammelt)
    -----------------------------------------------------------------------------
    Alle sichtbaren Tastatur-Fokusringe an einer Stelle. Vorher standen dieselben
