@@ -1,0 +1,5 @@
+# Dateien, die Cloudflare NICHT als Teil der Website veröffentlichen soll.
+.git
+.git/**
+wrangler.jsonc
+readme.md
