@@ -66,8 +66,7 @@
       <section class="hero">
         <div class="hero-text"> <span class="subtitle">Matilde Cánepa González — Zeitgenössische Künstlerin in Berlin</span>
           <h1>Abstrakte Malerei &amp;&nbsp;Skulptur</h1>
-          <p class="hero-intro"> Abstrakte Malerei und Skulptur – mit der Cyanotypie als fortwährender Erkundung. </p>
-          <p> Ich bin eine multidisziplinäre Künstlerin mit Sitz in Berlin und arbeite vorwiegend mit abstrakter Malerei und Skulptur. </p>
+          <h2 class="hero-lead">In Berlin arbeite ich mit abstrakter Malerei, Skulptur und Cyanotypie und erforsche dabei das Verhältnis von Material, Form und Wahrnehmung.</h2>
           <p> Kunst ist für mich eine Brücke zwischen meiner inneren Welt und der äußeren Wirklichkeit. </p>
           <p> Meine Bildsprache ist geprägt von karibischen, indigenen und lateinamerikanischen Einflüssen, deren kulturelle Wurzeln weit vor meiner Zeit in Berlin liegen und in meiner Arbeit weiterwirken. </p>
           <p> In meinen Arbeiten erforsche ich das Spannungsfeld zwischen organischen Formen und menschlicher Wahrnehmung. Meine Werke eröffnen einen Dialog zwischen Material und Zeit, zwischen dem Sichtbaren und dem Vergänglichen, zwischen dem, was erscheint, verblasst und leise bestehen bleibt. </p>
@@ -250,6 +249,9 @@
 
         function resetTimer() {
             clearInterval(timer);
+            // Paket 2 (Nov. 2026): Bei der Einstellung "Bewegung reduzieren" kein
+            // automatischer Bildwechsel. Pfeile, Punkte und Wischen funktionieren weiter.
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             timer = setInterval(next, 4500);
         }
 

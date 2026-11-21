@@ -67,9 +67,7 @@
       <section class="hero">
         <div class="hero-text"> <span class="subtitle">Matilde Cánepa González — Artista contemporánea en Berlín</span>
           <h1>Pintura abstracta y&nbsp;escultura</h1>
-          <p class="hero-intro"> Trabajo entre la pintura abstracta y la escultura, con la cianotipia como una exploración que continúa. </p>
-          <p> Soy una artista multidisciplinar afincada en Berlín. Mi trabajo
-            abarca la pintura abstracta, la escultura y la cianotipia. </p>
+          <h2 class="hero-lead">Afincada en Berlín, trabajo entre la pintura abstracta, la escultura y la cianotipia, explorando la relación entre la materia, la forma y la percepción.</h2>
           <p> Para mí, el arte es un puente entre mi mundo interior y el mundo
             exterior. Mi obra se expresa a través de un lenguaje visual marcado
             por influencias caribeñas, indígenas y latinoamericanas: formas que
@@ -258,6 +256,9 @@
 
         function resetTimer() {
             clearInterval(timer);
+            // Paket 2 (Nov. 2026): Bei der Einstellung "Bewegung reduzieren" kein
+            // automatischer Bildwechsel. Pfeile, Punkte und Wischen funktionieren weiter.
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             timer = setInterval(next, 4500);
         }
 
